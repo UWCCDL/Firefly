@@ -1,0 +1,908 @@
+---
+title: "DataCleaning_Firefly"
+stolen by: "Ally Williams"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+#Libraries
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+library(tidyverse) #Collection of interconnected packages for data manipulation, visualization, and analysis in R, designed to work together seamlessly using consistent syntax and principles. Packages within tidyverse include ggplot2, dplyr, readr, lubridate, jsonlite, broom, and more. 
+library(dplyr) #Provides verbs for data manipulation (with functions for filtering, selecting, arranging, grouping, mutating, and summarizing data in R).
+library(broom) #Helps convert statistical analysis objects, such as regression models, into tidy data frames that can be easily manipulated and visualized.
+library(reshape2) #Provides tools for transforming and manipulating data between wide and long formats, making it easier to work with data in a tidy format.
+library(glmnet) #Used for fitting and analyzing generalized linear models with regularization, using methods such as Lasso and Ridge regression.
+library(readr) #Provides a fast and friendly way to read rectangular data files, such as CSV or TSV, into R as a tibble data frame.
+
+# Graphics
+library(ggplot2) #Used to create sophisticated and visually appealing graphics (scatter plots, line charts, etc.)
+library(ggthemes)
+library(ggrepel)
+library(ppcor)
+library(ggExtra)
+library(ggsci)
+library(viridis)
+library(scales)
+library(patchwork)# Multi-plot alignment
+library(ggcorrplot)
+library(gapminder) # dataset used to make the box plot connected by lines
+library(RColorBrewer) 
+library(plotly) # Added to make interactive graphs 
+library(lubridate) # Added to make interactive graphs; use different date funcs
+library(stringr) # Added to make interactive graphs; use different txt funcs
+library(extrafont) # Added to make interactive graphs; change font on graphs
+library(htmlwidgets) # Added to make interactive graphs; make exports interactive
+library(cowplot)
+
+# Tables
+library(kableExtra)
+library(xtable)
+library(reactable) # Added to make pretty tables
+library(htmltools) # Added to make pretty tables
+
+# New data reconfiguration
+library(jsonlite)
+library(UpSetR)
+
+# Date functions
+library(anytime)
+library(lubridate)
+
+# SlimStampen
+#install.packages("devtools") # Install SlimStampen packages. Instructions on https://github.com/VanRijnLab/SlimStampeRData
+library(devtools)
+#devtools::install_github("VanRijnLab/SlimStampeRData",
+                      #build_vignettes = TRUE,
+                      #dependencies = TRUE,
+                      #force = TRUE) 
+# The console will show a prompt asking whether all packages should be updated. Select option 1 (by typing 1 and then pressing enter), this will update all packages.
+vignette("SlimStampeRVignette")
+library(SlimStampeRData)
+
+# Dashboard
+library(flexdashboard)
+
+```
+
+```{r, echo=FALSE, results= 'hide', message=FALSE, show_col_types = FALSE}
+options(readr.show_col_types = FALSE)
+
+## NEW Version 3.4 SlimStampen format as of 04.25.23
+
+data <- list.files(path="data/", full.names = TRUE) %>% 
+  lapply(read.csv, sep=";") %>%
+  bind_rows
+#data <- data[,-c(13, 15, 23, 24,28)] # delete unneeded columns
+data <- data[,-c(24, 25, 26)] # delete unneeded columns
+data <- data %>% # rename headers to join columns
+       rename("lessonTitle" = "lesson_title") %>%
+       rename("userId" = "user_id") %>% 
+       rename("lessonId" = "lesson_id")%>% 
+       rename("factId" = "fact_id")%>% 
+       rename("presentationStartTime" = "presentation_start_time")%>%
+       rename("presentationDuration" = "presentation_duration")%>% 
+       rename("sessionTime" = "session_time")%>% 
+       rename("reactionTime" = "reaction_time")%>% 
+       rename("givenResponse" = "given_response")%>% 
+       rename("sessionId" = "session_id")%>% 
+       rename("numberOfChoices" = "number_of_choices")
+
+data$userId <- as.character(data$userId)
+data$correct <- as.logical(data$correct)
+
+```
+
+
+```{r}
+# Adding Groups
+groups <- read_csv("groups.csv", show_col_types = FALSE)
+groups$userId <- as.character(groups$userId)
+data <- inner_join(data, groups) # add group category
+
+
+# Add the stimuli category (text/visual/error; recog/recall/error)
+stimcategory <- read_csv("stimcategory.csv", show_col_types = FALSE)
+data <- inner_join(data, stimcategory)
+
+
+```
+
+```{r, echo=FALSE, results= 'hide'}
+
+# combine sessions for participants who stopped and started lesson during stim session
+
+# sub01 AV African flags
+#data <- data %>%
+#  mutate(sessionId = if_else(sessionId == "4dc466d8-feb8-45a4-aacd-3a1afc22d230",
+#                             "951e068e-c7fc-454d-8821-1182a33cb49c",
+#                             sessionId))
+# sub03 HH WP3 
+#data <- data %>%
+#  mutate(sessionId = if_else(sessionId == "628793cf-5c5f-4e1b-ad01-33ee428fc278",
+#                             "7efcce37-ac19-40ea-91ea-a01b9ed1a6ce",
+#                             sessionId))  
+
+```
+
+```{r, echo=FALSE, results= 'hide'}
+options(dplyr.summarise.inform = FALSE) # Disable the "`summarise()` has grouped output by" message 
+
+# Filter the sessions
+sessionData <- data %>% 
+  group_by(userId, sessionId, lessonTitle) %>% 
+  summarize(duration = (max(presentationStartTime) - min(presentationStartTime))/60000,
+            start = min(presentationStartTime),
+            legit = if_else(duration > 6, T, F)) 
+
+sessionData <- sessionData %>% 
+  group_by(userId, lessonTitle) %>% 
+  arrange(start, by_group=T) %>%
+  mutate(sessionRank = seq(1, length(start)))
+
+sessionDataFiltered <- sessionData %>%
+  filter(legit == T) %>%
+  group_by(userId, lessonTitle) %>%
+  mutate(minRank = min(sessionRank))
+
+sessionData <- sessionData %>%
+  inner_join(sessionDataFiltered) %>%
+  mutate(usable = if_else(minRank == sessionRank, T, F))
+
+
+# Order lessons by the order in which individual performed them
+sessionDataWeek <- sessionData %>% 
+  group_by(userId) %>%
+  mutate(date = anytime(start/1000)) %>%
+  #mutate(weekTime = floor(start/(1000*60*60*24*7))) %>%
+  mutate(experimentStart = "2022-05-08 00:00:01") %>%
+  mutate(firstDate = anytime(min(start/1000))) %>%
+  mutate(relativeWeek = (as_datetime(experimentStart) %--% as_datetime(firstDate))/weeks(period(1))) %>%
+  mutate(absoluteWeek = (as_datetime(experimentStart) %--% as_datetime(date))/weeks(period(1))) %>%
+  mutate(week = 1 + floor(absoluteWeek) - floor(relativeWeek))
+
+# Clean the filtered data set
+cleandata <- inner_join(sessionDataWeek, data) %>%
+  filter(usable == T)
+
+
+
+# Add a column 'factText' for future graphs
+cleandata <- cleandata %>%
+  mutate(factText = factId)
+cleandata$factText <- as.character(cleandata$factText)
+
+```
+
+```{r, echo=FALSE, results= 'hide'}
+
+# Calculate fact rep, activation, and alpha 
+MAX_ALPHA=0.8
+cleandata <- cleandata %>%
+  calculate_repetition() %>%
+  calculate_alpha_and_activation(maxAlpha=MAX_ALPHA)
+
+# Change reactionTime from ms to s
+cleandata$reactionTime <- (cleandata$reactionTime/1000) 
+# Change userId from numerical to character for future graphs  
+cleandata$userId <- as.character(cleandata$userId)
+
+```
+
+```{r, echo=FALSE, results= 'hide'}
+
+# Calculate avg alpha
+cleandata_lastRep <- cleandata %>%
+  group_by(lessonTitle, userId, factId, group, name_or_subtype, week, lessonCategory, lessonType, age, date, sub) %>%
+  mutate(LastRepetition = max(repetition)) %>%
+  filter(repetition == LastRepetition) %>%
+  ungroup()
+
+cleandata_avg1 <- cleandata_lastRep %>%
+  group_by(userId, lessonTitle, group, name_or_subtype, week, lessonCategory, lessonType, age, date, sub) %>%
+  summarise(MeanAlpha = mean(alpha), MedianAlpha = median(alpha)) 
+
+#cleandata_avg3 <- cleandata %>%
+ # group_by(userId, lessonTitle, week, lessonCategory, lessonType, age, date) %>%
+  #drop_na(givenResponse)
+
+#cleandata_avg2.3 <- cleandata_avg3 %>%
+ # group_by(userId, lessonTitle, week, lessonCategory, lessonType, age, date) %>%
+#  summarise(correct = mean(correct), reactionTimeavg=mean(reactionTime)) %>%
+ # ungroup()
+
+cleandata_avg2 <- cleandata %>%
+  group_by(userId, lessonTitle, week, lessonCategory, lessonType, age, date, sub) %>%
+  drop_na(givenResponse) %>%
+  summarise(correct = mean(correct), reactionTimeavg=mean(reactionTime)) %>%
+  ungroup()
+
+cleandata_avg <- cleandata_avg1 %>% inner_join(cleandata_avg2)
+
+#cleandata_avg_test <- cleandata_avg1 %>% inner_join(cleandata_avg2.3)
+
+cleandata_avg %>% 
+  group_by(userId, lessonTitle) %>% 
+  summarize(numSess=length(unique(lessonTitle))) 
+
+# Pair by userId for future graphs  
+cleandata_avg <- cleandata_avg %>%
+  mutate(paired= factor(userId))
+
+
+# Order by session
+cleandata_avg <- cleandata_avg %>% 
+  group_by(userId) %>%  # Group only by screen_name
+  arrange(userId, date) %>%  # Arrange by screen_name and start time
+  mutate(order = row_number())  # Use row_number() to assign sequential numbers
+
+```
+
+```{r, echo=FALSE, results= 'hide'}
+
+# Create table for reactable
+cleandata_avgreactable <- cleandata_avg %>% 
+  group_by(userId, group) %>%
+   summarise(points =length(lessonTitle),
+             TotalMeanAlpha = mean(MeanAlpha), 
+             TotalMeanAccuracy = mean(correct), 
+             TotalMeanResponseTime = mean(reactionTimeavg))
+
+cleandata_avgreactable2 <- cleandata_avg %>%
+  group_by(userId, lessonTitle, MeanAlpha) %>%
+    summarise(lessonTitle, MeanAlpha) %>%
+    pivot_wider(names_from=lessonTitle, values_from = MeanAlpha)
+
+scoreboarddata <- inner_join(cleandata_avgreactable,cleandata_avgreactable2)
+
+names(scoreboarddata) <- gsub(" ", "_", names(scoreboarddata)) # replace spaces with "_"
+
+scoreboarddata <- scoreboarddata %>%
+  replace(is.na(.), FALSE) # replace NA with FALSE
+
+
+
+# Get number of facts seen and add it to the reactable
+cd1 <-   cleandata %>% 
+  group_by(userId, group, lessonTitle, factId) %>% 
+   summarize(numfacts=length(unique(factId)))
+
+cd2 <- cd1 %>% 
+  group_by(userId) %>% 
+  summarize(numlessons=length(unique(lessonTitle))) %>%
+  ungroup()
+
+cd3 <- cd1 %>%
+  inner_join(cd2)
+
+
+options(digits=3) 
+
+cd4 <- cd3 %>%
+  group_by(userId, group, numlessons, lessonTitle, factId) %>% 
+  pivot_wider(names_from=factId, values_from = numfacts)%>%
+  replace(is.na(.), 0) %>%
+  mutate(sumfacts = sum(c_across(where(is.numeric))), .after = group) %>%
+  summarize(Avg=(sumfacts))  %>%
+  pivot_wider(names_from=lessonTitle, values_from = Avg) %>%
+  replace(is.na(.), 0) %>%
+  mutate(Avg = ((sum(across(where(is.numeric))))/(numlessons)), .after = numlessons) %>%
+  mutate(sd = ((sd(across(where(is.numeric))))/(numlessons)))
+
+scoreboarddata$TotalFactAvg <- cd4$Avg
+scoreboarddata$TotalFactAvgSD <- cd4$sd
+
+ 
+
+```
+
+
+```{r, echo=FALSE}
+
+# save the cleaned data 
+save(cleandata, file = "cleandata.RData")
+save(cleandata_avg, file = "cleandata_avg.RData")
+save(scoreboarddata, file ="scoreboarddata.RData")
+
+```
+
+### PLOTS FROM CUTTLEFISH - will tinker with later
+### All SoF 
+
+```{r fig.width= 10, fig.height= 4.5}
+
+graph=ggplot(cleandata_avg, aes(x=lessonTitle, y=MeanAlpha, col=lessonTitle, fill=lessonTitle, text=paste0(name_or_subtype))) +
+  #geom_violin(width=1, size=0.1, alpha=0.2) +
+  geom_boxplot(width=.4,size=0.1, alpha=0.2) +
+  stat_summary(fun.y=mean, geom="pointrange", size=0.3, shape=1, color="black") +
+  geom_point(size=2, position=position_jitter(0.1)) +
+  xlab("Lesson") +
+  #scale_x_discrete(labels=xlabels) +
+  ylab("SoF") +
+  ylim(0.1, 0.55) +
+  ggtitle("Speed of Forgetting Across Lessons") +
+  theme_hc() +
+  theme(legend.position="none",
+        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+ggplotly(graph, tooltip=c("y", "text")) %>% 
+  layout(legend = list(orientation = "h")) %>% 
+  config(displayModeBar=FALSE)
+
+```
+### All SoF by Individual
+
+```{r, echo=FALSE}
+
+# Speed of Forgetting by Participant
+graph=ggplot(cleandata_avg, aes(x=lessonTitle, y=MeanAlpha, text=paste0(name_or_subtype))) +
+  geom_boxplot(size=0.1, alpha=0.2) +
+  geom_line(aes(group=name_or_subtype, col=name_or_subtype), size=0.1, position=position_dodge(0)) +
+  geom_point(aes(fill=name_or_subtype, group=paired), size=2, shape=20, stroke=0, position=position_dodge(0)) +
+  xlab("Lesson") +
+  #scale_x_discrete(labels=xlabels) +
+  ylab("SoF") +
+  ylim(0.1, 0.55) +
+  ggtitle("Speed of Forgetting by Participant") +
+  labs(fill="Participant", col="Participant") +
+  theme_hc() +
+  theme(axis.title.x=element_blank(),
+        panel.grid.major = element_blank(),
+        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+ggplotly(graph, tooltip=c("y", "text")) %>% 
+  layout(legend = list(orientation = "")) %>% 
+  config(displayModeBar=FALSE)
+
+```
+
+### Exp SoF 
+
+```{r fig.width= 10, fig.height= 4.5}
+
+cleandata_avg_exp <- cleandata_avg[!(cleandata_avg$group=="Student"),]
+
+graph=ggplot(cleandata_avg_exp, aes(x=lessonTitle, y=MeanAlpha, col=lessonTitle, fill=lessonTitle)) +
+  #geom_violin(width=1, size=0.1, alpha=0.2) +
+  geom_boxplot(width=.4,size=0.1, alpha=0.2) +
+  stat_summary(fun.y=mean, geom="pointrange", size=0.3, shape=1, color="black") +
+  geom_point(size=2, position=position_jitter(0.1)) +
+  xlab("Lesson") +
+  #scale_x_discrete(labels=xlabels) +
+  ylab("SoF") +
+  ylim(0.1, 0.55) +
+  ggtitle("Speed of Forgetting Across Lessons") +
+  theme_hc() +
+  theme(legend.position="none",
+        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+ggplotly(graph, tooltip=c("y", "text")) %>% 
+  layout(legend = list(orientation = "h")) %>% 
+  config(displayModeBar=FALSE)
+
+```
+
+### Exp SoF by Individual
+
+```{r, echo=FALSE}
+
+
+
+# Speed of Forgetting by Participant
+graph=ggplot(cleandata_avg_exp, aes(x=lessonTitle, y=MeanAlpha, text=paste0(sub))) +
+  geom_boxplot(size=0.1, alpha=0.2) +
+  geom_line(aes(group=sub, col=sub), size=0.1, position=position_dodge(0)) +
+  geom_point(aes(fill=sub, group=paired), size=2, shape=20, stroke=0, position=position_dodge(0)) +
+  xlab("Lesson") +
+  #scale_x_discrete(labels=xlabels) +
+  ylab("SoF") +
+  ylim(0.1, 0.55) +
+  ggtitle("Speed of Forgetting by Participant") +
+  labs(fill="Participant", col="Participant") +
+  theme_hc() +
+  theme(axis.title.x=element_blank(),
+        panel.grid.major = element_blank(),
+        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+ggplotly(graph, tooltip=c("y", "text")) %>% 
+  layout(legend = list(orientation = "")) %>% 
+  config(displayModeBar=FALSE)
+
+```
+### Exp SoF by Individual and Session
+
+```{r, echo=FALSE}
+
+cleandata_avg_exp_bysession <- cleandata_avg_exp %>%
+  mutate(session = ifelse(order <= 3, "session 1", ifelse(order <= 6, "session 2", ifelse(order <= 9, "session 3", "session 4"))))
+
+
+# Speed of Forgetting by Participant
+graph=ggplot(cleandata_avg_exp_bysession, aes(x=session, y=MeanAlpha, text=paste0(lessonTitle))) +
+  geom_boxplot(size=0.1, alpha=0.2) +
+  geom_line(aes(group=sub, col=sub), size=0.1, position=position_dodge(0)) +
+  geom_point(aes(fill=sub, group=paired), size=2, shape=20, stroke=0, position=position_dodge(0)) +
+  xlab("Lesson") +
+  #scale_x_discrete(labels=xlabels) +
+  ylab("SoF") +
+  ylim(0.1, 0.55) +
+  ggtitle("Speed of Forgetting by Participant") +
+  labs(fill="Participant", col="Participant") +
+  theme_hc() +
+  theme(axis.title.x=element_blank(),
+        panel.grid.major = element_blank(),
+        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+ggplotly(graph, tooltip=c("y", "text")) %>% 
+  layout(legend = list(orientation = "")) %>% 
+  config(displayModeBar=FALSE)
+
+```
+
+### Flags
+
+```{r, echo=FALSE}
+
+library(stringr)
+
+filtered_data_flags <- cleandata_avg_exp_bysession %>%
+  filter(lessonTitle %in% c("Caribbean Flags", "African Flags", "Latin America Flags", "Asian Flags"))
+
+
+# Flags
+graph=ggplot(filtered_data_flags, aes(x=session, y=MeanAlpha, text=paste0(lessonTitle))) +
+  geom_boxplot(size=0.1, alpha=0.2) +
+  geom_line(aes(group=sub, col=sub), size=0.1, position=position_dodge(0)) +
+  geom_point(aes(fill=sub, group=paired), size=2, shape=20, stroke=0, position=position_dodge(0)) +
+  xlab("Lesson") +
+  #scale_x_discrete(labels=xlabels) +
+  ylab("SoF") +
+  ylim(0.1, 0.55) +
+  ggtitle("Flags SoF") +
+  labs(fill="Participant", col="Participant") +
+  theme_hc() +
+  theme(axis.title.x=element_blank(),
+        panel.grid.major = element_blank(),
+        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+ggplotly(graph, tooltip=c("y", "text")) %>% 
+  layout(legend = list(orientation = "")) %>% 
+  config(displayModeBar=FALSE)
+
+```
+
+### Swahili
+
+```{r, echo=FALSE}
+
+library(stringr)
+
+filtered_data_swahili <- cleandata_avg_exp_bysession %>%
+  filter(lessonTitle %in% c("Swahili 1", "Swahili 2", "Swahili 3", "Swahili 4"))
+
+
+# Swahili
+graph=ggplot(filtered_data_swahili, aes(x=session, y=MeanAlpha, text=paste0(lessonTitle))) +
+  geom_boxplot(size=0.1, alpha=0.2) +
+  geom_line(aes(group=sub, col=sub), size=0.1, position=position_dodge(0)) +
+  geom_point(aes(fill=sub, group=paired), size=2, shape=20, stroke=0, position=position_dodge(0)) +
+  xlab("Lesson") +
+  #scale_x_discrete(labels=xlabels) +
+  ylab("SoF") +
+  ylim(0.1, 0.55) +
+  ggtitle("Swahili SoF") +
+  labs(fill="Participant", col="Participant") +
+  theme_hc() +
+  theme(axis.title.x=element_blank(),
+        panel.grid.major = element_blank(),
+        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+ggplotly(graph, tooltip=c("y", "text")) %>% 
+  layout(legend = list(orientation = "")) %>% 
+  config(displayModeBar=FALSE)
+
+```
+### Word Pair 
+
+```{r, echo=FALSE}
+
+library(stringr)
+
+filtered_data_wordpairs <- cleandata_avg_exp_bysession %>%
+  filter(lessonTitle %in% c("Word Pair 1", "Word Pair 2", "Word Pair 3", "Word Pair 4"))
+
+
+# Word Pair
+graph=ggplot(filtered_data_wordpairs, aes(x=session, y=MeanAlpha, text=paste0(lessonTitle))) +
+  geom_boxplot(size=0.1, alpha=0.2) +
+  geom_line(aes(group=sub, col=sub), size=0.1, position=position_dodge(0)) +
+  geom_point(aes(fill=sub, group=paired), size=2, shape=20, stroke=0, position=position_dodge(0)) +
+  xlab("Lesson") +
+  #scale_x_discrete(labels=xlabels) +
+  ylab("SoF") +
+  ylim(0.1, 0.55) +
+  ggtitle("Word Pair SoF") +
+  labs(fill="Participant", col="Participant") +
+  theme_hc() +
+  theme(axis.title.x=element_blank(),
+        panel.grid.major = element_blank(),
+        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+ggplotly(graph, tooltip=c("y", "text")) %>% 
+  layout(legend = list(orientation = "")) %>% 
+  config(displayModeBar=FALSE)
+
+```
+
+
+
+```{r}
+
+ggplot(cleandata_avg_exp_bysession, aes(x=session, y=MeanAlpha, col=group, fill=group)) +
+  stat_summary(geom="point", fun.data = "mean_sdl", size=3) +
+  stat_summary(geom="ribbon", fun.data = "mean_se", 
+               aes(group=group), 
+               col=NA,
+               alpha=0.25) +
+  stat_summary(geom="line", fun = "mean", aes(group = group)) +
+  scale_color_d3() +
+  scale_fill_d3() +
+ # ylim(0.27, 0.38) +
+  xlab("Sessions") +
+  ylab("Mean SoF") +
+  ggtitle(paste("Speed of Forgetting By Condition (N = ", length(unique(cleandata_avg_exp_bysession$userId)), ")", sep="")) +
+  labs(col="Stimulation", fill="Stimulation") +
+  theme_hc()
+
+```
+
+```{r}
+
+ggplot(filtered_data_wordpairs, aes(x=session, y=MeanAlpha, col=group, fill=group)) +
+  stat_summary(geom="point", fun.data = "mean_sdl", size=3) +
+  stat_summary(geom="ribbon", fun.data = "mean_se", 
+               aes(group=group), 
+               col=NA,
+               alpha=0.25) +
+  stat_summary(geom="line", fun = "mean", aes(group = group)) +
+  scale_color_d3() +
+  scale_fill_d3() +
+ # ylim(0.27, 0.38) +
+  xlab("Sessions") +
+  ylab("Mean SoF") +
+  ggtitle(paste("Word Pair SoF By Condition (N = ", length(unique(cleandata_avg_exp_bysession$userId)), ")", sep="")) +
+  labs(col="Stimulation", fill="Stimulation") +
+  theme_hc()
+
+```
+
+```{r}
+
+ggplot(filtered_data_swahili, aes(x=session, y=MeanAlpha, col=group, fill=group)) +
+  stat_summary(geom="point", fun.data = "mean_sdl", size=3) +
+  stat_summary(geom="ribbon", fun.data = "mean_se", 
+               aes(group=group), 
+               col=NA,
+               alpha=0.25) +
+  stat_summary(geom="line", fun = "mean", aes(group = group)) +
+  scale_color_d3() +
+  scale_fill_d3() +
+ # ylim(0.27, 0.38) +
+  xlab("Sessions") +
+  ylab("Mean SoF") +
+  ggtitle(paste("Swahili SoF By Condition (N = ", length(unique(cleandata_avg_exp_bysession$userId)), ")", sep="")) +
+  labs(col="Stimulation", fill="Stimulation") +
+  theme_hc()
+
+```
+```{r}
+
+ggplot(filtered_data_flags, aes(x=session, y=MeanAlpha, col=group, fill=group)) +
+  stat_summary(geom="point", fun.data = "mean_sdl", size=3) +
+  stat_summary(geom="ribbon", fun.data = "mean_se", 
+               aes(group=group), 
+               col=NA,
+               alpha=0.25) +
+  stat_summary(geom="line", fun = "mean", aes(group = group)) +
+  scale_color_d3() +
+  scale_fill_d3() +
+ # ylim(0.27, 0.38) +
+  xlab("Sessions") +
+  ylab("Mean SoF") +
+  ggtitle(paste("Flags SoF By Condition (N = ", length(unique(cleandata_avg_exp_bysession$userId)), ")", sep="")) +
+  labs(col="Stimulation", fill="Stimulation") +
+  theme_hc()
+
+```
+
+
+```{r}
+
+all1 <- ggplot(cleandata_avg_exp_bysession, aes(x = session, y = MeanAlpha, col = sub, fill = sub)) +
+  stat_summary(geom = "errorbar", fun.data = "mean_se", width = 0.2) +
+  stat_summary(geom = "line", fun = "mean", aes(group = sub, shape = group), size = 1) +
+  ylim(0.2, 0.4) +
+  xlab("Sessions") +
+  ylab("SoF") +
+  ggtitle(expression(paste("Avg ", italic("Speed of Forgetting")))) +
+  labs(col = "Participant", fill = "Participant") +
+  theme_hc() +
+  theme(legend.position = "hide") 
+
+cleandata_avg_exp_bysession$session <- factor(cleandata_avg_exp_bysession$session)  # Convert session to factor variable
+
+all2 <- ggplot(subset(cleandata_avg_exp_bysession, session %in% c('session 1', 'session 4')), aes(x = session, y = MeanAlpha, col = sub, fill = sub)) +
+ # geom_point(aes(color = sub, group = paired, shape = group), size = 5.5, alpha = 0.35, stroke = 0) +
+  stat_summary(geom = "errorbar", fun.data = "mean_se", width = 0.2) +
+  stat_summary(geom = "line", fun = "mean", aes(group = sub, shape = group), size = 1) +
+ # scale_color_d3() +
+ # scale_fill_d3() +
+ # scale_color_manual(values = c("gold2", "gold3", "gold4", "black")) +
+#  scale_fill_manual(values = c("gold2", "gold3", "gold4", "black")) +
+  ylim(0.2, 0.4) +
+  xlab("Sessions") +
+  ylab("SoF") +
+  ggtitle(paste("Initial & Final")) +
+  #ggtitle(paste("All SoF By Condition (N =", length(unique(cleandata_avg_exp_bysession$userId)), ")")) +
+  labs(col = "Participant", fill = "Participant") +
+  theme_hc() +
+  theme(legend.position = "right") 
+
+plot_grid(all1, all2, nrow= 1, ncol=2)
+
+
+ggplot(cleandata_avg_exp_bysession, aes(x = session, y = MeanAlpha, col = sub, fill = sub)) +
+  stat_summary(geom = "errorbar", fun.data = "mean_se", width = 0.2) +
+  stat_summary(geom = "line", fun = "mean", aes(group = sub, shape = group), size = 1) +
+  ylim(0.2, 0.4) +
+  xlab("Sessions") +
+  ylab("SoF") +
+  ggtitle(expression(paste("Avg ", italic("Speed of Forgetting")))) +
+  labs(col = "Participant", fill = "Participant") +
+  theme_hc()
+
+
+```
+
+
+```{r}
+
+f1 <- ggplot(filtered_data_flags, aes(x=session, y=MeanAlpha, col=sub, fill=sub)) +
+  geom_point(aes(color=sub, group=paired, shape=group), size=5.5, alpha= 0.35, stroke=0) +
+ # stat_summary(geom="point", fun.data = "mean_sdl", size=5, shape= group) +
+  stat_summary(geom="ribbon", fun.data = "mean_se", 
+               aes(group=sub), 
+               col=NA,
+               alpha=0.25) +
+  stat_summary(geom="line", fun = "mean", aes(group = sub, shape= group), size = 1) +
+ # scale_color_d3() +
+ # scale_fill_d3() +
+  ylim(0.2, 0.4) +
+  xlab("Sessions") +
+  ylab("SoF") +
+  ggtitle(expression(paste("Recognition ", italic("Speed of Forgetting")))) +
+ # ggtitle(expression(paste("Recognition ", italic("Speed of Forgetting"), " (N = ", length(unique(cleandata_avg_exp_bysession$userId)), ")", sep=""))) +
+ #ggtitle(paste("Flags SoF By Condition (N = ", length(unique(cleandata_avg_exp_bysession$userId)), ")", sep="")) +
+  labs(col="Participant", fill="Participant") +
+  theme_hc() +
+  theme(legend.position = "hide") 
+
+filtered_data_flags$session <- factor(filtered_data_flags$session)  # Convert session to factor variable
+
+f2 <- ggplot(subset(filtered_data_flags, session %in% c('session 1', 'session 4')), aes(x = session, y = MeanAlpha, col = sub, fill = sub)) +
+  geom_point(aes(color = sub, group = paired, shape = group), size = 5.5, alpha = 0.35, stroke = 0) +
+  stat_summary(geom = "ribbon", fun.data = "mean_se", aes(group = sub), col = NA, alpha = 0.25) +
+  stat_summary(geom = "line", fun = "mean", aes(group = sub, shape = group), size = 1) +
+ # scale_color_d3() +
+ # scale_fill_d3() +
+ # scale_color_manual(values = c("gold2", "gold3", "gold4", "black")) +
+#  scale_fill_manual(values = c("gold2", "gold3", "gold4", "black")) +
+  ylim(0.2, 0.4) +
+  xlab("Sessions") +
+  ylab("SoF") +
+  ggtitle(paste("Initial & Final")) +
+  #ggtitle(paste("Flags SoF By Condition (N =", length(unique(cleandata_avg_exp_bysession$userId)), ")")) +
+  labs(col = "Participant", fill = "Participant") +
+  theme_hc() +
+  theme(legend.position = "right") 
+
+plot_grid(f1, f2, nrow= 1, ncol=2)
+
+ggsave("figures/Recognition_SoF.png")
+
+```
+```{r}
+filtered_data_flags_delta <- filtered_data_flags[order(filtered_data_flags$session), ]
+
+# Calculate the delta between sessions
+filtered_data_flags_delta$delta <- c(NA, diff(filtered_data_flags_delta$value))
+
+# Print the resulting data frame with the delta values
+print(filtered_data_flags)
+
+
+
+```
+
+
+```{r}
+
+f1acc <- ggplot(filtered_data_flags, aes(x=session, y=reactionTimeavg, col=sub, fill=sub)) +
+  geom_point(aes(color=sub, group=paired, shape=group), size=5.5, alpha= 0.35, stroke=0) +
+ # stat_summary(geom="point", fun.data = "mean_sdl", size=5, shape= group) +
+  stat_summary(geom="ribbon", fun.data = "mean_se", 
+               aes(group=sub), 
+               col=NA,
+               alpha=0.25) +
+  stat_summary(geom="line", fun = "mean", aes(group = sub, shape= group), size = 1) +
+ # scale_color_d3() +
+ # scale_fill_d3() +
+#  ylim(0.2, 0.4) +
+  xlab("Sessions") +
+  ylab("RT") +
+  ggtitle(expression(paste("Recognition ", italic("Response Time")))) +
+ # ggtitle(expression(paste("Recognition ", italic("Speed of Forgetting"), " (N = ", length(unique(cleandata_avg_exp_bysession$userId)), ")", sep=""))) +
+ #ggtitle(paste("Flags SoF By Condition (N = ", length(unique(cleandata_avg_exp_bysession$userId)), ")", sep="")) +
+  labs(col="Participant", fill="Participant") +
+  theme_hc() +
+  theme(legend.position = "hide") 
+
+filtered_data_flags$session <- factor(filtered_data_flags$session)  # Convert session to factor variable
+
+f2acc <- ggplot(subset(filtered_data_flags, session %in% c('session 1', 'session 4')), aes(x = session, y = reactionTimeavg, col = sub, fill = sub)) +
+  geom_point(aes(color = sub, group = paired, shape = group), size = 5.5, alpha = 0.35, stroke = 0) +
+  stat_summary(geom = "ribbon", fun.data = "mean_se", aes(group = sub), col = NA, alpha = 0.25) +
+  stat_summary(geom = "line", fun = "mean", aes(group = sub, shape = group), size = 1) +
+ # scale_color_d3() +
+ # scale_fill_d3() +
+ # scale_color_manual(values = c("gold2", "gold3", "gold4", "black")) +
+#  scale_fill_manual(values = c("gold2", "gold3", "gold4", "black")) +
+ # ylim(0.2, 0.4) +
+  xlab("Sessions") +
+  ylab("RT") +
+  ggtitle(paste("Initial & Final")) +
+  #ggtitle(paste("Flags RT By Condition (N =", length(unique(cleandata_avg_exp_bysession$userId)), ")")) +
+  labs(col = "Participant", fill = "Participant") +
+  theme_hc() +
+  theme(legend.position = "right") 
+
+plot_grid(f1acc, f2acc, nrow= 1, ncol=2)
+
+```
+
+
+
+```{r}
+
+s1 <- ggplot(filtered_data_swahili, aes(x=session, y=MeanAlpha, col=sub, fill=sub)) +
+  geom_point(aes(color=sub, group=paired, shape=group), size=5.5, alpha= 0.35, stroke=0) +
+ # stat_summary(geom="point", fun.data = "mean_sdl", size=5, shape= group) +
+  stat_summary(geom="ribbon", fun.data = "mean_se", 
+               aes(group=sub), 
+               col=NA,
+               alpha=0.25) +
+  stat_summary(geom="line", fun = "mean", aes(group = sub, shape= group), size = 1) +
+ # scale_color_d3() +
+ # scale_fill_d3() +
+  ylim(0.2, 0.4) +
+  xlab("Sessions") +
+  ylab("SoF") +
+  ggtitle(expression(paste("Recall ", italic("Speed of Forgetting")))) +
+ # ggtitle(expression(paste("Recognition ", italic("Speed of Forgetting"), " (N = ", length(unique(cleandata_avg_exp_bysession$userId)), ")", sep=""))) +
+ #ggtitle(paste("Swahili SoF By Condition (N = ", length(unique(cleandata_avg_exp_bysession$userId)), ")", sep="")) +
+  labs(col="Participant", fill="Participant") +
+  theme_hc() +
+  theme(legend.position = "hide") 
+
+filtered_data_swahili$session <- factor(filtered_data_swahili$session)  # Convert session to factor variable
+
+s2 <- ggplot(subset(filtered_data_swahili, session %in% c('session 1', 'session 4')), aes(x = session, y = MeanAlpha, col = sub, fill = sub)) +
+  geom_point(aes(color = sub, group = paired, shape = group), size = 5.5, alpha = 0.35, stroke = 0) +
+  stat_summary(geom = "ribbon", fun.data = "mean_se", aes(group = sub), col = NA, alpha = 0.25) +
+  stat_summary(geom = "line", fun = "mean", aes(group = sub, shape = group), size = 1) +
+ # scale_color_d3() +
+ # scale_fill_d3() +
+ # scale_color_manual(values = c("gold2", "gold3", "gold4", "black")) +
+#  scale_fill_manual(values = c("gold2", "gold3", "gold4", "black")) +
+  ylim(0.2, 0.4) +
+  xlab("Sessions") +
+  ylab("SoF") +
+  ggtitle(paste("Initial & Final")) +
+  #ggtitle(paste("Swahili SoF By Condition (N =", length(unique(cleandata_avg_exp_bysession$userId)), ")")) +
+  labs(col = "Participant", fill = "Participant") +
+  theme_hc() +
+  theme(legend.position = "right") 
+
+plot_grid(s1, s2, nrow= 1, ncol=2)
+
+```
+
+```{r}
+
+wp1 <- ggplot(filtered_data_wordpairs, aes(x=session, y=MeanAlpha, col=sub, fill=sub)) +
+  geom_point(aes(color=sub, group=paired, shape=group), size=5.5, alpha= 0.35, stroke=0) +
+ # stat_summary(geom="point", fun.data = "mean_sdl", size=5, shape= group) +
+  stat_summary(geom="ribbon", fun.data = "mean_se", 
+               aes(group=sub), 
+               col=NA,
+               alpha=0.25) +
+  stat_summary(geom="line", fun = "mean", aes(group = sub, shape= group), size = 1) +
+ # scale_color_d3() +
+ # scale_fill_d3() +
+  ylim(0.15, 0.3) +
+  xlab("Sessions") +
+  ylab("SoF") +
+  ggtitle(expression(paste("Error ", italic("Speed of Forgetting")))) +
+ # ggtitle(expression(paste("Recognition ", italic("Speed of Forgetting"), " (N = ", length(unique(cleandata_avg_exp_bysession$userId)), ")", sep=""))) +
+ #ggtitle(paste("Error SoF By Condition (N = ", length(unique(cleandata_avg_exp_bysession$userId)), ")", sep="")) +
+  labs(col="Participant", fill="Participant") +
+  theme_hc() +
+  theme(legend.position = "hide") 
+
+filtered_data_wordpairs$session <- factor(filtered_data_wordpairs$session)  # Convert session to factor variable
+
+wp2 <- ggplot(subset(filtered_data_wordpairs, session %in% c('session 1', 'session 4')), aes(x = session, y = MeanAlpha, col = sub, fill = sub)) +
+  geom_point(aes(color = sub, group = paired, shape = group), size = 5.5, alpha = 0.35, stroke = 0) +
+  stat_summary(geom = "ribbon", fun.data = "mean_se", aes(group = sub), col = NA, alpha = 0.25) +
+  stat_summary(geom = "line", fun = "mean", aes(group = sub, shape = group), size = 1) +
+ # scale_color_d3() +
+ # scale_fill_d3() +
+ # scale_color_manual(values = c("gold2", "gold3", "gold4", "black")) +
+#  scale_fill_manual(values = c("gold2", "gold3", "gold4", "black")) +
+  ylim(0.15, 0.3) +
+  xlab("Sessions") +
+  ylab("SoF") +
+  ggtitle(paste("Initial & Final")) +
+  #ggtitle(paste("Error SoF By Condition (N =", length(unique(cleandata_avg_exp_bysession$userId)), ")")) +
+  labs(col = "Participant", fill = "Participant") +
+  theme_hc() +
+  theme(legend.position = "right") 
+
+plot_grid(wp1, wp2, nrow= 1, ncol=2)
+
+```
+
+
+We can also perform a statistical analysis:
+
+```{r}
+m1 <- aov(correct ~ (session * group) + Error(userId/(session*group)),
+          cleandata_avg_exp_bysession) 
+
+m1 %>%
+  tidy() %>%
+  xtable() %>%
+  kable(digits = 4) %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
+```
+
+```{r}
+m1 <- aov(correct ~ (session * group) + Error(userId/(session*group)),
+          filtered_data_flags) 
+
+m1 %>%
+  tidy() %>%
+  xtable() %>%
+  kable(digits = 4) %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
+```
+
+```{r}
+m1 <- aov(correct ~ (session * group) + Error(userId/(session*group)),
+          filtered_data_swahili) 
+
+m1 %>%
+  tidy() %>%
+  xtable() %>%
+  kable(digits = 4) %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
+```
+
+```{r}
+m1 <- aov(correct ~ (session * group) + Error(userId/(session*group)),
+          filtered_data_wordpairs) 
+
+m1 %>%
+  tidy() %>%
+  xtable() %>%
+  kable(digits = 4) %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
+```

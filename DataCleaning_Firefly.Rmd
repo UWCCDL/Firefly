@@ -193,13 +193,13 @@ cleandata$userId <- as.character(cleandata$userId)
 
 # Calculate avg alpha
 cleandata_lastRep <- cleandata %>%
-  group_by(lessonTitle, userId, factId, group, name_or_subtype, week, lessonCategory, lessonType, age, date, sub) %>%
+  group_by(lessonTitle, userId, factId, group, week, lessonCategory, lessonType, age, date, sub) %>%
   mutate(LastRepetition = max(repetition)) %>%
   filter(repetition == LastRepetition) %>%
   ungroup()
 
 cleandata_avg1 <- cleandata_lastRep %>%
-  group_by(userId, lessonTitle, group, name_or_subtype, week, lessonCategory, lessonType, age, date, sub) %>%
+  group_by(userId, lessonTitle, group, week, lessonCategory, lessonType, age, date, sub) %>%
   summarise(MeanAlpha = mean(alpha), MedianAlpha = median(alpha)) 
 
 #cleandata_avg3 <- cleandata %>%
@@ -311,7 +311,7 @@ save(scoreboarddata, file ="scoreboarddata.RData")
 
 ```{r fig.width= 10, fig.height= 4.5}
 
-graph=ggplot(cleandata_avg, aes(x=lessonTitle, y=MeanAlpha, col=lessonTitle, fill=lessonTitle, text=paste0(name_or_subtype))) +
+graph=ggplot(cleandata_avg, aes(x=lessonTitle, y=MeanAlpha, col=lessonTitle, fill=lessonTitle)) +
   #geom_violin(width=1, size=0.1, alpha=0.2) +
   geom_boxplot(width=.4,size=0.1, alpha=0.2) +
   stat_summary(fun.y=mean, geom="pointrange", size=0.3, shape=1, color="black") +
@@ -329,14 +329,15 @@ ggplotly(graph, tooltip=c("y", "text")) %>%
   config(displayModeBar=FALSE)
 
 ```
+```
 ### All SoF by Individual
 
 ```{r, echo=FALSE}
 
 # Speed of Forgetting by Participant
-graph=ggplot(cleandata_avg, aes(x=lessonTitle, y=MeanAlpha, text=paste0(name_or_subtype))) +
+graph=ggplot(cleandata_avg, aes(x=lessonTitle, y=MeanAlpha)) +
   geom_boxplot(size=0.1, alpha=0.2) +
-  geom_line(aes(group=name_or_subtype, col=name_or_subtype), size=0.1, position=position_dodge(0)) +
+  geom_line(aes(group=??, col=??), size=0.1, position=position_dodge(0)) +
   geom_point(aes(fill=name_or_subtype, group=paired), size=2, shape=20, stroke=0, position=position_dodge(0)) +
   xlab("Lesson") +
   #scale_x_discrete(labels=xlabels) +

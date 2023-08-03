@@ -1,0 +1,117 @@
+---
+title: "PriorKnowledge"
+author: "Ally Williams"
+date: "2023-08-01"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+
+# Data Manipulation and Analysis
+library(tidyverse)   # Data manipulation and visualization
+library(dplyr)       # Data manipulation
+library(broom)       # Statistical analysis utilities
+library(reshape2)    # Data reshaping
+library(glmnet)      # Regularized regression models
+library(readr)       # Data import
+
+
+# Graphics
+library(ggplot2)     # Data visualization
+library(ggridges)    # Ridgeline plots
+library(ggthemes)    # Additional ggplot2 themes
+library(ggrepel)     # Label placement in ggplot2
+library(ppcor)       # Partial and semi-partial correlation
+library(ggExtra)     # Additional ggplot2 functions
+library(ggsci)       # Scientific journal-inspired color palettes
+library(viridis)     # Color palettes
+library(scales)      # Scale functions
+library(patchwork)   # Multi-plot alignment
+library(ggcorrplot)  # Correlation plot
+library(gapminder)   # Dataset used to make the box plot connected by lines
+library(RColorBrewer)# Color palettes
+library(plotly)      # Interactive graphs
+library(lubridate)   # Date functions
+library(stringr)     # Text functions
+library(extrafont)   # Font customization on graphs
+library(htmlwidgets) # Interactive exports
+library(cowplot)     # Plot arrangement
+library(png)         # PNG image format support
+library(apyramid)    # Create age pyramids
+
+# Themes: "default", "bootstrap", "cerulean", "cosmo", "darkly", "flatly", "journal", "lumen", "paper", "readable", "sandstone", "simplex", "spacelab", "united", "yeti"
+
+# Tables
+library(kableExtra)  # Table formatting
+library(xtable)      # Table formatting
+library(reactable)   # Interactive tables
+library(htmltools)   # HTML table formatting
+
+# Date functions
+library(anytime)     # Date conversion
+library(lubridate)   # Date manipulation
+
+# SlimStampen
+library(SlimStampeRData)  # SlimStampen-specific functions
+
+# Dashboard
+library(flexdashboard)  # Dashboard creation
+
+
+
+```
+
+```{r}
+prior_knowledge_analysis <- read_csv("prior_knowledge.csv", show_col_types = FALSE) 
+
+ 
+
+ggplot(prior_knowledge_analysis, aes(x=answer, y=alpha, col=prior_knowledge))+
+  #geom_boxplot()+
+  geom_point(size=3, position=position_jitter(0.2)) +
+  #geom_line(aes(group=prior_knowledge), size=0.1, position=position_dodge(0)) +
+       xlab("Fact") +
+  ylab("SoF") +
+  scale_color_manual(values=c("darkblue", "lightgreen")) +
+  scale_fill_manual(values=c("darkblue", "lightgreen")) +
+  ggtitle(paste("Prior Knowledge across Facts")) +
+  labs(col="prior_knowledge") +
+  theme_hc() +
+  theme(legend.position = "right",
+        axis.text.x = element_text (angle=90),
+        panel.grid.major = element_blank())
+
+ggsave("figures/Prior_Knowledge_Across_Facts.png")
+
+```
+
+
+
+## Effect of prior knowledge on SOF across ppl
+
+
+```{r}
+ggplot(prior_knowledge_analysis, aes(y = alpha, x = userId, col = prior_knowledge, fill = prior_knowledge)) +
+  stat_summary(geom="point", fun.data = "mean_sdl", size=2.5) +
+  stat_summary(geom="ribbon", fun.data = "mean_se", 
+               aes(group = prior_knowledge), 
+               col = NA, 
+               alpha = 0.25) +
+  stat_summary(geom="line", fun = "mean", aes(group = prior_knowledge)) +
+  xlab("Participant ID") +
+  scale_color_manual(values=c("darkblue", "lightgreen")) +
+  scale_fill_manual(values=c("darkblue", "lightgreen")) +
+  scale_x_discrete() +
+ylab(expression(paste(italic("SoF")))) +
+  ylim(0.1, 0.5) +
+  ggtitle(expression(paste ("Effect of Prior Knowledge Across Participants"))) +
+  labs(col="Prior Knowledge", fill="Prior Knowledge") +
+  theme_minimal() 
+  theme(legend.position = "right",
+        axis.text.x = element_text (angle=90),
+        panel.grid.major = element_blank())
+
+ggsave("figures/Prior_Knowledge_Across_Participants.png")
+```
+

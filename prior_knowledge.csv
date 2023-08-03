@@ -1,0 +1,371 @@
+﻿userId,lessonTitle,answer,factId,alpha,prior_knowledge
+83657,Asian Flags,South Korea,337306,0.15,yes
+83657,Asian Flags,India,337299,0.15,no
+83657,Asian Flags,Maldives,337301,0.15,no
+83657,Asian Flags,Bangladesh,337296,0.15,no
+83657,Asian Flags,Taiwan,337308,0.15,no
+83657,Asian Flags,Hong Kong,337298,0.15,no
+83657,Asian Flags,Sri Lanka,337307,0.15,no
+83657,Asian Flags,Thailand,337309,0.15,no
+83657,Asian Flags,China,337297,0.15,yes
+83657,Asian Flags,Singapore,337305,0.151,no
+83657,Asian Flags,Philippines,337303,0.15,no
+83657,Asian Flags,Nepal,337302,0.15,yes
+83657,Asian Flags,Saudi Arabia,337304,0.15,no
+83657,Asian Flags,Vietnam,337310,0.15,no
+83657,Asian Flags,Japan,337300,0.15,yes
+83657,Caribbean Flags,Bahamas,337625,0.15,no
+83657,Caribbean Flags,St Lucia,337636,0.15,yes
+83657,Caribbean Flags,Bonaire,337627,0.15,no
+83657,Caribbean Flags,Grenada,337630,0.15,yes
+83657,Caribbean Flags,Haiti,337631,0.15,no
+83657,Caribbean Flags,Montserrat,337634,0.15,yes
+83657,Caribbean Flags,Dominica,337629,0.15,no
+83657,Caribbean Flags,Barbados,337626,0.15,no
+83657,Caribbean Flags,Anguilla,337623,0.15,no
+83657,Caribbean Flags,Cuba,337628,0.15,no
+83657,Caribbean Flags,Trinidad,337637,0.15,yes
+83657,Caribbean Flags,Martinique,337633,0.15,no
+83657,Caribbean Flags,St Kitts and Nevis,337635,0.15,no
+83657,Caribbean Flags,Aruba,337624,0.15,no
+83657,Caribbean Flags,Jamaica,337632,0.15,no
+83659,Asian Flags,Vietnam,337310,0.15,no
+83659,Asian Flags,Nepal,337302,0.15,no
+83659,Asian Flags,South Korea,337306,0.15,yes
+83659,Asian Flags,Philippines,337303,0.15,no
+83659,Asian Flags,Japan,337300,0.15,yes
+83659,Asian Flags,Saudi Arabia,337304,0.15,no
+83659,Asian Flags,Singapore,337305,0.15,no
+83659,Asian Flags,Thailand,337309,0.15,no
+83659,Asian Flags,India,337299,0.15,no
+83659,Asian Flags,Hong Kong,337298,0.15,no
+83659,Asian Flags,Sri Lanka,337307,0.15,no
+83659,Asian Flags,Taiwan,337308,0.15,no
+83659,Asian Flags,China,337297,0.15,yes
+83659,Asian Flags,Maldives,337301,0.15,no
+83659,Asian Flags,Bangladesh,337296,0.15,no
+83659,Caribbean Flags,Trinidad,337637,0.26,no
+83659,Caribbean Flags,Anguilla,337623,0.15,no
+83659,Caribbean Flags,Aruba,337624,0.15,no
+83659,Caribbean Flags,Montserrat,337634,0.15,no
+83659,Caribbean Flags,Martinique,337633,0.15,no
+83659,Caribbean Flags,Dominica,337629,0.273,no
+83659,Caribbean Flags,Bahamas,337625,0.15,no
+83659,Caribbean Flags,St Kitts and Nevis,337635,0.15,no
+83659,Caribbean Flags,Barbados,337626,0.15,no
+83659,Caribbean Flags,St Lucia,337636,0.15,no
+83659,Caribbean Flags,Grenada,337630,0.15,no
+83659,Caribbean Flags,Cuba,337628,0.15,no
+83659,Caribbean Flags,Bonaire,337627,0.15,no
+83659,Caribbean Flags,Haiti,337631,0.15,no
+83659,Caribbean Flags,Jamaica,337632,0.15,no
+83664,Asian Flags,Saudi Arabia,337304,0.25,no
+83664,Asian Flags,Japan,337300,0.25,yes
+83664,Asian Flags,Bangladesh,337296,0.201,no
+83664,Asian Flags,India,337299,0.201,no
+83664,Asian Flags,Vietnam,337310,0.201,no
+83664,Asian Flags,Sri Lanka,337307,0.151,no
+83664,Asian Flags,Singapore,337305,0.511,no
+83664,Asian Flags,Thailand,337309,0.418,no
+83664,Asian Flags,Taiwan,337308,0.468,no
+83664,Asian Flags,Philippines,337303,0.516,no
+83664,Asian Flags,Maldives,337301,0.475,no
+83664,Asian Flags,Hong Kong,337298,0.349,no
+83664,Asian Flags,South Korea,337306,0.151,no
+83664,Asian Flags,Nepal,337302,0.533,no
+83664,Caribbean Flags,Jamaica,337632,0.25,yes
+83664,Caribbean Flags,Aruba,337624,0.25,no
+83664,Caribbean Flags,Barbados,337626,0.3,no
+83664,Caribbean Flags,Trinidad,337637,0.25,no
+83664,Caribbean Flags,Grenada,337630,0.436,no
+83664,Caribbean Flags,Montserrat,337634,0.573,no
+83664,Caribbean Flags,St Kitts and Nevis,337635,0.3,no
+83664,Caribbean Flags,Bonaire,337627,0.3,no
+83664,Caribbean Flags,Anguilla,337623,0.48,no
+83664,Caribbean Flags,Martinique,337633,0.468,no
+83664,Caribbean Flags,Bahamas,337625,0.473,no
+83664,Caribbean Flags,Haiti,337631,0.479,no
+83664,Caribbean Flags,Dominica,337629,0.517,no
+83661,Asian Flags,Bangladesh,337296,0.15,yes
+83661,Asian Flags,Philippines,337303,0.15,no
+83661,Asian Flags,Japan,337300,0.15,yes
+83661,Asian Flags,India,337299,0.15,yes
+83661,Asian Flags,Singapore,337305,0.15,yes
+83661,Asian Flags,South Korea,337306,0.15,yes
+83661,Asian Flags,Sri Lanka,337307,0.15,no
+83661,Asian Flags,Maldives,337301,0.15,no
+83661,Asian Flags,Vietnam,337310,0.15,no
+83661,Asian Flags,Nepal,337302,0.15,yes
+83661,Asian Flags,Thailand,337309,0.15,yes
+83661,Asian Flags,Taiwan,337308,0.15,yes
+83661,Asian Flags,Hong Kong,337298,0.15,yes
+83661,Asian Flags,China,337297,0.15,yes
+83661,Asian Flags,Saudi Arabia,337304,0.15,yes
+83661,Caribbean Flags,Bahamas,337625,0.15,no
+83661,Caribbean Flags,St Lucia,337636,0.15,no
+83661,Caribbean Flags,Anguilla,337623,0.27,no
+83661,Caribbean Flags,Aruba,337624,0.15,no
+83661,Caribbean Flags,Bonaire,337627,0.2,no
+83661,Caribbean Flags,Cuba,337628,0.15,yes
+83661,Caribbean Flags,St Kitts and Nevis,337635,0.15,yes
+83661,Caribbean Flags,Haiti,337631,0.15,no
+83661,Caribbean Flags,Jamaica,337632,0.15,yes
+83661,Caribbean Flags,Martinique,337633,0.15,no
+83661,Caribbean Flags,Grenada,337630,0.15,no
+83661,Caribbean Flags,Barbados,337626,0.15,no
+83661,Caribbean Flags,Trinidad,337637,0.15,yes
+83661,Caribbean Flags,Montserrat,337634,0.15,no
+83661,Caribbean Flags,Dominica,337629,0.15,no
+83678,Asian Flags,Taiwan,337308,0.15,yes
+83678,Asian Flags,Saudi Arabia,337304,0.15,yes
+83678,Asian Flags,Philippines,337303,0.15,yes
+83678,Asian Flags,India,337299,0.15,yes
+83678,Asian Flags,Sri Lanka,337307,0.15,no
+83678,Asian Flags,Bangladesh,337296,0.15,no
+83678,Asian Flags,Nepal,337302,0.15,no
+83678,Asian Flags,Thailand,337309,0.15,no
+83678,Asian Flags,Hong Kong,337298,0.15,yes
+83678,Asian Flags,China,337297,0.15,yes
+83678,Asian Flags,Japan,337300,0.15,yes
+83678,Asian Flags,South Korea,337306,0.15,yes
+83678,Asian Flags,Vietnam,337310,0.15,yes
+83678,Asian Flags,Maldives,337301,0.15,no
+83678,Asian Flags,Singapore,337305,0.15,no
+83678,Caribbean Flags,Montserrat,337634,0.15,no
+83678,Caribbean Flags,Aruba,337624,0.151,no
+83678,Caribbean Flags,Bahamas,337625,0.15,no
+83678,Caribbean Flags,Dominica,337629,0.15,no
+83678,Caribbean Flags,Barbados,337626,0.15,no
+83678,Caribbean Flags,Bonaire,337627,0.15,no
+83678,Caribbean Flags,St Kitts and Nevis,337635,0.15,no
+83678,Caribbean Flags,Jamaica,337632,0.15,yes
+83678,Caribbean Flags,Grenada,337630,0.15,no
+83678,Caribbean Flags,Cuba,337628,0.15,no
+83678,Caribbean Flags,Trinidad,337637,0.15,no
+83678,Caribbean Flags,Martinique,337633,0.15,no
+83678,Caribbean Flags,St Lucia,337636,0.15,no
+83678,Caribbean Flags,Anguilla,337623,0.207,no
+83678,Caribbean Flags,Haiti,337631,0.15,no
+83670,Asian Flags,China,337297,0.201,yes
+83670,Asian Flags,Sri Lanka,337307,0.201,no
+83670,Asian Flags,Bangladesh,337296,0.201,yes
+83670,Asian Flags,India,337299,0.201,yes
+83670,Asian Flags,Singapore,337305,0.201,no
+83670,Asian Flags,Vietnam,337310,0.15,yes
+83670,Asian Flags,Taiwan,337308,0.498,no
+83670,Asian Flags,Philippines,337303,0.201,no
+83670,Asian Flags,Nepal,337302,0.151,no
+83670,Asian Flags,Japan,337300,0.15,yes
+83670,Asian Flags,Saudi Arabia,337304,0.15,no
+83670,Asian Flags,Thailand,337309,0.752,no
+83670,Asian Flags,South Korea,337306,0.151,yes
+83670,Asian Flags,Hong Kong,337298,0.15,no
+83670,Asian Flags,Maldives,337301,0.449,no
+83670,Caribbean Flags,Martinique,337633,0.395,no
+83670,Caribbean Flags,Cuba,337628,0.3,no
+83670,Caribbean Flags,Trinidad,337637,0.378,no
+83670,Caribbean Flags,Haiti,337631,0.362,no
+83670,Caribbean Flags,Jamaica,337632,0.47,no
+83670,Caribbean Flags,Aruba,337624,0.387,no
+83670,Caribbean Flags,Anguilla,337623,0.514,no
+83670,Caribbean Flags,Montserrat,337634,0.543,no
+83670,Caribbean Flags,Dominica,337629,0.25,no
+83670,Caribbean Flags,Bonaire,337627,0.581,no
+83670,Caribbean Flags,St Kitts and Nevis,337635,0.53,no
+83670,Caribbean Flags,Grenada,337630,0.201,no
+83670,Caribbean Flags,Barbados,337626,0.593,no
+83670,Caribbean Flags,Bahamas,337625,0.349,no
+83670,Caribbean Flags,St Lucia,337636,0.527,no
+83698,Asian Flags,Hong Kong,337298,0.151,no
+83698,Asian Flags,South Korea,337306,0.151,yes
+83698,Asian Flags,Maldives,337301,0.15,no
+83698,Asian Flags,Taiwan,337308,0.15,no
+83698,Asian Flags,Thailand,337309,0.15,no
+83698,Asian Flags,Philippines,337303,0.15,no
+83698,Asian Flags,Vietnam,337310,0.151,no
+83698,Asian Flags,Nepal,337302,0.15,no
+83698,Asian Flags,Sri Lanka,337307,0.15,no
+83698,Asian Flags,Saudi Arabia,337304,0.15,yes
+83698,Asian Flags,Singapore,337305,0.15,no
+83698,Asian Flags,Bangladesh,337296,0.15,no
+83698,Asian Flags,India,337299,0.15,no
+83698,Asian Flags,China,337297,0.15,yes
+83698,Asian Flags,Japan,337300,0.15,yes
+83698,Caribbean Flags,Trinidad,337637,0.201,no
+83698,Caribbean Flags,St Lucia,337636,0.201,no
+83698,Caribbean Flags,Haiti,337631,0.201,no
+83698,Caribbean Flags,Bahamas,337625,0.151,no
+83698,Caribbean Flags,Aruba,337624,0.314,no
+83698,Caribbean Flags,Montserrat,337634,0.326,no
+83698,Caribbean Flags,St Kitts and Nevis,337635,0.299,no
+83698,Caribbean Flags,Anguilla,337623,0.151,no
+83698,Caribbean Flags,Barbados,337626,0.201,no
+83698,Caribbean Flags,Jamaica,337632,0.201,no
+83698,Caribbean Flags,Cuba,337628,0.25,no
+83698,Caribbean Flags,Martinique,337633,0.15,no
+83698,Caribbean Flags,Grenada,337630,0.25,no
+83698,Caribbean Flags,Dominica,337629,0.201,no
+83698,Caribbean Flags,Bonaire,337627,0.152,no
+83700,Asian Flags,Saudi Arabia,337304,0.25,no
+83700,Asian Flags,Philippines,337303,0.25,yes
+83700,Asian Flags,India,337299,0.201,yes
+83700,Asian Flags,Vietnam,337310,0.25,no
+83700,Asian Flags,Japan,337300,0.25,yes
+83700,Asian Flags,South Korea,337306,0.25,yes
+83700,Asian Flags,Sri Lanka,337307,0.3,no
+83700,Asian Flags,China,337297,0.25,yes
+83700,Asian Flags,Hong Kong,337298,0.3,no
+83700,Asian Flags,Nepal,337302,0.318,no
+83700,Asian Flags,Thailand,337309,0.25,no
+83700,Asian Flags,Singapore,337305,0.486,no
+83700,Asian Flags,Taiwan,337308,0.42,no
+83700,Asian Flags,Bangladesh,337296,0.338,no
+83700,Asian Flags,Maldives,337301,0.201,no
+83700,Caribbean Flags,Haiti,337631,0.25,no
+83700,Caribbean Flags,Dominica,337629,0.201,no
+83700,Caribbean Flags,Barbados,337626,0.25,no
+83700,Caribbean Flags,St Lucia,337636,0.3,no
+83700,Caribbean Flags,Cuba,337628,0.201,no
+83700,Caribbean Flags,Aruba,337624,0.348,no
+83700,Caribbean Flags,Grenada,337630,0.25,no
+83700,Caribbean Flags,Bahamas,337625,0.2,no
+83700,Caribbean Flags,St Kitts and Nevis,337635,0.151,no
+83700,Caribbean Flags,Montserrat,337634,0.408,no
+83700,Caribbean Flags,Anguilla,337623,0.25,no
+83700,Caribbean Flags,Jamaica,337632,0.3,no
+83700,Caribbean Flags,Bonaire,337627,0.25,no
+83700,Caribbean Flags,Martinique,337633,0.342,no
+83700,Caribbean Flags,Trinidad,337637,0.15,no
+83680,Asian Flags,China,337297,0.201,yes
+83680,Asian Flags,South Korea,337306,0.201,no
+83680,Asian Flags,Thailand,337309,0.151,no
+83680,Asian Flags,Japan,337300,0.201,yes
+83680,Asian Flags,Saudi Arabia,337304,0.15,no
+83680,Asian Flags,Hong Kong,337298,0.15,no
+83680,Asian Flags,Philippines,337303,0.15,no
+83680,Asian Flags,Singapore,337305,0.151,no
+83680,Asian Flags,Taiwan,337308,0.25,no
+83680,Asian Flags,Nepal,337302,0.15,no
+83680,Asian Flags,Bangladesh,337296,0.151,no
+83680,Asian Flags,Maldives,337301,0.15,no
+83680,Asian Flags,Sri Lanka,337307,0.15,no
+83680,Asian Flags,Vietnam,337310,0.201,no
+83680,Asian Flags,India,337299,0.201,yes
+83680,Caribbean Flags,Cuba,337628,0.201,yes
+83680,Caribbean Flags,Barbados,337626,0.151,no
+83680,Caribbean Flags,Grenada,337630,0.151,no
+83680,Caribbean Flags,Trinidad,337637,0.151,no
+83680,Caribbean Flags,Aruba,337624,0.15,no
+83680,Caribbean Flags,Montserrat,337634,0.15,no
+83680,Caribbean Flags,Bonaire,337627,0.201,no
+83680,Caribbean Flags,Dominica,337629,0.151,no
+83680,Caribbean Flags,St Lucia,337636,0.201,no
+83680,Caribbean Flags,Jamaica,337632,0.201,yes
+83680,Caribbean Flags,St Kitts and Nevis,337635,0.151,no
+83680,Caribbean Flags,Haiti,337631,0.15,no
+83680,Caribbean Flags,Martinique,337633,0.201,no
+83680,Caribbean Flags,Bahamas,337625,0.15,no
+83680,Caribbean Flags,Anguilla,337623,0.151,no
+83708,Caribbean Flags,Aruba,337624,0.25,no
+83708,Caribbean Flags,Cuba,337628,0.25,no
+83708,Caribbean Flags,St Kitts and Nevis,337635,0.25,no
+83708,Caribbean Flags,Barbados,337626,0.151,no
+83708,Caribbean Flags,Bonaire,337627,0.349,no
+83708,Caribbean Flags,Martinique,337633,0.439,no
+83708,Caribbean Flags,Jamaica,337632,0.201,yes
+83708,Caribbean Flags,Dominica,337629,0.349,no
+83708,Caribbean Flags,Grenada,337630,0.393,no
+83708,Caribbean Flags,St Lucia,337636,0.25,no
+83708,Caribbean Flags,Haiti,337631,0.35,no
+83708,Caribbean Flags,Bahamas,337625,0.3,no
+83708,Caribbean Flags,Montserrat,337634,0.2,no
+83708,Caribbean Flags,Anguilla,337623,0.35,no
+83708,Caribbean Flags,Trinidad,337637,0.338,no
+83668,Asian Flags,Nepal,337302,0.151,no
+83668,Asian Flags,Maldives,337301,0.151,no
+83668,Asian Flags,Hong Kong,337298,0.15,no
+83668,Asian Flags,Japan,337300,0.15,yes
+83668,Asian Flags,China,337297,0.15,yes
+83668,Asian Flags,Singapore,337305,0.15,no
+83668,Asian Flags,Philippines,337303,0.151,yes
+83668,Asian Flags,Taiwan,337308,0.15,no
+83668,Asian Flags,Thailand,337309,0.15,no
+83668,Asian Flags,Saudi Arabia,337304,0.15,no
+83668,Asian Flags,Bangladesh,337296,0.15,no
+83668,Asian Flags,Vietnam,337310,0.15,no
+83668,Asian Flags,Sri Lanka,337307,0.15,no
+83668,Asian Flags,India,337299,0.15,yes
+83668,Asian Flags,South Korea,337306,0.15,yes
+83668,Caribbean Flags,St Lucia,337636,0.201,no
+83668,Caribbean Flags,Bahamas,337625,0.25,no
+83668,Caribbean Flags,Martinique,337633,0.151,no
+83668,Caribbean Flags,Grenada,337630,0.151,no
+83668,Caribbean Flags,St Kitts and Nevis,337635,0.151,no
+83668,Caribbean Flags,Haiti,337631,0.151,no
+83668,Caribbean Flags,Anguilla,337623,0.15,no
+83668,Caribbean Flags,Bonaire,337627,0.349,no
+83668,Caribbean Flags,Barbados,337626,0.201,no
+83668,Caribbean Flags,Montserrat,337634,0.3,no
+83668,Caribbean Flags,Cuba,337628,0.151,no
+83668,Caribbean Flags,Dominica,337629,0.201,no
+83668,Caribbean Flags,Jamaica,337632,0.25,no
+83668,Caribbean Flags,Aruba,337624,0.348,no
+83663,Asian Flags,Philippines,337303,0.15,no
+83663,Asian Flags,Saudi Arabia,337304,0.151,no
+83663,Asian Flags,Nepal,337302,0.15,no
+83663,Asian Flags,Singapore,337305,0.151,no
+83663,Asian Flags,Japan,337300,0.15,yes
+83663,Asian Flags,China,337297,0.151,yes
+83663,Asian Flags,Taiwan,337308,0.15,no
+83663,Asian Flags,Hong Kong,337298,0.151,no
+83663,Asian Flags,South Korea,337306,0.151,yes
+83663,Asian Flags,Thailand,337309,0.15,no
+83663,Asian Flags,Vietnam,337310,0.15,no
+83663,Asian Flags,Maldives,337301,0.151,yes
+83663,Asian Flags,India,337299,0.15,yes
+83663,Asian Flags,Sri Lanka,337307,0.151,no
+83663,Asian Flags,Bangladesh,337296,0.15,no
+83663,Caribbean Flags,Montserrat,337634,0.151,no
+83663,Caribbean Flags,Bonaire,337627,0.3,no
+83663,Caribbean Flags,St Kitts and Nevis,337635,0.151,no
+83663,Caribbean Flags,Trinidad,337637,0.151,yes
+83663,Caribbean Flags,Grenada,337630,0.349,no
+83663,Caribbean Flags,Bahamas,337625,0.151,no
+83663,Caribbean Flags,Jamaica,337632,0.15,yes
+83663,Caribbean Flags,Barbados,337626,0.15,no
+83663,Caribbean Flags,Dominica,337629,0.3,no
+83663,Caribbean Flags,Haiti,337631,0.201,no
+83663,Caribbean Flags,Aruba,337624,0.326,no
+83663,Caribbean Flags,Anguilla,337623,0.152,no
+83663,Caribbean Flags,St Lucia,337636,0.201,no
+83663,Caribbean Flags,Martinique,337633,0.3,no
+83723,Asian Flags,Japan,337300,0.15,yes
+83723,Asian Flags,Taiwan,337308,0.15,yes
+83723,Asian Flags,India,337299,0.15,yes
+83723,Asian Flags,Bangladesh,337296,0.15,yes
+83723,Asian Flags,Saudi Arabia,337304,0.15,yes
+83723,Asian Flags,Sri Lanka,337307,0.15,yes
+83723,Asian Flags,Maldives,337301,0.15,no
+83723,Asian Flags,Singapore,337305,0.15,no
+83723,Asian Flags,Nepal,337302,0.15,yes
+83723,Asian Flags,Thailand,337309,0.15,no
+83723,Asian Flags,Hong Kong,337298,0.15,yes
+83723,Asian Flags,Philippines,337303,0.15,yes
+83723,Asian Flags,Vietnam,337310,0.15,yes
+83723,Asian Flags,China,337297,0.15,yes
+83723,Asian Flags,South Korea,337306,0.15,yes
+83723,Caribbean Flags,Anguilla,337623,0.15,no
+83723,Caribbean Flags,Martinique,337633,0.15,no
+83723,Caribbean Flags,Grenada,337630,0.15,no
+83723,Caribbean Flags,Haiti,337631,0.15,no
+83723,Caribbean Flags,St Kitts and Nevis,337635,0.15,no
+83723,Caribbean Flags,Jamaica,337632,0.15,yes
+83723,Caribbean Flags,Cuba,337628,0.15,yes
+83723,Caribbean Flags,Aruba,337624,0.15,no
+83723,Caribbean Flags,Barbados,337626,0.15,yes
+83723,Caribbean Flags,Montserrat,337634,0.15,no
+83723,Caribbean Flags,Trinidad,337637,0.15,yes
+83723,Caribbean Flags,Dominica,337629,0.15,yes
+83723,Caribbean Flags,Bahamas,337625,0.15,no
+83723,Caribbean Flags,Bonaire,337627,0.15,no
+83723,Caribbean Flags,St Lucia,337636,0.15,no

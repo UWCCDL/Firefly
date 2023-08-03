@@ -58,14 +58,15 @@ library(SlimStampeRData)  # SlimStampen-specific functions
 # Dashboard
 library(flexdashboard)  # Dashboard creation
 
-
-
+library(lme4)
+library(sjPlot)
 ```
 
 ```{r}
 prior_knowledge_analysis <- read_csv("prior_knowledge.csv", show_col_types = FALSE) 
 
- 
+prior_knowledge_analysis$userId <- as.factor(prior_knowledge_analysis$userId)
+
 
 ggplot(prior_knowledge_analysis, aes(x=answer, y=alpha, col=prior_knowledge))+
   #geom_boxplot()+
@@ -107,7 +108,7 @@ ylab(expression(paste(italic("SoF")))) +
   ylim(0.1, 0.5) +
   ggtitle(expression(paste ("Effect of Prior Knowledge Across Participants"))) +
   labs(col="Prior Knowledge", fill="Prior Knowledge") +
-  theme_minimal() 
+  theme_minimal() +
   theme(legend.position = "right",
         axis.text.x = element_text (angle=90),
         panel.grid.major = element_blank())
@@ -115,3 +116,51 @@ ylab(expression(paste(italic("SoF")))) +
 ggsave("figures/Prior_Knowledge_Across_Participants.png")
 ```
 
+## Slightly different figure
+
+```{r}
+ggplot(prior_knowledge_analysis, aes(y = alpha, x = userId, col = prior_knowledge, fill = prior_knowledge)) +
+  stat_summary(geom="point", fun.data = "mean_se", size=2.5, 
+               position = position_dodge()) +
+  stat_summary(geom="errorbar", fun.data = "mean_se", aes(group = prior_knowledge)) +
+  xlab("Participant ID") +
+  scale_color_d3() +
+  scale_x_discrete() +
+ylab(expression(paste(italic("SoF")))) +
+  ylim(0.1, 0.5) +
+  ggtitle(expression(paste ("Effect of Prior Knowledge Across Participants"))) +
+  labs(col="Prior Knowledge", fill="Prior Knowledge") +
+  theme_minimal() +
+  theme(legend.position = "right",
+        axis.text.x = element_text (angle=90),
+        panel.grid.major = element_blank())
+
+ggsave("figures/Prior_Knowledge_Across_Participants.png")
+```
+## Correlations between known and unknwon fact SOF
+
+Is there a correlation between the SOFs of the known and unknown facts?
+
+```{r, fig.width=5, fig.height=5}
+prior_agg <- prior_knowledge_analysis %>%
+  group_by(userId, prior_knowledge) %>%
+  summarize(alpha = mean(alpha)) %>%
+  pivot_wider(names_from = prior_knowledge, values_from = alpha)
+
+ggplot(prior_agg, aes(x=no, y=yes)) +
+  geom_smooth(method  ="lm") +
+  geom_point(size=4, col="blue", alpha=0.5) +
+  geom_text_repel(aes(label=userId)) +
+  xlab("SOF: Previously Unknown") +
+  ylab("SOF: Previously Known") +
+  ggtitle("SOF by Prior Knwledge") +
+  theme_minimal()
+```
+
+And finally, some MLM:
+
+```{r}
+base <- lmer(alpha ~ prior_knowledge  + (1|userId) +(0+prior_knowledge|userId), 
+             prior_knowledge_analysis)
+tab_model(base)
+```

@@ -135,7 +135,7 @@ ylab(expression(paste(italic("SoF")))) +
         axis.text.x = element_text (angle=90),
         panel.grid.major = element_blank())
 
-ggsave("figures/Prior_Knowledge_Across_Participants.png")
+ggsave("figures/Prior_Knowledge_Across_Participants_errorbars.png")
 ```
 ## Correlations between known and unknwon fact SOF
 
@@ -155,6 +155,8 @@ ggplot(prior_agg, aes(x=no, y=yes)) +
   ylab("SOF: Previously Known") +
   ggtitle("SOF by Prior Knwledge") +
   theme_minimal()
+
+ggsave("figures/PriorKnowledgeCorrelations.png")
 ```
 
 And finally, some MLM:

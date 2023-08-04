@@ -118,11 +118,14 @@ ggsave("figures/Prior_Knowledge_Across_Participants.png")
 
 ## Slightly different figure
 
+
+
 ```{r}
-ggplot(prior_knowledge_analysis, aes(y = alpha, x = userId, col = prior_knowledge, fill = prior_knowledge)) +
-  stat_summary(geom="point", fun.data = "mean_se", size=2.5, 
-               position = position_dodge()) +
-  stat_summary(geom="errorbar", fun.data = "mean_se", aes(group = prior_knowledge)) +
+ggplot(prior_knowledge_analysis, aes(y = alpha, x = userId, col = prior_knowledge)) +
+  stat_summary(geom="point", fun.data = "mean_se", size=4, alpha=0.5) +
+  geom_point(size=0.5, position = position_jitter(width = 0.2, height = 0.01), 
+             alpha=1) +
+  stat_summary(geom="errorbar", fun.data = "mean_se", width=0.2) +
   xlab("Participant ID") +
   scale_color_d3() +
   scale_x_discrete() +
@@ -139,27 +142,41 @@ ggsave("figures/Prior_Knowledge_Across_Participants_errorbars.png")
 ```
 ## Correlations between known and unknwon fact SOF
 
-Is there a correlation between the SOFs of the known and unknown facts?
+Is there a correlation between the SOFs of the known and unknown facts? To do so, we first need to summarize and reformat our dataframe:
 
-```{r, fig.width=5, fig.height=5}
+```{r}
 prior_agg <- prior_knowledge_analysis %>%
   group_by(userId, prior_knowledge) %>%
   summarize(alpha = mean(alpha)) %>%
   pivot_wider(names_from = prior_knowledge, values_from = alpha)
+```
 
-ggplot(prior_agg, aes(x=no, y=yes)) +
+The correlation between the SOFs of known and unknown facts is `r cor(prior_agg$yes, prior_agg$no)`. We can visualize it here
+
+```{r, fig.width=6, fig.height=6}
+ggplot(prior_agg, aes(x=no, y=yes, col=abs(yes-no))) +
   geom_smooth(method  ="lm") +
-  geom_point(size=4, col="blue", alpha=0.5) +
+  geom_point(size=4, alpha=1) +
   geom_text_repel(aes(label=userId)) +
+  scale_color_viridis(option="mako", end = 0.8) +
   xlab("SOF: Previously Unknown") +
   ylab("SOF: Previously Known") +
   ggtitle("SOF by Prior Knwledge") +
+  labs(color="|Difference|") +
+  annotate(x=0.18, y=0.25,                                                     
+           col="red",
+           geom="text", 
+           label=paste("r =",
+                       round(cor(prior_agg$yes, prior_agg$no),
+                             2))) +
   theme_minimal()
 
 ggsave("figures/PriorKnowledgeCorrelations.png")
 ```
 
-And finally, some MLM:
+## Mixed Linear Model Analysis
+
+And finally, some MLM to get some statistics. We are going to include all possible effects at the subject level, i.,e., both intercept and slope.  
 
 ```{r}
 base <- lmer(alpha ~ prior_knowledge  + (1|userId) +(0+prior_knowledge|userId), 

@@ -108,22 +108,6 @@ data <- inner_join(data, stimcategory)
 
 ```
 
-```{r, echo=FALSE, results= 'hide'}
-
-# combine sessions for participants who stopped and started lesson during stim session
-
-# sub01 AV African flags
-#data <- data %>%
-#  mutate(sessionId = if_else(sessionId == "4dc466d8-feb8-45a4-aacd-3a1afc22d230",
-#                             "951e068e-c7fc-454d-8821-1182a33cb49c",
-#                             sessionId))
-# sub03 HH WP3 
-#data <- data %>%
-#  mutate(sessionId = if_else(sessionId == "628793cf-5c5f-4e1b-ad01-33ee428fc278",
-#                             "7efcce37-ac19-40ea-91ea-a01b9ed1a6ce",
-#                             sessionId))  
-
-```
 
 ```{r, echo=FALSE, results= 'hide'}
 options(dplyr.summarise.inform = FALSE) # Disable the "`summarise()` has grouped output by" message 
@@ -260,7 +244,8 @@ names(scoreboarddata) <- gsub(" ", "_", names(scoreboarddata)) # replace spaces 
 scoreboarddata <- scoreboarddata %>%
   replace(is.na(.), FALSE) # replace NA with FALSE
 
-
+#knowledge <- cleandata_lastRep %>%
+#  select("screen_name", "userId", "lessonTitle", "answer", "factId", #"alpha")
 
 # Get number of facts seen and add it to the reactable
 cd1 <-   cleandata %>% 
@@ -334,58 +319,10 @@ ggplotly(graph, tooltip=c("y", "text")) %>%
 
 ```{r, echo=FALSE}
 
-# Speed of Forgetting by Participant
-graph=ggplot(cleandata_avg, aes(x=lessonTitle, y=MeanAlpha)) +
-  geom_boxplot(size=0.1, alpha=0.2) +
-  geom_line(aes(group=??, col=??), size=0.1, position=position_dodge(0)) +
-  geom_point(aes(fill=name_or_subtype, group=paired), size=2, shape=20, stroke=0, position=position_dodge(0)) +
-  xlab("Lesson") +
-  #scale_x_discrete(labels=xlabels) +
-  ylab("SoF") +
-  ylim(0.1, 0.55) +
-  ggtitle("Speed of Forgetting by Participant") +
-  labs(fill="Participant", col="Participant") +
-  theme_hc() +
-  theme(axis.title.x=element_blank(),
-        panel.grid.major = element_blank(),
-        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
-
-ggplotly(graph, tooltip=c("y", "text")) %>% 
-  layout(legend = list(orientation = "")) %>% 
-  config(displayModeBar=FALSE)
-
-```
-
-### Exp SoF 
-
-```{r fig.width= 10, fig.height= 4.5}
-
-cleandata_avg_exp <- cleandata_avg[!(cleandata_avg$group=="Student"),]
-
-graph=ggplot(cleandata_avg_exp, aes(x=lessonTitle, y=MeanAlpha, col=lessonTitle, fill=lessonTitle)) +
-  #geom_violin(width=1, size=0.1, alpha=0.2) +
-  geom_boxplot(width=.4,size=0.1, alpha=0.2) +
-  stat_summary(fun.y=mean, geom="pointrange", size=0.3, shape=1, color="black") +
-  geom_point(size=2, position=position_jitter(0.1)) +
-  xlab("Lesson") +
-  #scale_x_discrete(labels=xlabels) +
-  ylab("SoF") +
-  ylim(0.1, 0.55) +
-  ggtitle("Speed of Forgetting Across Lessons") +
-  theme_hc() +
-  theme(legend.position="none",
-        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
-ggplotly(graph, tooltip=c("y", "text")) %>% 
-  layout(legend = list(orientation = "h")) %>% 
-  config(displayModeBar=FALSE)
-
-```
 
 ### Exp SoF by Individual
 
 ```{r, echo=FALSE}
-
-
 
 # Speed of Forgetting by Participant
 graph=ggplot(cleandata_avg_exp, aes(x=lessonTitle, y=MeanAlpha, text=paste0(sub))) +

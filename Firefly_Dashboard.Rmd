@@ -127,7 +127,7 @@ ggplot(prior_knowledge_analysis, aes(y = alpha, x = userId, col = prior_knowledg
              alpha=1) +
   stat_summary(geom="errorbar", fun.data = "mean_se", width=0.2) +
   xlab("Participant ID") +
-  scale_color_d3() +
+  scale_color_lancet() +
   scale_x_discrete() +
 ylab(expression(paste(italic("SoF")))) +
   ylim(0.1, 0.5) +

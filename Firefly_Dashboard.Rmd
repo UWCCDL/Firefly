@@ -57,6 +57,7 @@ library(SlimStampeRData)  # SlimStampen-specific functions
 
 # Dashboard
 library(flexdashboard)  # Dashboard creation
+
 library(lme4)
 library(sjPlot)
 ```
@@ -67,7 +68,7 @@ prior_knowledge_analysis <- read_csv("prior_knowledge.csv", show_col_types = FAL
 prior_knowledge_analysis$userId <- as.factor(prior_knowledge_analysis$userId)
 
 
-ggplot(prior_knowledge_alldata, aes(x=answer, y=alpha, col=prior_knowledge))+
+ggplot(prior_knowledge_analysis, aes(x=answer, y=alpha, col=prior_knowledge))+
   #geom_boxplot()+
   geom_point(size=3, position=position_jitter(0.2)) +
   #geom_line(aes(group=prior_knowledge), size=0.1, position=position_dodge(0)) +
@@ -75,7 +76,7 @@ ggplot(prior_knowledge_alldata, aes(x=answer, y=alpha, col=prior_knowledge))+
   ylab("SoF") +
   scale_color_manual(values=c("darkblue", "lightgreen")) +
   scale_fill_manual(values=c("darkblue", "lightgreen")) +
-  ggtitle(paste("Prior Knowledge and SoF across Facts")) +
+  ggtitle(paste("Prior Knowledge across Facts")) +
   labs(col="prior_knowledge") +
   theme_hc() +
   theme(legend.position = "right",
@@ -92,39 +93,7 @@ ggsave("figures/Prior_Knowledge_Across_Facts.png")
 
 
 ```{r}
-#prior_knowledge_analysis <- prior_knowledge_analysis %>%
-#  left_join(cleandata_avg %>% select(userId, MeanAlpha))
-
-
-prior_knowledge_analysis1 <- read_csv("prior_knowledge_analysis1.csv", show_col_types = FALSE) 
-ggplot(prior_knowledge_analysis1, aes(y = alpha, x = as.factor(userId), col = prior_knowledge, fill = prior_knowledge)) +
-  stat_summary(geom="point", fun.data = "mean_sdl", size=2.5) +
-  stat_summary(geom="ribbon", fun.data = "mean_se", 
-               aes(group = prior_knowledge), 
-               col = NA, 
-               alpha = 0.25) +
-  stat_summary(geom="line", fun = "mean", aes(group = prior_knowledge)) +
-  xlab("Participant ID") +
-  scale_color_manual(values=c("darkblue", "lightgreen", "orange")) +
-  scale_fill_manual(values=c("darkblue", "lightgreen", "orange")) +
-  scale_x_discrete() +
-ylab(expression(paste(italic("SoF")))) +
-  ylim(0.1, 0.5) +
-  ggtitle(expression(paste ("Effect of Prior Knowledge Across Participants"))) +
-  labs(col="Prior Knowledge", fill="Prior Knowledge") +
-  theme_minimal() +
-  theme(legend.position = "right",
-        axis.text.x = element_text (angle=90),
-        panel.grid.major = element_blank())
-
-
-
-```
-
-
-```{r}
-
-ggplot(prior_knowledge_alldata, aes(y = alpha, x = userId, col = prior_knowledge, fill = prior_knowledge)) +
+ggplot(prior_knowledge_analysis, aes(y = alpha, x = userId, col = prior_knowledge, fill = prior_knowledge)) +
   stat_summary(geom="point", fun.data = "mean_sdl", size=2.5) +
   stat_summary(geom="ribbon", fun.data = "mean_se", 
                aes(group = prior_knowledge), 
@@ -144,26 +113,24 @@ ylab(expression(paste(italic("SoF")))) +
         axis.text.x = element_text (angle=90),
         panel.grid.major = element_blank())
 
- 
-
-#ggsave("figures/Prior_Knowledge_Across_Participants.png")
-
-
+ggsave("figures/Prior_Knowledge_Across_Participants.png")
 ```
 
-## Prior Knowledge across participants: point plot
+## Slightly different figure
+
+
 
 ```{r}
-ggplot(prior_knowledge_alldata, aes(y = alpha, x = userId, col = prior_knowledge, fill = prior_knowledge)) +
-  stat_summary(geom="point", fun.data = "mean_se", size=5, 
-               position = position_dodge()) +
-  stat_summary(geom="errorbar", size=0.8, color = "black", fun.data = "mean_se", aes(group = prior_knowledge)) +
+ggplot(prior_knowledge_analysis, aes(y = alpha, x = userId, col = prior_knowledge)) +
+  stat_summary(geom="point", fun.data = "mean_se", size=4, alpha=0.5) +
+  geom_point(size=0.5, position = position_jitter(width = 0.2, height = 0.01), 
+             alpha=1) +
+  stat_summary(geom="errorbar", fun.data = "mean_se", width=0.2) +
   xlab("Participant ID") +
-  scale_color_manual(values=c("darkblue", "lightgreen")) +
-  scale_fill_manual(values=c("darkblue", "lightgreen")) +
+  scale_color_lancet() +
   scale_x_discrete() +
 ylab(expression(paste(italic("SoF")))) +
-  ylim(0, 0.5) +
+  ylim(0.1, 0.5) +
   ggtitle(expression(paste ("Effect of Prior Knowledge Across Participants"))) +
   labs(col="Prior Knowledge", fill="Prior Knowledge") +
   theme_minimal() +
@@ -171,162 +138,48 @@ ylab(expression(paste(italic("SoF")))) +
         axis.text.x = element_text (angle=90),
         panel.grid.major = element_blank())
 
-```
-##Prior Knowledge across participants: bar graph
-
-```{r}
-prior_knowledge_alldata$prior_knowledge <- factor(prior_knowledge_alldata$prior_knowledge,
-    levels = c("no", "yes"))
-
-
-#Plot with added error bars
-plot_with_stacked_bar_and_error_bars <- ggplot(prior_knowledge_alldata, aes(x = factor(userId), y = alpha, fill = prior_knowledge)) +
-  geom_bar(stat = "summary", fun = "mean", position = "dodge", alpha = 0.7) +
-  geom_errorbar(stat = "summary", fun.data = "mean_se", position = position_dodge(width = 0.75), width = 0.25, size = 0.7) +
-  xlab("Participant ID") +
-  ylab(expression(paste(italic("SoF")))) +
-  ylim(0.0, 0.7) +
-  ggtitle(expression(paste("Effect of Prior Knowledge Across Participants"))) +
-  scale_fill_manual(values = c("darkblue", "lightgreen")) +
-  labs(fill = "Prior Knowledge") +
-  theme_minimal() +
-  theme(legend.position = "right",
-        axis.text.x = element_text(angle = 90),
-        panel.grid.major = element_blank())
-
-print(plot_with_stacked_bar_and_error_bars)
-
-
-
-
-
-ggsave("figures/Prior_Knowledge_Across_Participants_bargraph.png")
+ggsave("figures/Prior_Knowledge_Across_Participants_errorbars.png")
 ```
 ## Correlations between known and unknwon fact SOF
 
-Is there a correlation between the SOFs of the known and unknown facts?
+Is there a correlation between the SOFs of the known and unknown facts? To do so, we first need to summarize and reformat our dataframe:
 
-```{r, fig.width=5, fig.height=5}
+```{r}
 prior_agg <- prior_knowledge_analysis %>%
   group_by(userId, prior_knowledge) %>%
   summarize(alpha = mean(alpha)) %>%
   pivot_wider(names_from = prior_knowledge, values_from = alpha)
+```
 
-ggplot(prior_agg, aes(x=no, y=yes)) +
+The correlation between the SOFs of known and unknown facts is `r cor(prior_agg$yes, prior_agg$no)`. We can visualize it here
+
+```{r, fig.width=6, fig.height=6}
+ggplot(prior_agg, aes(x=no, y=yes, col=abs(yes-no))) +
   geom_smooth(method  ="lm") +
-  geom_point(size=4, col="blue", alpha=0.5) +
+  geom_point(size=4, alpha=1) +
   geom_text_repel(aes(label=userId)) +
+  scale_color_viridis(option="mako", end = 0.8) +
   xlab("SOF: Previously Unknown") +
   ylab("SOF: Previously Known") +
   ggtitle("SOF by Prior Knwledge") +
+  labs(color="|Difference|") +
+  annotate(x=0.18, y=0.25,                                                     
+           col="red",
+           geom="text", 
+           label=paste("r =",
+                       round(cor(prior_agg$yes, prior_agg$no),
+                             2))) +
   theme_minimal()
 
 ggsave("figures/PriorKnowledgeCorrelations.png")
 ```
 
-And finally, some MLM:
+## Mixed Linear Model Analysis
+
+And finally, some MLM to get some statistics. We are going to include all possible effects at the subject level, i.,e., both intercept and slope.  
 
 ```{r}
 base <- lmer(alpha ~ prior_knowledge  + (1|userId) +(0+prior_knowledge|userId), 
              prior_knowledge_analysis)
 tab_model(base)
-```
-
-```{r}
-#write.csv(cleandata_lastRep, "prior_knowledge_all.csv", row.names = FALSE)
-
-
-#cleandata_lastRep <- cleandata_lastRep %>% 
-#  mutate(BLC = -log(cleandata_firstRep$reactionTime - .300))
-
-
-new_dataframe <- cleandata_avg %>%
-  select(MeanAlpha, userId, lessonTitle) %>%
-  mutate(prior_knowledge = "all")%>%
-  mutate(factId = 11111)%>%
-  mutate(answer = "ans")%>%
-  rename(alpha = MeanAlpha)
-
- 
-prior_knowledge_alldata <- read_csv("prior_knowledge_all.csv", show_col_types = FALSE) 
-
-
-
-scatter_plot <- ggplot(prior_knowledge_alldata, aes(x = BLC, y = alpha)) +
-  geom_point(data = filter(prior_knowledge_alldata, prior_knowledge == "yes"),
-             color = "blue") +
-  geom_smooth(method  ="lm") +
-  labs(title = "Scatterplot of BLC vs. Alpha",
-       x = "BLC",
-       y = "Alpha")
-
-
-correlation_result <- cor.test(prior_knowledge_alldata$BLC,
-                                prior_knowledge_alldata$alpha)
-
-# Add correlation coefficient to the plot
-scatter_plot <- scatter_plot +
-  annotate("text", x = Inf, y = -Inf,
-           label = paste("r =", round(correlation_result$estimate, 2)),
-           hjust = 1, vjust = 0)
-
-# Display the scatterplot with correlation
-print(scatter_plot)
-
-
-```
-#DOES MLE WORK???
-```{r}
-recovered_blc <- read_csv("example.csv", show_col_types = FALSE)
-
-# Create a scatterplot
-scatterplot <- ggplot(recovered_blc, aes(x = BLC, y = prior_knowledge)) +
-  geom_point(color = "darkblue") +
-  geom_smooth(method = "lm", color = "darkblue") +
-  labs(title = "Scatterplot of Recovered BLC vs. Prior Knowledge",
-       x = "BLC",
-       y = "Prior Knowledge")
-
-# Calculate correlation and p-value
-correlationResult <- cor.test(recovered_blc$BLC, recovered_blc$prior_knowledge)
-
-# Add correlation coefficient and p-value to the plot
-scatterplot <- scatterplot +
-  annotate("text", x = Inf, y = -Inf,
-           label = paste("r =", round(correlationResult$estimate, 2),
-                         "\n",
-                         "p < .0001"),
-           hjust = 1, vjust = -0.5)
-
-# Display the scatterplot with correlation
-print(scatterplot)
-
-p.value <- format(correlationResult$p.value, digits = 2)
-print(p.value)
-
-ggsave("figures/recovered_blc_correlations.png")
-
-
-```
-## visualization of one participant
-```{r}
-user_id_to_keep <- 83678
-recovered_data_83678 <- recovered_blc[recovered_blc$Subject == user_id_to_keep, ]
-
-
-ScatterPlot <- ggplot(recovered_data_83678, aes(x = Fact, y = BLC, color = factor(prior_knowledge))) +
-  geom_point(size = 3) +  # Adjust the size of the dots
-  labs(title = "Participant 83678 Recovered BLC and Prior Knowledge",
-       x = "Fact",
-       y = "BLC") +
-  scale_color_manual(values = c("darkblue", "lightgreen")) +
-  theme_minimal() +
-  theme(legend.position = "right",
-        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +  # Rotate x-axis labels
-  ylim(-2, 1)  # Set y-axis limits from -2 to +1
-
-print(ScatterPlot)
-
-
-
 ```

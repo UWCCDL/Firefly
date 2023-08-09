@@ -354,15 +354,17 @@ for (tnr in seq(0, 1-step, step)) {
 The global AUC is `r blc_AUC`.
 
 ```{r}
-ggplot(arrange(curve, TPR), aes(x=TNR, y=TPR)) + 
-  geom_point(size=2, col="red", alpha=0.5) + 
-  geom_line(col="red") + 
+ggplot(arrange(curve, TPR), aes(x=TNR, y=TPR, col=Threshold)) + 
+  geom_point(size=2,  alpha=1) + 
+  geom_line() + 
   geom_text_repel(aes(label=paste("BLC =", Threshold)), 
                   direction="both",
                   size=3) +
   ylab("Sensitivity (True Positive Rate)") +
   xlab("Specificity (True Negative Rate)") +
   scale_x_reverse() +
+  scale_color_viridis(option="viridis") +
+  labs(col="Recovered BLC") +
   ylim(0, 1) +
   xlim(1, 0) +
   coord_equal() +

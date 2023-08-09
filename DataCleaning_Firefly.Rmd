@@ -175,6 +175,12 @@ cleandata$userId <- as.character(cleandata$userId)
 
 ```{r, echo=FALSE, results= 'hide'}
 
+cleandata_firstRep <- cleandata %>%
+  group_by(lessonTitle, userId, factId, group, week, lessonCategory, lessonType, age, date, sub) %>%
+  mutate(FirstRepetition = min(repetition)) %>%
+  filter(repetition == FirstRepetition) %>%
+  ungroup()
+
 # Calculate avg alpha
 cleandata_lastRep <- cleandata %>%
   group_by(lessonTitle, userId, factId, group, week, lessonCategory, lessonType, age, date, sub) %>%
@@ -276,6 +282,18 @@ cd4 <- cd3 %>%
 
 scoreboarddata$TotalFactAvg <- cd4$Avg
 scoreboarddata$TotalFactAvgSD <- cd4$sd
+
+
+#viewing average sof for facts with no prior knowledge
+
+unknown_sof <- prior_knowledge_alldata %>%
+  filter(prior_knowledge == "yes" & (lessonTitle == "Asian Flags" | lessonTitle == "Caribbean Flags")) %>%
+  group_by(userId, lessonTitle) %>%
+  summarize(average_alpha = mean(alpha))
+
+# View the new dataset
+print(unknown_sof)
+
 
  
 

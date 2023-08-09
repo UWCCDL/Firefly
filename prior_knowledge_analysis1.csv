@@ -1,0 +1,879 @@
+﻿screen_name,userId,lessonTitle,answer,factId,alpha,prior_knowledge
+user57,83657,Asian Flags,South Korea,337306,0.15,yes
+user57,83657,Asian Flags,South Korea,337306,0.15,yes
+user57,83657,Asian Flags,India,337299,0.15,no
+user57,83657,Asian Flags,India,337299,0.15,no
+user57,83657,Asian Flags,Maldives,337301,0.15,no
+user57,83657,Asian Flags,Maldives,337301,0.15,no
+user57,83657,Asian Flags,Bangladesh,337296,0.15,no
+user57,83657,Asian Flags,Bangladesh,337296,0.15,no
+user57,83657,Asian Flags,Taiwan,337308,0.15,no
+user57,83657,Asian Flags,Taiwan,337308,0.15,no
+user57,83657,Asian Flags,Hong Kong,337298,0.15,no
+user57,83657,Asian Flags,Hong Kong,337298,0.15,no
+user57,83657,Asian Flags,Sri Lanka,337307,0.15,no
+user57,83657,Asian Flags,Sri Lanka,337307,0.15,no
+user57,83657,Asian Flags,Thailand,337309,0.15,no
+user57,83657,Asian Flags,Thailand,337309,0.15,no
+user57,83657,Asian Flags,China,337297,0.15,yes
+user57,83657,Asian Flags,China,337297,0.15,yes
+user57,83657,Asian Flags,Singapore,337305,0.151,no
+user57,83657,Asian Flags,Singapore,337305,0.151,no
+user57,83657,Asian Flags,Philippines,337303,0.15,no
+user57,83657,Asian Flags,Philippines,337303,0.15,no
+user57,83657,Asian Flags,Nepal,337302,0.15,yes
+user57,83657,Asian Flags,Nepal,337302,0.15,yes
+user57,83657,Asian Flags,Saudi Arabia,337304,0.15,no
+user57,83657,Asian Flags,Saudi Arabia,337304,0.15,no
+user57,83657,Asian Flags,Vietnam,337310,0.15,no
+user57,83657,Asian Flags,Vietnam,337310,0.15,no
+user57,83657,Asian Flags,Japan,337300,0.15,yes
+user57,83657,Asian Flags,Japan,337300,0.15,yes
+user57,83657,Caribbean Flags,Bahamas,337625,0.15,no
+user57,83657,Caribbean Flags,Bahamas,337625,0.15,no
+user57,83657,Caribbean Flags,St Lucia,337636,0.15,yes
+user57,83657,Caribbean Flags,St Lucia,337636,0.15,yes
+user57,83657,Caribbean Flags,Bonaire,337627,0.15,no
+user57,83657,Caribbean Flags,Bonaire,337627,0.15,no
+user57,83657,Caribbean Flags,Grenada,337630,0.15,yes
+user57,83657,Caribbean Flags,Grenada,337630,0.15,yes
+user57,83657,Caribbean Flags,Haiti,337631,0.15,no
+user57,83657,Caribbean Flags,Haiti,337631,0.15,no
+user57,83657,Caribbean Flags,Montserrat,337634,0.15,yes
+user57,83657,Caribbean Flags,Montserrat,337634,0.15,yes
+user57,83657,Caribbean Flags,Dominica,337629,0.15,no
+user57,83657,Caribbean Flags,Dominica,337629,0.15,no
+user57,83657,Caribbean Flags,Barbados,337626,0.15,no
+user57,83657,Caribbean Flags,Barbados,337626,0.15,no
+user57,83657,Caribbean Flags,Anguilla,337623,0.15,no
+user57,83657,Caribbean Flags,Anguilla,337623,0.15,no
+user57,83657,Caribbean Flags,Cuba,337628,0.15,no
+user57,83657,Caribbean Flags,Cuba,337628,0.15,no
+user57,83657,Caribbean Flags,Trinidad,337637,0.15,yes
+user57,83657,Caribbean Flags,Trinidad,337637,0.15,yes
+user57,83657,Caribbean Flags,Martinique,337633,0.15,no
+user57,83657,Caribbean Flags,Martinique,337633,0.15,no
+user57,83657,Caribbean Flags,St Kitts and Nevis,337635,0.15,no
+user57,83657,Caribbean Flags,St Kitts and Nevis,337635,0.15,no
+user57,83657,Caribbean Flags,Aruba,337624,0.15,no
+user57,83657,Caribbean Flags,Aruba,337624,0.15,no
+user57,83657,Caribbean Flags,Jamaica,337632,0.15,no
+user57,83657,Caribbean Flags,Jamaica,337632,0.15,no
+user59,83659,Asian Flags,Vietnam,337310,0.15,no
+user59,83659,Asian Flags,Vietnam,337310,0.15,no
+user59,83659,Asian Flags,Nepal,337302,0.15,no
+user59,83659,Asian Flags,Nepal,337302,0.15,no
+user59,83659,Asian Flags,South Korea,337306,0.15,yes
+user59,83659,Asian Flags,South Korea,337306,0.15,yes
+user59,83659,Asian Flags,Philippines,337303,0.15,no
+user59,83659,Asian Flags,Philippines,337303,0.15,no
+user59,83659,Asian Flags,Japan,337300,0.15,yes
+user59,83659,Asian Flags,Japan,337300,0.15,yes
+user59,83659,Asian Flags,Saudi Arabia,337304,0.15,no
+user59,83659,Asian Flags,Saudi Arabia,337304,0.15,no
+user59,83659,Asian Flags,Singapore,337305,0.15,no
+user59,83659,Asian Flags,Singapore,337305,0.15,no
+user59,83659,Asian Flags,Thailand,337309,0.15,no
+user59,83659,Asian Flags,Thailand,337309,0.15,no
+user59,83659,Asian Flags,India,337299,0.15,no
+user59,83659,Asian Flags,India,337299,0.15,no
+user59,83659,Asian Flags,Hong Kong,337298,0.15,no
+user59,83659,Asian Flags,Hong Kong,337298,0.15,no
+user59,83659,Asian Flags,Sri Lanka,337307,0.15,no
+user59,83659,Asian Flags,Sri Lanka,337307,0.15,no
+user59,83659,Asian Flags,Taiwan,337308,0.15,no
+user59,83659,Asian Flags,Taiwan,337308,0.15,no
+user59,83659,Asian Flags,China,337297,0.15,yes
+user59,83659,Asian Flags,China,337297,0.15,yes
+user59,83659,Asian Flags,Maldives,337301,0.15,no
+user59,83659,Asian Flags,Maldives,337301,0.15,no
+user59,83659,Asian Flags,Bangladesh,337296,0.15,no
+user59,83659,Asian Flags,Bangladesh,337296,0.15,no
+user59,83659,Caribbean Flags,Trinidad,337637,0.26,no
+user59,83659,Caribbean Flags,Trinidad,337637,0.26,no
+user59,83659,Caribbean Flags,Anguilla,337623,0.15,no
+user59,83659,Caribbean Flags,Anguilla,337623,0.15,no
+user59,83659,Caribbean Flags,Aruba,337624,0.15,no
+user59,83659,Caribbean Flags,Aruba,337624,0.15,no
+user59,83659,Caribbean Flags,Montserrat,337634,0.15,no
+user59,83659,Caribbean Flags,Montserrat,337634,0.15,no
+user59,83659,Caribbean Flags,Martinique,337633,0.15,no
+user59,83659,Caribbean Flags,Martinique,337633,0.15,no
+user59,83659,Caribbean Flags,Dominica,337629,0.273,no
+user59,83659,Caribbean Flags,Dominica,337629,0.273,no
+user59,83659,Caribbean Flags,Bahamas,337625,0.15,no
+user59,83659,Caribbean Flags,Bahamas,337625,0.15,no
+user59,83659,Caribbean Flags,St Kitts and Nevis,337635,0.15,no
+user59,83659,Caribbean Flags,St Kitts and Nevis,337635,0.15,no
+user59,83659,Caribbean Flags,Barbados,337626,0.15,no
+user59,83659,Caribbean Flags,Barbados,337626,0.15,no
+user59,83659,Caribbean Flags,St Lucia,337636,0.15,no
+user59,83659,Caribbean Flags,St Lucia,337636,0.15,no
+user59,83659,Caribbean Flags,Grenada,337630,0.15,no
+user59,83659,Caribbean Flags,Grenada,337630,0.15,no
+user59,83659,Caribbean Flags,Cuba,337628,0.15,no
+user59,83659,Caribbean Flags,Cuba,337628,0.15,no
+user59,83659,Caribbean Flags,Bonaire,337627,0.15,no
+user59,83659,Caribbean Flags,Bonaire,337627,0.15,no
+user59,83659,Caribbean Flags,Haiti,337631,0.15,no
+user59,83659,Caribbean Flags,Haiti,337631,0.15,no
+user59,83659,Caribbean Flags,Jamaica,337632,0.15,no
+user59,83659,Caribbean Flags,Jamaica,337632,0.15,no
+user64,83664,Asian Flags,Saudi Arabia,337304,0.25,no
+user64,83664,Asian Flags,Saudi Arabia,337304,0.25,no
+user64,83664,Asian Flags,Japan,337300,0.25,yes
+user64,83664,Asian Flags,Japan,337300,0.25,yes
+user64,83664,Asian Flags,Bangladesh,337296,0.201,no
+user64,83664,Asian Flags,Bangladesh,337296,0.201,no
+user64,83664,Asian Flags,India,337299,0.201,no
+user64,83664,Asian Flags,India,337299,0.201,no
+user64,83664,Asian Flags,Vietnam,337310,0.201,no
+user64,83664,Asian Flags,Vietnam,337310,0.201,no
+user64,83664,Asian Flags,Sri Lanka,337307,0.151,no
+user64,83664,Asian Flags,Sri Lanka,337307,0.151,no
+user64,83664,Asian Flags,Singapore,337305,0.511,no
+user64,83664,Asian Flags,Singapore,337305,0.511,no
+user64,83664,Asian Flags,Thailand,337309,0.418,no
+user64,83664,Asian Flags,Thailand,337309,0.418,no
+user64,83664,Asian Flags,Taiwan,337308,0.468,no
+user64,83664,Asian Flags,Taiwan,337308,0.468,no
+user64,83664,Asian Flags,Philippines,337303,0.516,no
+user64,83664,Asian Flags,Philippines,337303,0.516,no
+user64,83664,Asian Flags,Maldives,337301,0.475,no
+user64,83664,Asian Flags,Maldives,337301,0.475,no
+user64,83664,Asian Flags,Hong Kong,337298,0.349,no
+user64,83664,Asian Flags,Hong Kong,337298,0.349,no
+user64,83664,Asian Flags,South Korea,337306,0.151,no
+user64,83664,Asian Flags,South Korea,337306,0.151,no
+user64,83664,Asian Flags,Nepal,337302,0.533,no
+user64,83664,Asian Flags,Nepal,337302,0.533,no
+user64,83664,Caribbean Flags,Jamaica,337632,0.25,yes
+user64,83664,Caribbean Flags,Jamaica,337632,0.25,yes
+user64,83664,Caribbean Flags,Aruba,337624,0.25,no
+user64,83664,Caribbean Flags,Aruba,337624,0.25,no
+user64,83664,Caribbean Flags,Barbados,337626,0.3,no
+user64,83664,Caribbean Flags,Barbados,337626,0.3,no
+user64,83664,Caribbean Flags,Trinidad,337637,0.25,no
+user64,83664,Caribbean Flags,Trinidad,337637,0.25,no
+user64,83664,Caribbean Flags,Grenada,337630,0.436,no
+user64,83664,Caribbean Flags,Grenada,337630,0.436,no
+user64,83664,Caribbean Flags,Montserrat,337634,0.573,no
+user64,83664,Caribbean Flags,Montserrat,337634,0.573,no
+user64,83664,Caribbean Flags,St Kitts and Nevis,337635,0.3,no
+user64,83664,Caribbean Flags,St Kitts and Nevis,337635,0.3,no
+user64,83664,Caribbean Flags,Bonaire,337627,0.3,no
+user64,83664,Caribbean Flags,Bonaire,337627,0.3,no
+user64,83664,Caribbean Flags,Anguilla,337623,0.48,no
+user64,83664,Caribbean Flags,Anguilla,337623,0.48,no
+user64,83664,Caribbean Flags,Martinique,337633,0.468,no
+user64,83664,Caribbean Flags,Martinique,337633,0.468,no
+user64,83664,Caribbean Flags,Bahamas,337625,0.473,no
+user64,83664,Caribbean Flags,Bahamas,337625,0.473,no
+user64,83664,Caribbean Flags,Haiti,337631,0.479,no
+user64,83664,Caribbean Flags,Haiti,337631,0.479,no
+user64,83664,Caribbean Flags,Dominica,337629,0.517,no
+user64,83664,Caribbean Flags,Dominica,337629,0.517,no
+user61,83661,Asian Flags,Bangladesh,337296,0.15,yes
+user61,83661,Asian Flags,Bangladesh,337296,0.15,yes
+user61,83661,Asian Flags,Philippines,337303,0.15,no
+user61,83661,Asian Flags,Philippines,337303,0.15,no
+user61,83661,Asian Flags,Japan,337300,0.15,yes
+user61,83661,Asian Flags,Japan,337300,0.15,yes
+user61,83661,Asian Flags,India,337299,0.15,yes
+user61,83661,Asian Flags,India,337299,0.15,yes
+user61,83661,Asian Flags,Singapore,337305,0.15,yes
+user61,83661,Asian Flags,Singapore,337305,0.15,yes
+user61,83661,Asian Flags,South Korea,337306,0.15,yes
+user61,83661,Asian Flags,South Korea,337306,0.15,yes
+user61,83661,Asian Flags,Sri Lanka,337307,0.15,no
+user61,83661,Asian Flags,Sri Lanka,337307,0.15,no
+user61,83661,Asian Flags,Maldives,337301,0.15,no
+user61,83661,Asian Flags,Maldives,337301,0.15,no
+user61,83661,Asian Flags,Vietnam,337310,0.15,no
+user61,83661,Asian Flags,Vietnam,337310,0.15,no
+user61,83661,Asian Flags,Nepal,337302,0.15,yes
+user61,83661,Asian Flags,Nepal,337302,0.15,yes
+user61,83661,Asian Flags,Thailand,337309,0.15,yes
+user61,83661,Asian Flags,Thailand,337309,0.15,yes
+user61,83661,Asian Flags,Taiwan,337308,0.15,yes
+user61,83661,Asian Flags,Taiwan,337308,0.15,yes
+user61,83661,Asian Flags,Hong Kong,337298,0.15,yes
+user61,83661,Asian Flags,Hong Kong,337298,0.15,yes
+user61,83661,Asian Flags,China,337297,0.15,yes
+user61,83661,Asian Flags,China,337297,0.15,yes
+user61,83661,Asian Flags,Saudi Arabia,337304,0.15,yes
+user61,83661,Asian Flags,Saudi Arabia,337304,0.15,yes
+user61,83661,Caribbean Flags,Bahamas,337625,0.15,no
+user61,83661,Caribbean Flags,Bahamas,337625,0.15,no
+user61,83661,Caribbean Flags,St Lucia,337636,0.15,no
+user61,83661,Caribbean Flags,St Lucia,337636,0.15,no
+user61,83661,Caribbean Flags,Anguilla,337623,0.27,no
+user61,83661,Caribbean Flags,Anguilla,337623,0.27,no
+user61,83661,Caribbean Flags,Aruba,337624,0.15,no
+user61,83661,Caribbean Flags,Aruba,337624,0.15,no
+user61,83661,Caribbean Flags,Bonaire,337627,0.2,no
+user61,83661,Caribbean Flags,Bonaire,337627,0.2,no
+user61,83661,Caribbean Flags,Cuba,337628,0.15,yes
+user61,83661,Caribbean Flags,Cuba,337628,0.15,yes
+user61,83661,Caribbean Flags,St Kitts and Nevis,337635,0.15,yes
+user61,83661,Caribbean Flags,St Kitts and Nevis,337635,0.15,yes
+user61,83661,Caribbean Flags,Haiti,337631,0.15,no
+user61,83661,Caribbean Flags,Haiti,337631,0.15,no
+user61,83661,Caribbean Flags,Jamaica,337632,0.15,yes
+user61,83661,Caribbean Flags,Jamaica,337632,0.15,yes
+user61,83661,Caribbean Flags,Martinique,337633,0.15,no
+user61,83661,Caribbean Flags,Martinique,337633,0.15,no
+user61,83661,Caribbean Flags,Grenada,337630,0.15,no
+user61,83661,Caribbean Flags,Grenada,337630,0.15,no
+user61,83661,Caribbean Flags,Barbados,337626,0.15,no
+user61,83661,Caribbean Flags,Barbados,337626,0.15,no
+user61,83661,Caribbean Flags,Trinidad,337637,0.15,yes
+user61,83661,Caribbean Flags,Trinidad,337637,0.15,yes
+user61,83661,Caribbean Flags,Montserrat,337634,0.15,no
+user61,83661,Caribbean Flags,Montserrat,337634,0.15,no
+user61,83661,Caribbean Flags,Dominica,337629,0.15,no
+user61,83661,Caribbean Flags,Dominica,337629,0.15,no
+user73,83678,Asian Flags,Taiwan,337308,0.15,yes
+user73,83678,Asian Flags,Taiwan,337308,0.15,yes
+user73,83678,Asian Flags,Saudi Arabia,337304,0.15,yes
+user73,83678,Asian Flags,Saudi Arabia,337304,0.15,yes
+user73,83678,Asian Flags,Philippines,337303,0.15,yes
+user73,83678,Asian Flags,Philippines,337303,0.15,yes
+user73,83678,Asian Flags,India,337299,0.15,yes
+user73,83678,Asian Flags,India,337299,0.15,yes
+user73,83678,Asian Flags,Sri Lanka,337307,0.15,no
+user73,83678,Asian Flags,Sri Lanka,337307,0.15,no
+user73,83678,Asian Flags,Bangladesh,337296,0.15,no
+user73,83678,Asian Flags,Bangladesh,337296,0.15,no
+user73,83678,Asian Flags,Nepal,337302,0.15,no
+user73,83678,Asian Flags,Nepal,337302,0.15,no
+user73,83678,Asian Flags,Thailand,337309,0.15,no
+user73,83678,Asian Flags,Thailand,337309,0.15,no
+user73,83678,Asian Flags,Hong Kong,337298,0.15,yes
+user73,83678,Asian Flags,Hong Kong,337298,0.15,yes
+user73,83678,Asian Flags,China,337297,0.15,yes
+user73,83678,Asian Flags,China,337297,0.15,yes
+user73,83678,Asian Flags,Japan,337300,0.15,yes
+user73,83678,Asian Flags,Japan,337300,0.15,yes
+user73,83678,Asian Flags,South Korea,337306,0.15,yes
+user73,83678,Asian Flags,South Korea,337306,0.15,yes
+user73,83678,Asian Flags,Vietnam,337310,0.15,yes
+user73,83678,Asian Flags,Vietnam,337310,0.15,yes
+user73,83678,Asian Flags,Maldives,337301,0.15,no
+user73,83678,Asian Flags,Maldives,337301,0.15,no
+user73,83678,Asian Flags,Singapore,337305,0.15,no
+user73,83678,Asian Flags,Singapore,337305,0.15,no
+user73,83678,Caribbean Flags,Montserrat,337634,0.15,no
+user73,83678,Caribbean Flags,Montserrat,337634,0.15,no
+user73,83678,Caribbean Flags,Aruba,337624,0.151,no
+user73,83678,Caribbean Flags,Aruba,337624,0.151,no
+user73,83678,Caribbean Flags,Bahamas,337625,0.15,no
+user73,83678,Caribbean Flags,Bahamas,337625,0.15,no
+user73,83678,Caribbean Flags,Dominica,337629,0.15,no
+user73,83678,Caribbean Flags,Dominica,337629,0.15,no
+user73,83678,Caribbean Flags,Barbados,337626,0.15,no
+user73,83678,Caribbean Flags,Barbados,337626,0.15,no
+user73,83678,Caribbean Flags,Bonaire,337627,0.15,no
+user73,83678,Caribbean Flags,Bonaire,337627,0.15,no
+user73,83678,Caribbean Flags,St Kitts and Nevis,337635,0.15,no
+user73,83678,Caribbean Flags,St Kitts and Nevis,337635,0.15,no
+user73,83678,Caribbean Flags,Jamaica,337632,0.15,yes
+user73,83678,Caribbean Flags,Jamaica,337632,0.15,yes
+user73,83678,Caribbean Flags,Grenada,337630,0.15,no
+user73,83678,Caribbean Flags,Grenada,337630,0.15,no
+user73,83678,Caribbean Flags,Cuba,337628,0.15,no
+user73,83678,Caribbean Flags,Cuba,337628,0.15,no
+user73,83678,Caribbean Flags,Trinidad,337637,0.15,no
+user73,83678,Caribbean Flags,Trinidad,337637,0.15,no
+user73,83678,Caribbean Flags,Martinique,337633,0.15,no
+user73,83678,Caribbean Flags,Martinique,337633,0.15,no
+user73,83678,Caribbean Flags,St Lucia,337636,0.15,no
+user73,83678,Caribbean Flags,St Lucia,337636,0.15,no
+user73,83678,Caribbean Flags,Anguilla,337623,0.207,no
+user73,83678,Caribbean Flags,Anguilla,337623,0.207,no
+user73,83678,Caribbean Flags,Haiti,337631,0.15,no
+user73,83678,Caribbean Flags,Haiti,337631,0.15,no
+user70,83670,Asian Flags,China,337297,0.201,yes
+user70,83670,Asian Flags,China,337297,0.201,yes
+user70,83670,Asian Flags,Sri Lanka,337307,0.201,no
+user70,83670,Asian Flags,Sri Lanka,337307,0.201,no
+user70,83670,Asian Flags,Bangladesh,337296,0.201,yes
+user70,83670,Asian Flags,Bangladesh,337296,0.201,yes
+user70,83670,Asian Flags,India,337299,0.201,yes
+user70,83670,Asian Flags,India,337299,0.201,yes
+user70,83670,Asian Flags,Singapore,337305,0.201,no
+user70,83670,Asian Flags,Singapore,337305,0.201,no
+user70,83670,Asian Flags,Vietnam,337310,0.15,yes
+user70,83670,Asian Flags,Vietnam,337310,0.15,yes
+user70,83670,Asian Flags,Taiwan,337308,0.498,no
+user70,83670,Asian Flags,Taiwan,337308,0.498,no
+user70,83670,Asian Flags,Philippines,337303,0.201,no
+user70,83670,Asian Flags,Philippines,337303,0.201,no
+user70,83670,Asian Flags,Nepal,337302,0.151,no
+user70,83670,Asian Flags,Nepal,337302,0.151,no
+user70,83670,Asian Flags,Japan,337300,0.15,yes
+user70,83670,Asian Flags,Japan,337300,0.15,yes
+user70,83670,Asian Flags,Saudi Arabia,337304,0.15,no
+user70,83670,Asian Flags,Saudi Arabia,337304,0.15,no
+user70,83670,Asian Flags,Thailand,337309,0.752,no
+user70,83670,Asian Flags,Thailand,337309,0.752,no
+user70,83670,Asian Flags,South Korea,337306,0.151,yes
+user70,83670,Asian Flags,South Korea,337306,0.151,yes
+user70,83670,Asian Flags,Hong Kong,337298,0.15,no
+user70,83670,Asian Flags,Hong Kong,337298,0.15,no
+user70,83670,Asian Flags,Maldives,337301,0.449,no
+user70,83670,Asian Flags,Maldives,337301,0.449,no
+user70,83670,Caribbean Flags,Martinique,337633,0.395,no
+user70,83670,Caribbean Flags,Martinique,337633,0.395,no
+user70,83670,Caribbean Flags,Cuba,337628,0.3,no
+user70,83670,Caribbean Flags,Cuba,337628,0.3,no
+user70,83670,Caribbean Flags,Trinidad,337637,0.378,no
+user70,83670,Caribbean Flags,Trinidad,337637,0.378,no
+user70,83670,Caribbean Flags,Haiti,337631,0.362,no
+user70,83670,Caribbean Flags,Haiti,337631,0.362,no
+user70,83670,Caribbean Flags,Jamaica,337632,0.47,no
+user70,83670,Caribbean Flags,Jamaica,337632,0.47,no
+user70,83670,Caribbean Flags,Aruba,337624,0.387,no
+user70,83670,Caribbean Flags,Aruba,337624,0.387,no
+user70,83670,Caribbean Flags,Anguilla,337623,0.514,no
+user70,83670,Caribbean Flags,Anguilla,337623,0.514,no
+user70,83670,Caribbean Flags,Montserrat,337634,0.543,no
+user70,83670,Caribbean Flags,Montserrat,337634,0.543,no
+user70,83670,Caribbean Flags,Dominica,337629,0.25,no
+user70,83670,Caribbean Flags,Dominica,337629,0.25,no
+user70,83670,Caribbean Flags,Bonaire,337627,0.581,no
+user70,83670,Caribbean Flags,Bonaire,337627,0.581,no
+user70,83670,Caribbean Flags,St Kitts and Nevis,337635,0.53,no
+user70,83670,Caribbean Flags,St Kitts and Nevis,337635,0.53,no
+user70,83670,Caribbean Flags,Grenada,337630,0.201,no
+user70,83670,Caribbean Flags,Grenada,337630,0.201,no
+user70,83670,Caribbean Flags,Barbados,337626,0.593,no
+user70,83670,Caribbean Flags,Barbados,337626,0.593,no
+user70,83670,Caribbean Flags,Bahamas,337625,0.349,no
+user70,83670,Caribbean Flags,Bahamas,337625,0.349,no
+user70,83670,Caribbean Flags,St Lucia,337636,0.527,no
+user70,83670,Caribbean Flags,St Lucia,337636,0.527,no
+user80,83698,Asian Flags,Hong Kong,337298,0.151,no
+user80,83698,Asian Flags,Hong Kong,337298,0.151,no
+user80,83698,Asian Flags,South Korea,337306,0.151,yes
+user80,83698,Asian Flags,South Korea,337306,0.151,yes
+user80,83698,Asian Flags,Maldives,337301,0.15,no
+user80,83698,Asian Flags,Maldives,337301,0.15,no
+user80,83698,Asian Flags,Taiwan,337308,0.15,no
+user80,83698,Asian Flags,Taiwan,337308,0.15,no
+user80,83698,Asian Flags,Thailand,337309,0.15,no
+user80,83698,Asian Flags,Thailand,337309,0.15,no
+user80,83698,Asian Flags,Philippines,337303,0.15,no
+user80,83698,Asian Flags,Philippines,337303,0.15,no
+user80,83698,Asian Flags,Vietnam,337310,0.151,no
+user80,83698,Asian Flags,Vietnam,337310,0.151,no
+user80,83698,Asian Flags,Nepal,337302,0.15,no
+user80,83698,Asian Flags,Nepal,337302,0.15,no
+user80,83698,Asian Flags,Sri Lanka,337307,0.15,no
+user80,83698,Asian Flags,Sri Lanka,337307,0.15,no
+user80,83698,Asian Flags,Saudi Arabia,337304,0.15,yes
+user80,83698,Asian Flags,Saudi Arabia,337304,0.15,yes
+user80,83698,Asian Flags,Singapore,337305,0.15,no
+user80,83698,Asian Flags,Singapore,337305,0.15,no
+user80,83698,Asian Flags,Bangladesh,337296,0.15,no
+user80,83698,Asian Flags,Bangladesh,337296,0.15,no
+user80,83698,Asian Flags,India,337299,0.15,no
+user80,83698,Asian Flags,India,337299,0.15,no
+user80,83698,Asian Flags,China,337297,0.15,yes
+user80,83698,Asian Flags,China,337297,0.15,yes
+user80,83698,Asian Flags,Japan,337300,0.15,yes
+user80,83698,Asian Flags,Japan,337300,0.15,yes
+user80,83698,Caribbean Flags,Trinidad,337637,0.201,no
+user80,83698,Caribbean Flags,Trinidad,337637,0.201,no
+user80,83698,Caribbean Flags,St Lucia,337636,0.201,no
+user80,83698,Caribbean Flags,St Lucia,337636,0.201,no
+user80,83698,Caribbean Flags,Haiti,337631,0.201,no
+user80,83698,Caribbean Flags,Haiti,337631,0.201,no
+user80,83698,Caribbean Flags,Bahamas,337625,0.151,no
+user80,83698,Caribbean Flags,Bahamas,337625,0.151,no
+user80,83698,Caribbean Flags,Aruba,337624,0.314,no
+user80,83698,Caribbean Flags,Aruba,337624,0.314,no
+user80,83698,Caribbean Flags,Montserrat,337634,0.326,no
+user80,83698,Caribbean Flags,Montserrat,337634,0.326,no
+user80,83698,Caribbean Flags,St Kitts and Nevis,337635,0.299,no
+user80,83698,Caribbean Flags,St Kitts and Nevis,337635,0.299,no
+user80,83698,Caribbean Flags,Anguilla,337623,0.151,no
+user80,83698,Caribbean Flags,Anguilla,337623,0.151,no
+user80,83698,Caribbean Flags,Barbados,337626,0.201,no
+user80,83698,Caribbean Flags,Barbados,337626,0.201,no
+user80,83698,Caribbean Flags,Jamaica,337632,0.201,no
+user80,83698,Caribbean Flags,Jamaica,337632,0.201,no
+user80,83698,Caribbean Flags,Cuba,337628,0.25,no
+user80,83698,Caribbean Flags,Cuba,337628,0.25,no
+user80,83698,Caribbean Flags,Martinique,337633,0.15,no
+user80,83698,Caribbean Flags,Martinique,337633,0.15,no
+user80,83698,Caribbean Flags,Grenada,337630,0.25,no
+user80,83698,Caribbean Flags,Grenada,337630,0.25,no
+user80,83698,Caribbean Flags,Dominica,337629,0.201,no
+user80,83698,Caribbean Flags,Dominica,337629,0.201,no
+user80,83698,Caribbean Flags,Bonaire,337627,0.152,no
+user80,83698,Caribbean Flags,Bonaire,337627,0.152,no
+user76,83700,Asian Flags,Saudi Arabia,337304,0.25,no
+user76,83700,Asian Flags,Saudi Arabia,337304,0.25,no
+user76,83700,Asian Flags,Philippines,337303,0.25,yes
+user76,83700,Asian Flags,Philippines,337303,0.25,yes
+user76,83700,Asian Flags,India,337299,0.201,yes
+user76,83700,Asian Flags,India,337299,0.201,yes
+user76,83700,Asian Flags,Vietnam,337310,0.25,no
+user76,83700,Asian Flags,Vietnam,337310,0.25,no
+user76,83700,Asian Flags,Japan,337300,0.25,yes
+user76,83700,Asian Flags,Japan,337300,0.25,yes
+user76,83700,Asian Flags,South Korea,337306,0.25,yes
+user76,83700,Asian Flags,South Korea,337306,0.25,yes
+user76,83700,Asian Flags,Sri Lanka,337307,0.3,no
+user76,83700,Asian Flags,Sri Lanka,337307,0.3,no
+user76,83700,Asian Flags,China,337297,0.25,yes
+user76,83700,Asian Flags,China,337297,0.25,yes
+user76,83700,Asian Flags,Hong Kong,337298,0.3,no
+user76,83700,Asian Flags,Hong Kong,337298,0.3,no
+user76,83700,Asian Flags,Nepal,337302,0.318,no
+user76,83700,Asian Flags,Nepal,337302,0.318,no
+user76,83700,Asian Flags,Thailand,337309,0.25,no
+user76,83700,Asian Flags,Thailand,337309,0.25,no
+user76,83700,Asian Flags,Singapore,337305,0.486,no
+user76,83700,Asian Flags,Singapore,337305,0.486,no
+user76,83700,Asian Flags,Taiwan,337308,0.42,no
+user76,83700,Asian Flags,Taiwan,337308,0.42,no
+user76,83700,Asian Flags,Bangladesh,337296,0.338,no
+user76,83700,Asian Flags,Bangladesh,337296,0.338,no
+user76,83700,Asian Flags,Maldives,337301,0.201,no
+user76,83700,Asian Flags,Maldives,337301,0.201,no
+user76,83700,Caribbean Flags,Haiti,337631,0.25,no
+user76,83700,Caribbean Flags,Haiti,337631,0.25,no
+user76,83700,Caribbean Flags,Dominica,337629,0.201,no
+user76,83700,Caribbean Flags,Dominica,337629,0.201,no
+user76,83700,Caribbean Flags,Barbados,337626,0.25,no
+user76,83700,Caribbean Flags,Barbados,337626,0.25,no
+user76,83700,Caribbean Flags,St Lucia,337636,0.3,no
+user76,83700,Caribbean Flags,St Lucia,337636,0.3,no
+user76,83700,Caribbean Flags,Cuba,337628,0.201,no
+user76,83700,Caribbean Flags,Cuba,337628,0.201,no
+user76,83700,Caribbean Flags,Aruba,337624,0.348,no
+user76,83700,Caribbean Flags,Aruba,337624,0.348,no
+user76,83700,Caribbean Flags,Grenada,337630,0.25,no
+user76,83700,Caribbean Flags,Grenada,337630,0.25,no
+user76,83700,Caribbean Flags,Bahamas,337625,0.2,no
+user76,83700,Caribbean Flags,Bahamas,337625,0.2,no
+user76,83700,Caribbean Flags,St Kitts and Nevis,337635,0.151,no
+user76,83700,Caribbean Flags,St Kitts and Nevis,337635,0.151,no
+user76,83700,Caribbean Flags,Montserrat,337634,0.408,no
+user76,83700,Caribbean Flags,Montserrat,337634,0.408,no
+user76,83700,Caribbean Flags,Anguilla,337623,0.25,no
+user76,83700,Caribbean Flags,Anguilla,337623,0.25,no
+user76,83700,Caribbean Flags,Jamaica,337632,0.3,no
+user76,83700,Caribbean Flags,Jamaica,337632,0.3,no
+user76,83700,Caribbean Flags,Bonaire,337627,0.25,no
+user76,83700,Caribbean Flags,Bonaire,337627,0.25,no
+user76,83700,Caribbean Flags,Martinique,337633,0.342,no
+user76,83700,Caribbean Flags,Martinique,337633,0.342,no
+user76,83700,Caribbean Flags,Trinidad,337637,0.15,no
+user76,83700,Caribbean Flags,Trinidad,337637,0.15,no
+user75,83680,Asian Flags,China,337297,0.201,yes
+user75,83680,Asian Flags,China,337297,0.201,yes
+user75,83680,Asian Flags,South Korea,337306,0.201,no
+user75,83680,Asian Flags,South Korea,337306,0.201,no
+user75,83680,Asian Flags,Thailand,337309,0.151,no
+user75,83680,Asian Flags,Thailand,337309,0.151,no
+user75,83680,Asian Flags,Japan,337300,0.201,yes
+user75,83680,Asian Flags,Japan,337300,0.201,yes
+user75,83680,Asian Flags,Saudi Arabia,337304,0.15,no
+user75,83680,Asian Flags,Saudi Arabia,337304,0.15,no
+user75,83680,Asian Flags,Hong Kong,337298,0.15,no
+user75,83680,Asian Flags,Hong Kong,337298,0.15,no
+user75,83680,Asian Flags,Philippines,337303,0.15,no
+user75,83680,Asian Flags,Philippines,337303,0.15,no
+user75,83680,Asian Flags,Singapore,337305,0.151,no
+user75,83680,Asian Flags,Singapore,337305,0.151,no
+user75,83680,Asian Flags,Taiwan,337308,0.25,no
+user75,83680,Asian Flags,Taiwan,337308,0.25,no
+user75,83680,Asian Flags,Nepal,337302,0.15,no
+user75,83680,Asian Flags,Nepal,337302,0.15,no
+user75,83680,Asian Flags,Bangladesh,337296,0.151,no
+user75,83680,Asian Flags,Bangladesh,337296,0.151,no
+user75,83680,Asian Flags,Maldives,337301,0.15,no
+user75,83680,Asian Flags,Maldives,337301,0.15,no
+user75,83680,Asian Flags,Sri Lanka,337307,0.15,no
+user75,83680,Asian Flags,Sri Lanka,337307,0.15,no
+user75,83680,Asian Flags,Vietnam,337310,0.201,no
+user75,83680,Asian Flags,Vietnam,337310,0.201,no
+user75,83680,Asian Flags,India,337299,0.201,yes
+user75,83680,Asian Flags,India,337299,0.201,yes
+user75,83680,Caribbean Flags,Cuba,337628,0.201,yes
+user75,83680,Caribbean Flags,Cuba,337628,0.201,yes
+user75,83680,Caribbean Flags,Barbados,337626,0.151,no
+user75,83680,Caribbean Flags,Barbados,337626,0.151,no
+user75,83680,Caribbean Flags,Grenada,337630,0.151,no
+user75,83680,Caribbean Flags,Grenada,337630,0.151,no
+user75,83680,Caribbean Flags,Trinidad,337637,0.151,no
+user75,83680,Caribbean Flags,Trinidad,337637,0.151,no
+user75,83680,Caribbean Flags,Aruba,337624,0.15,no
+user75,83680,Caribbean Flags,Aruba,337624,0.15,no
+user75,83680,Caribbean Flags,Montserrat,337634,0.15,no
+user75,83680,Caribbean Flags,Montserrat,337634,0.15,no
+user75,83680,Caribbean Flags,Bonaire,337627,0.201,no
+user75,83680,Caribbean Flags,Bonaire,337627,0.201,no
+user75,83680,Caribbean Flags,Dominica,337629,0.151,no
+user75,83680,Caribbean Flags,Dominica,337629,0.151,no
+user75,83680,Caribbean Flags,St Lucia,337636,0.201,no
+user75,83680,Caribbean Flags,St Lucia,337636,0.201,no
+user75,83680,Caribbean Flags,Jamaica,337632,0.201,yes
+user75,83680,Caribbean Flags,Jamaica,337632,0.201,yes
+user75,83680,Caribbean Flags,St Kitts and Nevis,337635,0.151,no
+user75,83680,Caribbean Flags,St Kitts and Nevis,337635,0.151,no
+user75,83680,Caribbean Flags,Haiti,337631,0.15,no
+user75,83680,Caribbean Flags,Haiti,337631,0.15,no
+user75,83680,Caribbean Flags,Martinique,337633,0.201,no
+user75,83680,Caribbean Flags,Martinique,337633,0.201,no
+user75,83680,Caribbean Flags,Bahamas,337625,0.15,no
+user75,83680,Caribbean Flags,Bahamas,337625,0.15,no
+user75,83680,Caribbean Flags,Anguilla,337623,0.151,no
+user75,83680,Caribbean Flags,Anguilla,337623,0.151,no
+user77,83708,Caribbean Flags,Aruba,337624,0.25,no
+user77,83708,Caribbean Flags,Cuba,337628,0.25,no
+user77,83708,Caribbean Flags,St Kitts and Nevis,337635,0.25,no
+user77,83708,Caribbean Flags,Barbados,337626,0.151,no
+user77,83708,Caribbean Flags,Bonaire,337627,0.349,no
+user77,83708,Caribbean Flags,Martinique,337633,0.439,no
+user77,83708,Caribbean Flags,Jamaica,337632,0.201,yes
+user77,83708,Caribbean Flags,Dominica,337629,0.349,no
+user77,83708,Caribbean Flags,Grenada,337630,0.393,no
+user77,83708,Caribbean Flags,St Lucia,337636,0.25,no
+user77,83708,Caribbean Flags,Haiti,337631,0.35,no
+user77,83708,Caribbean Flags,Bahamas,337625,0.3,no
+user77,83708,Caribbean Flags,Montserrat,337634,0.2,no
+user77,83708,Caribbean Flags,Anguilla,337623,0.35,no
+user77,83708,Caribbean Flags,Trinidad,337637,0.338,no
+user68,83668,Asian Flags,Nepal,337302,0.151,no
+user68,83668,Asian Flags,Nepal,337302,0.151,no
+user68,83668,Asian Flags,Maldives,337301,0.151,no
+user68,83668,Asian Flags,Maldives,337301,0.151,no
+user68,83668,Asian Flags,Hong Kong,337298,0.15,no
+user68,83668,Asian Flags,Hong Kong,337298,0.15,no
+user68,83668,Asian Flags,Japan,337300,0.15,yes
+user68,83668,Asian Flags,Japan,337300,0.15,yes
+user68,83668,Asian Flags,China,337297,0.15,yes
+user68,83668,Asian Flags,China,337297,0.15,yes
+user68,83668,Asian Flags,Singapore,337305,0.15,no
+user68,83668,Asian Flags,Singapore,337305,0.15,no
+user68,83668,Asian Flags,Philippines,337303,0.151,yes
+user68,83668,Asian Flags,Philippines,337303,0.151,yes
+user68,83668,Asian Flags,Taiwan,337308,0.15,no
+user68,83668,Asian Flags,Taiwan,337308,0.15,no
+user68,83668,Asian Flags,Thailand,337309,0.15,no
+user68,83668,Asian Flags,Thailand,337309,0.15,no
+user68,83668,Asian Flags,Saudi Arabia,337304,0.15,no
+user68,83668,Asian Flags,Saudi Arabia,337304,0.15,no
+user68,83668,Asian Flags,Bangladesh,337296,0.15,no
+user68,83668,Asian Flags,Bangladesh,337296,0.15,no
+user68,83668,Asian Flags,Vietnam,337310,0.15,no
+user68,83668,Asian Flags,Vietnam,337310,0.15,no
+user68,83668,Asian Flags,Sri Lanka,337307,0.15,no
+user68,83668,Asian Flags,Sri Lanka,337307,0.15,no
+user68,83668,Asian Flags,India,337299,0.15,yes
+user68,83668,Asian Flags,India,337299,0.15,yes
+user68,83668,Asian Flags,South Korea,337306,0.15,yes
+user68,83668,Asian Flags,South Korea,337306,0.15,yes
+user68,83668,Caribbean Flags,St Lucia,337636,0.201,no
+user68,83668,Caribbean Flags,St Lucia,337636,0.201,no
+user68,83668,Caribbean Flags,Bahamas,337625,0.25,no
+user68,83668,Caribbean Flags,Bahamas,337625,0.25,no
+user68,83668,Caribbean Flags,Martinique,337633,0.151,no
+user68,83668,Caribbean Flags,Martinique,337633,0.151,no
+user68,83668,Caribbean Flags,Grenada,337630,0.151,no
+user68,83668,Caribbean Flags,Grenada,337630,0.151,no
+user68,83668,Caribbean Flags,St Kitts and Nevis,337635,0.151,no
+user68,83668,Caribbean Flags,St Kitts and Nevis,337635,0.151,no
+user68,83668,Caribbean Flags,Haiti,337631,0.151,no
+user68,83668,Caribbean Flags,Haiti,337631,0.151,no
+user68,83668,Caribbean Flags,Anguilla,337623,0.15,no
+user68,83668,Caribbean Flags,Anguilla,337623,0.15,no
+user68,83668,Caribbean Flags,Bonaire,337627,0.349,no
+user68,83668,Caribbean Flags,Bonaire,337627,0.349,no
+user68,83668,Caribbean Flags,Barbados,337626,0.201,no
+user68,83668,Caribbean Flags,Barbados,337626,0.201,no
+user68,83668,Caribbean Flags,Montserrat,337634,0.3,no
+user68,83668,Caribbean Flags,Montserrat,337634,0.3,no
+user68,83668,Caribbean Flags,Cuba,337628,0.151,no
+user68,83668,Caribbean Flags,Cuba,337628,0.151,no
+user68,83668,Caribbean Flags,Dominica,337629,0.201,no
+user68,83668,Caribbean Flags,Dominica,337629,0.201,no
+user68,83668,Caribbean Flags,Jamaica,337632,0.25,no
+user68,83668,Caribbean Flags,Jamaica,337632,0.25,no
+user68,83668,Caribbean Flags,Aruba,337624,0.348,no
+user68,83668,Caribbean Flags,Aruba,337624,0.348,no
+user63,83663,Asian Flags,Philippines,337303,0.15,no
+user63,83663,Asian Flags,Philippines,337303,0.15,no
+user63,83663,Asian Flags,Saudi Arabia,337304,0.151,no
+user63,83663,Asian Flags,Saudi Arabia,337304,0.151,no
+user63,83663,Asian Flags,Nepal,337302,0.15,no
+user63,83663,Asian Flags,Nepal,337302,0.15,no
+user63,83663,Asian Flags,Singapore,337305,0.151,no
+user63,83663,Asian Flags,Singapore,337305,0.151,no
+user63,83663,Asian Flags,Japan,337300,0.15,yes
+user63,83663,Asian Flags,Japan,337300,0.15,yes
+user63,83663,Asian Flags,China,337297,0.151,yes
+user63,83663,Asian Flags,China,337297,0.151,yes
+user63,83663,Asian Flags,Taiwan,337308,0.15,no
+user63,83663,Asian Flags,Taiwan,337308,0.15,no
+user63,83663,Asian Flags,Hong Kong,337298,0.151,no
+user63,83663,Asian Flags,Hong Kong,337298,0.151,no
+user63,83663,Asian Flags,South Korea,337306,0.151,yes
+user63,83663,Asian Flags,South Korea,337306,0.151,yes
+user63,83663,Asian Flags,Thailand,337309,0.15,no
+user63,83663,Asian Flags,Thailand,337309,0.15,no
+user63,83663,Asian Flags,Vietnam,337310,0.15,no
+user63,83663,Asian Flags,Vietnam,337310,0.15,no
+user63,83663,Asian Flags,Maldives,337301,0.151,yes
+user63,83663,Asian Flags,Maldives,337301,0.151,yes
+user63,83663,Asian Flags,India,337299,0.15,yes
+user63,83663,Asian Flags,India,337299,0.15,yes
+user63,83663,Asian Flags,Sri Lanka,337307,0.151,no
+user63,83663,Asian Flags,Sri Lanka,337307,0.151,no
+user63,83663,Asian Flags,Bangladesh,337296,0.15,no
+user63,83663,Asian Flags,Bangladesh,337296,0.15,no
+user63,83663,Caribbean Flags,Montserrat,337634,0.151,no
+user63,83663,Caribbean Flags,Montserrat,337634,0.151,no
+user63,83663,Caribbean Flags,Bonaire,337627,0.3,no
+user63,83663,Caribbean Flags,Bonaire,337627,0.3,no
+user63,83663,Caribbean Flags,St Kitts and Nevis,337635,0.151,no
+user63,83663,Caribbean Flags,St Kitts and Nevis,337635,0.151,no
+user63,83663,Caribbean Flags,Trinidad,337637,0.151,yes
+user63,83663,Caribbean Flags,Trinidad,337637,0.151,yes
+user63,83663,Caribbean Flags,Grenada,337630,0.349,no
+user63,83663,Caribbean Flags,Grenada,337630,0.349,no
+user63,83663,Caribbean Flags,Bahamas,337625,0.151,no
+user63,83663,Caribbean Flags,Bahamas,337625,0.151,no
+user63,83663,Caribbean Flags,Jamaica,337632,0.15,yes
+user63,83663,Caribbean Flags,Jamaica,337632,0.15,yes
+user63,83663,Caribbean Flags,Barbados,337626,0.15,no
+user63,83663,Caribbean Flags,Barbados,337626,0.15,no
+user63,83663,Caribbean Flags,Dominica,337629,0.3,no
+user63,83663,Caribbean Flags,Dominica,337629,0.3,no
+user63,83663,Caribbean Flags,Haiti,337631,0.201,no
+user63,83663,Caribbean Flags,Haiti,337631,0.201,no
+user63,83663,Caribbean Flags,Aruba,337624,0.326,no
+user63,83663,Caribbean Flags,Aruba,337624,0.326,no
+user63,83663,Caribbean Flags,Anguilla,337623,0.152,no
+user63,83663,Caribbean Flags,Anguilla,337623,0.152,no
+user63,83663,Caribbean Flags,St Lucia,337636,0.201,no
+user63,83663,Caribbean Flags,St Lucia,337636,0.201,no
+user63,83663,Caribbean Flags,Martinique,337633,0.3,no
+user63,83663,Caribbean Flags,Martinique,337633,0.3,no
+user78,83723,Asian Flags,Japan,337300,0.15,yes
+user78,83723,Asian Flags,Japan,337300,0.15,yes
+user78,83723,Asian Flags,Taiwan,337308,0.15,yes
+user78,83723,Asian Flags,Taiwan,337308,0.15,yes
+user78,83723,Asian Flags,India,337299,0.15,yes
+user78,83723,Asian Flags,India,337299,0.15,yes
+user78,83723,Asian Flags,Bangladesh,337296,0.15,yes
+user78,83723,Asian Flags,Bangladesh,337296,0.15,yes
+user78,83723,Asian Flags,Saudi Arabia,337304,0.15,yes
+user78,83723,Asian Flags,Saudi Arabia,337304,0.15,yes
+user78,83723,Asian Flags,Sri Lanka,337307,0.15,yes
+user78,83723,Asian Flags,Sri Lanka,337307,0.15,yes
+user78,83723,Asian Flags,Maldives,337301,0.15,no
+user78,83723,Asian Flags,Maldives,337301,0.15,no
+user78,83723,Asian Flags,Singapore,337305,0.15,no
+user78,83723,Asian Flags,Singapore,337305,0.15,no
+user78,83723,Asian Flags,Nepal,337302,0.15,yes
+user78,83723,Asian Flags,Nepal,337302,0.15,yes
+user78,83723,Asian Flags,Thailand,337309,0.15,no
+user78,83723,Asian Flags,Thailand,337309,0.15,no
+user78,83723,Asian Flags,Hong Kong,337298,0.15,yes
+user78,83723,Asian Flags,Hong Kong,337298,0.15,yes
+user78,83723,Asian Flags,Philippines,337303,0.15,yes
+user78,83723,Asian Flags,Philippines,337303,0.15,yes
+user78,83723,Asian Flags,Vietnam,337310,0.15,yes
+user78,83723,Asian Flags,Vietnam,337310,0.15,yes
+user78,83723,Asian Flags,China,337297,0.15,yes
+user78,83723,Asian Flags,China,337297,0.15,yes
+user78,83723,Asian Flags,South Korea,337306,0.15,yes
+user78,83723,Asian Flags,South Korea,337306,0.15,yes
+user78,83723,Caribbean Flags,Anguilla,337623,0.15,no
+user78,83723,Caribbean Flags,Anguilla,337623,0.15,no
+user78,83723,Caribbean Flags,Martinique,337633,0.15,no
+user78,83723,Caribbean Flags,Martinique,337633,0.15,no
+user78,83723,Caribbean Flags,Grenada,337630,0.15,no
+user78,83723,Caribbean Flags,Grenada,337630,0.15,no
+user78,83723,Caribbean Flags,Haiti,337631,0.15,no
+user78,83723,Caribbean Flags,Haiti,337631,0.15,no
+user78,83723,Caribbean Flags,St Kitts and Nevis,337635,0.15,no
+user78,83723,Caribbean Flags,St Kitts and Nevis,337635,0.15,no
+user78,83723,Caribbean Flags,Jamaica,337632,0.15,yes
+user78,83723,Caribbean Flags,Jamaica,337632,0.15,yes
+user78,83723,Caribbean Flags,Cuba,337628,0.15,yes
+user78,83723,Caribbean Flags,Cuba,337628,0.15,yes
+user78,83723,Caribbean Flags,Aruba,337624,0.15,no
+user78,83723,Caribbean Flags,Aruba,337624,0.15,no
+user78,83723,Caribbean Flags,Barbados,337626,0.15,yes
+user78,83723,Caribbean Flags,Barbados,337626,0.15,yes
+user78,83723,Caribbean Flags,Montserrat,337634,0.15,no
+user78,83723,Caribbean Flags,Montserrat,337634,0.15,no
+user78,83723,Caribbean Flags,Trinidad,337637,0.15,yes
+user78,83723,Caribbean Flags,Trinidad,337637,0.15,yes
+user78,83723,Caribbean Flags,Dominica,337629,0.15,yes
+user78,83723,Caribbean Flags,Dominica,337629,0.15,yes
+user78,83723,Caribbean Flags,Bahamas,337625,0.15,no
+user78,83723,Caribbean Flags,Bahamas,337625,0.15,no
+user78,83723,Caribbean Flags,Bonaire,337627,0.15,no
+user78,83723,Caribbean Flags,Bonaire,337627,0.15,no
+user78,83723,Caribbean Flags,St Lucia,337636,0.15,no
+user78,83723,Caribbean Flags,St Lucia,337636,0.15,no
+user81,83725,Asian Flags,Saudi Arabia,337304,0.201,no
+user81,83725,Asian Flags,Saudi Arabia,337304,0.201,no
+user81,83725,Asian Flags,Hong Kong,337298,0.201,no
+user81,83725,Asian Flags,Hong Kong,337298,0.201,no
+user81,83725,Asian Flags,South Korea,337306,0.201,no
+user81,83725,Asian Flags,South Korea,337306,0.201,no
+user81,83725,Asian Flags,Nepal,337302,0.25,no
+user81,83725,Asian Flags,Nepal,337302,0.25,no
+user81,83725,Asian Flags,China,337297,0.201,yes
+user81,83725,Asian Flags,China,337297,0.201,yes
+user81,83725,Asian Flags,Sri Lanka,337307,0.201,no
+user81,83725,Asian Flags,Sri Lanka,337307,0.201,no
+user81,83725,Asian Flags,Japan,337300,0.201,yes
+user81,83725,Asian Flags,Japan,337300,0.201,yes
+user81,83725,Asian Flags,Philippines,337303,0.356,no
+user81,83725,Asian Flags,Philippines,337303,0.356,no
+user81,83725,Asian Flags,India,337299,0.306,no
+user81,83725,Asian Flags,India,337299,0.306,no
+user81,83725,Asian Flags,Vietnam,337310,0.516,no
+user81,83725,Asian Flags,Vietnam,337310,0.516,no
+user81,83725,Asian Flags,Singapore,337305,0.509,no
+user81,83725,Asian Flags,Singapore,337305,0.509,no
+user81,83725,Asian Flags,Thailand,337309,0.688,no
+user81,83725,Asian Flags,Thailand,337309,0.688,no
+user81,83725,Asian Flags,Taiwan,337308,0.662,no
+user81,83725,Asian Flags,Taiwan,337308,0.662,no
+user81,83725,Asian Flags,Bangladesh,337296,0.551,no
+user81,83725,Asian Flags,Bangladesh,337296,0.551,no
+user81,83725,Asian Flags,Maldives,337301,0.448,no
+user81,83725,Asian Flags,Maldives,337301,0.448,no
+user81,83725,Caribbean Flags,St Lucia,337636,0.25,no
+user81,83725,Caribbean Flags,St Lucia,337636,0.25,no
+user81,83725,Caribbean Flags,Dominica,337629,0.25,no
+user81,83725,Caribbean Flags,Dominica,337629,0.25,no
+user81,83725,Caribbean Flags,Barbados,337626,0.225,no
+user81,83725,Caribbean Flags,Barbados,337626,0.225,no
+user81,83725,Caribbean Flags,Grenada,337630,0.447,no
+user81,83725,Caribbean Flags,Grenada,337630,0.447,no
+user81,83725,Caribbean Flags,Montserrat,337634,0.595,no
+user81,83725,Caribbean Flags,Montserrat,337634,0.595,no
+user81,83725,Caribbean Flags,Bonaire,337627,0.602,no
+user81,83725,Caribbean Flags,Bonaire,337627,0.602,no
+user81,83725,Caribbean Flags,Bahamas,337625,0.26,no
+user81,83725,Caribbean Flags,Bahamas,337625,0.26,no
+user81,83725,Caribbean Flags,Haiti,337631,0.375,no
+user81,83725,Caribbean Flags,Haiti,337631,0.375,no
+user81,83725,Caribbean Flags,Trinidad,337637,0.25,no
+user81,83725,Caribbean Flags,Trinidad,337637,0.25,no
+user81,83725,Caribbean Flags,Martinique,337633,0.575,no
+user81,83725,Caribbean Flags,Martinique,337633,0.575,no
+user81,83725,Caribbean Flags,Aruba,337624,0.564,no
+user81,83725,Caribbean Flags,Aruba,337624,0.564,no
+user81,83725,Caribbean Flags,Anguilla,337623,0.576,no
+user81,83725,Caribbean Flags,Anguilla,337623,0.576,no
+user81,83725,Caribbean Flags,Jamaica,337632,0.207,yes
+user81,83725,Caribbean Flags,Jamaica,337632,0.207,yes
+user81,83725,Caribbean Flags,Cuba,337628,0.201,yes
+user81,83725,Caribbean Flags,Cuba,337628,0.201,yes
+user81,83725,Caribbean Flags,St Kitts and Nevis,337635,0.52,no
+user81,83725,Caribbean Flags,St Kitts and Nevis,337635,0.52,no
+user66,83666,Asian Flags,Japan,337300,0.199,no
+user66,83666,Asian Flags,Japan,337300,0.199,no
+user66,83666,Asian Flags,Saudi Arabia,337304,0.286,no
+user66,83666,Asian Flags,Saudi Arabia,337304,0.286,no
+user66,83666,Asian Flags,India,337299,0.277,no
+user66,83666,Asian Flags,India,337299,0.277,no
+user66,83666,Asian Flags,Vietnam,337310,0.565,no
+user66,83666,Asian Flags,Vietnam,337310,0.565,no
+user66,83666,Asian Flags,Maldives,337301,0.387,no
+user66,83666,Asian Flags,Maldives,337301,0.387,no
+user66,83666,Asian Flags,Sri Lanka,337307,0.409,no
+user66,83666,Asian Flags,Sri Lanka,337307,0.409,no
+user66,83666,Asian Flags,China,337297,0.199,yes
+user66,83666,Asian Flags,China,337297,0.199,yes
+user66,83666,Asian Flags,Philippines,337303,0.305,no
+user66,83666,Asian Flags,Philippines,337303,0.305,no
+user66,83666,Asian Flags,Hong Kong,337298,0.323,no
+user66,83666,Asian Flags,Hong Kong,337298,0.323,no
+user66,83666,Asian Flags,South Korea,337306,0.199,yes
+user66,83666,Asian Flags,South Korea,337306,0.199,yes
+user66,83666,Asian Flags,Taiwan,337308,0.434,no
+user66,83666,Asian Flags,Taiwan,337308,0.434,no
+user66,83666,Asian Flags,Thailand,337309,0.335,no
+user66,83666,Asian Flags,Thailand,337309,0.335,no
+user66,83666,Asian Flags,Bangladesh,337296,0.329,no
+user66,83666,Asian Flags,Bangladesh,337296,0.329,no
+user66,83666,Asian Flags,Singapore,337305,0.5,no
+user66,83666,Asian Flags,Singapore,337305,0.5,no
+user66,83666,Asian Flags,Nepal,337302,0.224,no
+user66,83666,Asian Flags,Nepal,337302,0.224,no
+user66,83666,Caribbean Flags,St Lucia,337636,0.398,no
+user66,83666,Caribbean Flags,St Lucia,337636,0.398,no
+user66,83666,Caribbean Flags,Bahamas,337625,0.398,no
+user66,83666,Caribbean Flags,Bahamas,337625,0.398,no
+user66,83666,Caribbean Flags,Dominica,337629,0.348,no
+user66,83666,Caribbean Flags,Dominica,337629,0.348,no
+user66,83666,Caribbean Flags,Cuba,337628,0.398,no
+user66,83666,Caribbean Flags,Cuba,337628,0.398,no
+user66,83666,Caribbean Flags,Trinidad,337637,0.249,no
+user66,83666,Caribbean Flags,Trinidad,337637,0.249,no
+user66,83666,Caribbean Flags,Barbados,337626,0.299,no
+user66,83666,Caribbean Flags,Barbados,337626,0.299,no
+user66,83666,Caribbean Flags,Haiti,337631,0.298,no
+user66,83666,Caribbean Flags,Haiti,337631,0.298,no
+user66,83666,Caribbean Flags,Aruba,337624,0.498,no
+user66,83666,Caribbean Flags,Aruba,337624,0.498,no
+user66,83666,Caribbean Flags,Grenada,337630,0.29,no
+user66,83666,Caribbean Flags,Grenada,337630,0.29,no
+user66,83666,Caribbean Flags,Montserrat,337634,0.512,no
+user66,83666,Caribbean Flags,Montserrat,337634,0.512,no
+user66,83666,Caribbean Flags,Jamaica,337632,0.199,yes
+user66,83666,Caribbean Flags,Jamaica,337632,0.199,yes
+user66,83666,Caribbean Flags,Martinique,337633,0.523,no
+user66,83666,Caribbean Flags,Martinique,337633,0.523,no
+user66,83666,Caribbean Flags,Anguilla,337623,0.452,no
+user66,83666,Caribbean Flags,Anguilla,337623,0.452,no
+user66,83666,Caribbean Flags,St Kitts and Nevis,337635,0.699,no
+user66,83666,Caribbean Flags,St Kitts and Nevis,337635,0.699,no
+user66,83666,Caribbean Flags,Bonaire,337627,0.547,no
+user66,83666,Caribbean Flags,Bonaire,337627,0.547,no
+user67,83657,Caribbean Flags,Bonaire,337627,0.219,avg
+user68,83657,Caribbean Flags,Bonaire,337627,0.199,avg
+user69,83658,Caribbean Flags,Bonaire,337627,0.273,avg
+user70,83658,Caribbean Flags,Bonaire,337627,0.263,avg
+user71,83659,Caribbean Flags,Bonaire,337627,0.18,avg
+user72,83659,Caribbean Flags,Bonaire,337627,0.214,avg
+user73,83661,Caribbean Flags,Bonaire,337627,0.157,avg
+user74,83661,Caribbean Flags,Bonaire,337627,0.231,avg
+user75,83663,Caribbean Flags,Bonaire,337627,0.374,avg
+user76,83663,Caribbean Flags,Bonaire,337627,0.356,avg
+user77,83664,Caribbean Flags,Bonaire,337627,0.37,avg
+user78,83664,Caribbean Flags,Bonaire,337627,0.398,avg
+user79,83666,Caribbean Flags,Bonaire,337627,0.331,avg
+user80,83666,Caribbean Flags,Bonaire,337627,0.407,avg
+user81,83668,Caribbean Flags,Bonaire,337627,0.206,avg
+user82,83668,Caribbean Flags,Bonaire,337627,0.323,avg
+user83,83670,Caribbean Flags,Bonaire,337627,0.344,avg
+user84,83670,Caribbean Flags,Bonaire,337627,0.457,avg
+user85,83678,Caribbean Flags,Bonaire,337627,0.155,avg
+user86,83678,Caribbean Flags,Bonaire,337627,0.228,avg
+user87,86380,Caribbean Flags,Bonaire,337627,0.301,avg
+user88,86380,Caribbean Flags,Bonaire,337627,0.289,avg
+user89,83693,Caribbean Flags,Bonaire,337627,0.236,avg
+user90,83693,Caribbean Flags,Bonaire,337627,0.311,avg
+user91,83698,Caribbean Flags,Bonaire,337627,0.228,avg
+user92,83698,Caribbean Flags,Bonaire,337627,0.302,avg
+user93,83700,Caribbean Flags,Bonaire,337627,0.301,avg
+user94,83700,Caribbean Flags,Bonaire,337627,0.318,avg
+user95,83708,Caribbean Flags,Bonaire,337627,0.335,avg
+user96,83723,Caribbean Flags,Bonaire,337627,0.155,avg
+user97,83723,Caribbean Flags,Bonaire,337627,0.164,avg
+user98,83725,Caribbean Flags,Bonaire,337627,0.366,avg
+user99,83725,Caribbean Flags,Bonaire,337627,0.393,avg

@@ -65,7 +65,7 @@ library(sjPlot)
 #prior_knowledge_analysis <- read_csv("prior_knowledge.csv", show_col_types = FALSE) 
 #prior_knowledge_analysis$userId <- as.factor(prior_knowledge_analysis$userId)
 prior_knowledge_alldata <- read_csv("prior_knowledge_all.csv", show_col_types = FALSE) 
-
+prior_knowledge_alldata$BLC <- NULL  # Remove OLD BLC data
 ggplot(prior_knowledge_alldata, aes(x=answer, y=alpha, col=prior_knowledge))+
   #geom_boxplot()+
   geom_point(size=3, position=position_jitter(0.2)) +
@@ -259,23 +259,28 @@ scatter_plot <- ggplot(prior_knowledge_alldata, aes(x = BLC, y = alpha)) +
        y = "Alpha")
 
 
-correlation_result <- cor.test(prior_knowledge_alldata$BLC,
-                                prior_knowledge_alldata$alpha)
+#correlation_result <- cor.test(prior_knowledge_alldata$BLC,
+#                                prior_knowledge_alldata$alpha)
 
 # Add correlation coefficient to the plot
 scatter_plot <- scatter_plot +
   annotate("text", x = Inf, y = -Inf,
-           label = paste("r =", round(correlation_result$estimate, 2)),
+           #label = paste("r =", round(correlation_result$estimate, 2)),
            hjust = 1, vjust = 0)
 
 # Display the scatterplot with correlation
-print(scatter_plot)
+#print(scatter_plot)
 
 
 ```
 #DOES MLE WORK???
 ```{r}
-recovered_blc <- read_csv("example.csv", show_col_types = FALSE)
+recovered_blc <- read_csv("results.csv", show_col_types = FALSE)
+
+recovered_blc <- inner_join(recovered_blc, prior_knowledge_alldata)
+
+recovered_blc <- recovered_blc %>%
+  mutate(prior_knowledge = if_else(prior_knowledge == "yes", 1, 0))
 
 # Create a scatterplot
 scatterplot <- ggplot(recovered_blc, aes(x = BLC, y = prior_knowledge)) +
@@ -347,7 +352,9 @@ blc_AUC <- 0
 step <- 0.01
 for (tnr in seq(0, 1-step, step)) {
   y <- curve %>% filter (TNR <= tnr) %>% filter(TNR == max(TNR)) %>% summarise(TPR = mean(TPR)) %>% as.numeric()
-  blc_AUC <- blc_AUC + (y * step)
+  if (!is.nan(y)) {
+    blc_AUC <- blc_AUC + (y * step)
+  }
 }
 ```
 
@@ -379,23 +386,23 @@ ggplot(arrange(curve, TPR), aes(x=TNR, y=TPR, col=Threshold)) +
 
 ## visualization of one participant
 ```{r}
-user_id_to_keep <- 83678
-recovered_data_83678 <- recovered_blc[recovered_blc$Subject == user_id_to_keep, ]
-
-
-ScatterPlot <- ggplot(recovered_data_83678, aes(x = Fact, y = BLC, color = factor(prior_knowledge))) +
-  geom_point(size = 3) +  # Adjust the size of the dots
-  labs(title = "Participant 83678 Recovered BLC and Prior Knowledge",
-       x = "Fact",
-       y = "BLC") +
-  scale_color_manual(values = c("darkblue", "lightgreen")) +
-  theme_minimal() +
-  theme(legend.position = "right",
-        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +  # Rotate x-axis labels
-  ylim(-2, 1)  # Set y-axis limits from -2 to +1
-
-print(ScatterPlot)
-
+# user_id_to_keep <- 83678
+# recovered_data_83678 <- recovered_blc[recovered_blc$Subject == user_id_to_keep, ]
+# 
+# 
+# ScatterPlot <- ggplot(recovered_data_83678, aes(x = Fact, y = BLC, color = factor(prior_knowledge))) +
+#   geom_point(size = 3) +  # Adjust the size of the dots
+#   labs(title = "Participant 83678 Recovered BLC and Prior Knowledge",
+#        x = "Fact",
+#        y = "BLC") +
+#   scale_color_manual(values = c("darkblue", "lightgreen")) +
+#   theme_minimal() +
+#   theme(legend.position = "right",
+#         axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +  # Rotate x-axis labels
+#   ylim(-2, 1)  # Set y-axis limits from -2 to +1
+# 
+# print(ScatterPlot)
+# 
 
 
 ```

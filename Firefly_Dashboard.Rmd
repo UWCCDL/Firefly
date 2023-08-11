@@ -273,7 +273,9 @@ scatter_plot <- scatter_plot +
 
 
 ```
-#DOES MLE WORK???
+# DOES MLE WORK???
+
+
 ```{r}
 recovered_blc <- read_csv("results.csv", show_col_types = FALSE)
 
@@ -309,8 +311,26 @@ print(p.value)
 
 ggsave("figures/recovered_blc_correlations.png")
 
-
+ggplot(recovered_blc, aes(y=BLC, x=as.factor(prior_knowledge), fill=as.factor(prior_knowledge))) +
+  stat_summary(geom="bar", fun.data = "mean_se") +
+  stat_summary(geom="errorbar", fun.data = "mean_se", width=0.1) +
+  scale_fill_aaas() +
+  labs(fill="Previously Known") +
+  xlab("Previously Known") +
+  #geom_boxplot() +
+  #geom_point(aes(group=prior_knowledge), position=position_jitter(), alpha=0.25, size=1) +
+  theme_minimal()
 ```
+
+## Is there a significant difference in BLC?
+
+```{r}
+base <- lmer(BLC ~ prior_knowledge  + (1|userId) +(0+prior_knowledge|userId), 
+             recovered_blc)
+tab_model(base)
+```
+
+And what is the classification accuracy (using a single threshold for all participants)?
 
 ```{r}
 recovered_blc <- recovered_blc %>%

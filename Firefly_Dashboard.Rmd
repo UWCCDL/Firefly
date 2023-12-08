@@ -53,22 +53,64 @@ library(anytime)     # Date conversion
 library(lubridate)   # Date manipulation
 
 # SlimStampen
-library(SlimStampeRData)  # SlimStampen-specific functions
+#library(SlimStampenRData)  # SlimStampen-specific functions
 
 # Dashboard
 library(flexdashboard)  # Dashboard creation
 library(lme4)
 library(sjPlot)
 ```
+### All SoF 
 
+```{r fig.width= 10, fig.height= 4.5}
+
+graph=ggplot(cleandata_lastRep, aes(x=lessonId, y=alpha, col=lessonId, fill=lessonId)) +
+  geom_boxplot(width=.4,size=0.1, alpha=0.2) +
+  stat_summary(fun.y=mean, geom="pointrange", size=0.1, shape=1, color="black") +
+  geom_point(size=2, position=position_jitter(0.1)) +
+  xlab("Lesson") +
+  #scale_x_discrete(labels=xlabels) +
+  ylab("SoF") +
+  ylim(0.1, 0.55) +
+  ggtitle("Speed of Forgetting Across Lessons") +
+  theme_hc() +
+  theme(legend.position="none",
+        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+ggplotly(graph, tooltip=c("y", "text")) %>% 
+  layout(legend = list(orientation = "h")) %>% 
+  config(displayModeBar=FALSE)
+
+```
+### SoF by Lesson
+```{r, echo=FALSE}
+
+# Speed of Forgetting by Participant
+graph=ggplot(cleandata_lastRep, aes(x=prior_knowledge, y=alpha, text=paste0(email))) +
+  geom_boxplot(size=0.1, alpha=0.2) +
+  geom_line(aes(group = email, col = email), size = 0.1, position = position_dodge(0)) +
+  geom_point(aes(col = email), size = 2, shape = 20, stroke = 0, position = position_dodge(0)) +
+  xlab("Lesson") +
+  #scale_x_discrete(labels=xlabels) +
+  ylab("SoF") +
+  ylim(0.29, 0.31) +
+  ggtitle("Speed of Forgetting by Participant") +
+  labs(fill="Participant", col="Participant") +
+  theme_hc() +
+  theme(axis.title.x=element_blank(),
+        panel.grid.major = element_blank(),
+        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+ggplotly(graph, tooltip=c("y", "text")) %>% 
+  layout(legend = list(orientation = "")) %>% 
+  config(displayModeBar=FALSE)
+
+```
+#Prior Knowledge by Fact
 ```{r}
-#prior_knowledge_analysis <- read_csv("prior_knowledge.csv", show_col_types = FALSE) 
-#prior_knowledge_analysis$userId <- as.factor(prior_knowledge_analysis$userId)
-prior_knowledge_alldata <- read_csv("prior_knowledge_all.csv", show_col_types = FALSE) 
-prior_knowledge_alldata$BLC <- NULL  # Remove OLD BLC data
-ggplot(prior_knowledge_alldata, aes(x=answer, y=alpha, col=prior_knowledge))+
+
+ggplot(cleandata_lastRep, aes(x=answer, y=alpha, col=prior_knowledge))+
   #geom_boxplot()+
-  geom_point(size=3, position=position_jitter(0.2)) +
+  geom_point(size=0.5, position=position_jitter(0.2)) +
   #geom_line(aes(group=prior_knowledge), size=0.1, position=position_dodge(0)) +
        xlab("Fact") +
   ylab("SoF") +
@@ -78,7 +120,7 @@ ggplot(prior_knowledge_alldata, aes(x=answer, y=alpha, col=prior_knowledge))+
   labs(col="prior_knowledge") +
   theme_hc() +
   theme(legend.position = "right",
-        axis.text.x = element_text (angle=90),
+        axis.text.x = element_text (angle=90, size=8),
         panel.grid.major = element_blank())
 
 ggsave("figures/Prior_Knowledge_Across_Facts.png")
@@ -88,15 +130,8 @@ ggsave("figures/Prior_Knowledge_Across_Facts.png")
 
 
 ## Effect of prior knowledge on SOF across ppl
-
-
 ```{r}
-#prior_knowledge_analysis <- prior_knowledge_analysis %>%
-#  left_join(cleandata_avg %>% select(userId, MeanAlpha))
-
-
-prior_knowledge_analysis1 <- read_csv("prior_knowledge_analysis1.csv", show_col_types = FALSE) 
-ggplot(prior_knowledge_analysis1, aes(y = alpha, x = as.factor(userId), col = prior_knowledge, fill = prior_knowledge)) +
+ggplot(cleandata_lastRep, aes(y = alpha, x = as.factor(userId), col = prior_knowledge, fill = prior_knowledge)) +
   stat_summary(geom="point", fun.data = "mean_sdl", size=2.5) +
   stat_summary(geom="ribbon", fun.data = "mean_se", 
                aes(group = prior_knowledge), 
@@ -113,50 +148,21 @@ ylab(expression(paste(italic("SoF")))) +
   labs(col="Prior Knowledge", fill="Prior Knowledge") +
   theme_minimal() +
   theme(legend.position = "right",
-        axis.text.x = element_text (angle=90),
+        axis.text.x = element_text (angle=90, size=5),
         panel.grid.major = element_blank())
 
-
+ggsave("figures/Prior_Knowledge_Across_Participants.png")
 
 ```
 
 
-```{r}
-
-ggplot(prior_knowledge_alldata, aes(y = alpha, x = userId, col = prior_knowledge, fill = prior_knowledge)) +
-  stat_summary(geom="point", fun.data = "mean_sdl", size=2.5) +
-  stat_summary(geom="ribbon", fun.data = "mean_se", 
-               aes(group = prior_knowledge), 
-               col = NA, 
-               alpha = 0.25) +
-  stat_summary(geom="line", fun = "mean", aes(group = prior_knowledge)) +
-  xlab("Participant ID") +
-  scale_color_manual(values=c("darkblue", "lightgreen")) +
-  scale_fill_manual(values=c("darkblue", "lightgreen")) +
-  scale_x_discrete() +
-ylab(expression(paste(italic("SoF")))) +
-  ylim(0.1, 0.5) +
-  ggtitle(expression(paste ("Effect of Prior Knowledge Across Participants"))) +
-  labs(col="Prior Knowledge", fill="Prior Knowledge") +
-  theme_minimal() +
-  theme(legend.position = "right",
-        axis.text.x = element_text (angle=90),
-        panel.grid.major = element_blank())
-
- 
-
-#ggsave("figures/Prior_Knowledge_Across_Participants.png")
-
-
-```
 
 ## Prior Knowledge across participants: point plot
-
 ```{r}
-ggplot(prior_knowledge_alldata, aes(y = alpha, x = userId, col = prior_knowledge, fill = prior_knowledge)) +
-  stat_summary(geom="point", fun.data = "mean_se", size=5, 
+ggplot(cleandata_lastRep, aes(y = alpha, x = userId, col = prior_knowledge, fill = prior_knowledge)) +
+  stat_summary(geom="point", fun.data = "mean_se", size=2, 
                position = position_dodge()) +
-  stat_summary(geom="errorbar", size=0.8, color = "black", fun.data = "mean_se", aes(group = prior_knowledge)) +
+  stat_summary(geom="errorbar", size=0.3, color = "black", fun.data = "mean_se", aes(group = prior_knowledge)) +
   xlab("Participant ID") +
   scale_color_manual(values=c("darkblue", "lightgreen")) +
   scale_fill_manual(values=c("darkblue", "lightgreen")) +
@@ -167,19 +173,15 @@ ylab(expression(paste(italic("SoF")))) +
   labs(col="Prior Knowledge", fill="Prior Knowledge") +
   theme_minimal() +
   theme(legend.position = "right",
-        axis.text.x = element_text (angle=90),
+        axis.text.x = element_text (angle=90, size=5),
         panel.grid.major = element_blank())
 ```
 
+
 ##Prior Knowledge across participants: bar graph
-
 ```{r}
-prior_knowledge_alldata$prior_knowledge <- factor(prior_knowledge_alldata$prior_knowledge,
-    levels = c("no", "yes"))
-
-
 #Plot with added error bars
-plot_with_stacked_bar_and_error_bars <- ggplot(prior_knowledge_alldata, aes(x = factor(userId), y = alpha, fill = prior_knowledge)) +
+plot_with_stacked_bar_and_error_bars <- ggplot(cleandata_lastRep, aes(x = factor(userId), y = alpha, fill = prior_knowledge)) +
   geom_bar(stat = "summary", fun = "mean", position = "dodge", alpha = 0.7) +
   geom_errorbar(stat = "summary", fun.data = "mean_se", position = position_dodge(width = 0.75), width = 0.25, size = 0.7) +
   xlab("Participant ID") +
@@ -206,21 +208,21 @@ ggsave("figures/Prior_Knowledge_Across_Participants_bargraph.png")
 Is there a correlation between the SOFs of the known and unknown facts?
 
 ```{r, fig.width=5, fig.height=5}
-prior_agg <- prior_knowledge_alldata %>%
+SOF_corr <- cleandata_lastRep %>%
   group_by(userId, prior_knowledge) %>%
   summarize(alpha = mean(alpha)) %>%
   pivot_wider(names_from = prior_knowledge, values_from = alpha)
 
-ggplot(prior_agg, aes(x=no, y=yes)) +
-  geom_smooth(method  ="lm") +
-  geom_point(size=4, col="blue", alpha=0.5) +
-  geom_text_repel(aes(label=userId)) +
+correlation_value <- cor(SOF_corr$no, SOF_corr$yes, use = "complete.obs")
+
+ggplot(SOF_corr, aes(x = no, y = yes)) +
+  geom_smooth(method = "lm") +
+  geom_point(size = 4, col = "blue", alpha = 0.5) +
+  geom_text_repel(aes(label = userId)) +
   xlab("SOF: Previously Unknown") +
   ylab("SOF: Previously Known") +
-  annotate(geom="text", x=0.25, y =0.35, 
-           label=paste("r =", round(cor(prior_agg$no, prior_agg$yes),
-                                    2))) +
-  ggtitle("SOF by Prior Knwledge") +
+  annotate(geom = "text", x = 0.25, y = 0.35, label = paste("r =", round(correlation_value, 2))) +
+  ggtitle("SOF by Prior Knowledge") +
   theme_minimal()
 
 ggsave("figures/PriorKnowledgeCorrelations.png")
@@ -230,56 +232,16 @@ And finally, some MLM:
 
 ```{r}
 base <- lmer(alpha ~ prior_knowledge  + (1|userId) +(0+prior_knowledge|userId), 
-             prior_knowledge_alldata)
+             cleandata_lastRep)
 tab_model(base)
 ```
 
-```{r}
-#write.csv(cleandata_lastRep, "prior_knowledge_all.csv", row.names = FALSE)
-
-#cleandata_lastRep <- cleandata_lastRep %>% 
-#  mutate(BLC = -log(cleandata_firstRep$reactionTime - .300))
-#new_dataframe <- cleandata_avg %>%
-#  select(MeanAlpha, userId, lessonTitle) %>%
-#  mutate(prior_knowledge = "all")%>%
-#  mutate(factId = 11111)%>%
-#  mutate(answer = "ans")%>%
-#  rename(alpha = MeanAlpha)
-
-
-
-
-
-scatter_plot <- ggplot(prior_knowledge_alldata, aes(x = BLC, y = alpha)) +
-  geom_point(data = filter(prior_knowledge_alldata, prior_knowledge == "yes"),
-             color = "blue") +
-  geom_smooth(method  ="lm") +
-  labs(title = "Scatterplot of BLC vs. Alpha",
-       x = "BLC",
-       y = "Alpha")
-
-
-#correlation_result <- cor.test(prior_knowledge_alldata$BLC,
-#                                prior_knowledge_alldata$alpha)
-
-# Add correlation coefficient to the plot
-scatter_plot <- scatter_plot +
-  annotate("text", x = Inf, y = -Inf,
-           #label = paste("r =", round(correlation_result$estimate, 2)),
-           hjust = 1, vjust = 0)
-
-# Display the scatterplot with correlation
-#print(scatter_plot)
-
-
-```
-# DOES MLE WORK???
-
+# DOES MLE WORK??? 
 
 ```{r}
 recovered_blc <- read_csv("results.csv", show_col_types = FALSE)
 
-recovered_blc <- inner_join(recovered_blc, prior_knowledge_alldata)
+recovered_blc <- inner_join(recovered_blc, cleandata_lastRep)
 
 recovered_blc <- recovered_blc %>%
   mutate(prior_knowledge = if_else(prior_knowledge == "yes", 1, 0))
@@ -332,7 +294,13 @@ tab_model(base)
 
 And what is the classification accuracy (using a single threshold for all participants)?
 
+## Is there a significant difference in BLC? - using 0.3 alpha as estimation
+
 ```{r}
+base <- lmer(BLC ~ prior_knowledge  + (1|userId) +(0+prior_knowledge|userId), 
+             recovered_blc)
+tab_model(base)
+
 recovered_blc <- recovered_blc %>%
   mutate(observed = if_else(prior_knowledge == 1, 1, -1))
 
@@ -404,25 +372,99 @@ ggplot(arrange(curve, TPR), aes(x=TNR, y=TPR, col=Threshold)) +
   theme_pander()
 ```
 
-## visualization of one participant
+## Recovered blc vs. prior knowledge -- using average no prior knowledge as alpha
 ```{r}
-# user_id_to_keep <- 83678
-# recovered_data_83678 <- recovered_blc[recovered_blc$Subject == user_id_to_keep, ]
-# 
-# 
-# ScatterPlot <- ggplot(recovered_data_83678, aes(x = Fact, y = BLC, color = factor(prior_knowledge))) +
-#   geom_point(size = 3) +  # Adjust the size of the dots
-#   labs(title = "Participant 83678 Recovered BLC and Prior Knowledge",
-#        x = "Fact",
-#        y = "BLC") +
-#   scale_color_manual(values = c("darkblue", "lightgreen")) +
-#   theme_minimal() +
-#   theme(legend.position = "right",
-#         axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +  # Rotate x-axis labels
-#   ylim(-2, 1)  # Set y-axis limits from -2 to +1
-# 
-# print(ScatterPlot)
-# 
+#getting data into format for MLE
+unknown_sof <- prior_knowledge_alldata %>%
+  filter(prior_knowledge == "no" & (lessonTitle == "Asian Flags" | lessonTitle == "Caribbean Flags")) %>%
+  group_by(userId, lessonTitle) %>%
+  summarize(average_alpha = mean(alpha))
 
+prior_knowledge_MLE3 <- cleandata %>%
+  left_join(unknown_sof %>% 
+              select(average_alpha, userId, lessonTitle) %>%
+              mutate(userId = as.character(userId)),
+            by = c("userId", "lessonTitle"))
+            
+prior_knowledge_MLE3 <- prior_knowledge_MLE3 %>%
+  left_join(prior_knowledge_weirdnames %>%
+        select(prior_knowledge, userId, answer) %>%
+        mutate(userId = as.character(userId)) %>%
+        mutate(prior_knowledge = ifelse(prior_knowledge == "yes", 1, -1)))
 
+write.csv(prior_knowledge_MLE3, "prior_knowledge_MLE3.csv", row.names = FALSE)
 ```
+#After MLE, input data here 
+
+```{r}
+recovered_blc_unknown_sof <- read_csv("results_unknown_sof3.csv", show_col_types = FALSE) 
+
+recovered_blc_unknown_sof <- recovered_blc_unknown_sof %>%
+  mutate(observed = if_else(prior_knowledge == 1, 1, -1))
+
+curve = NULL
+for (cutoff in seq(-3.7, 0.5, 0.1)) {
+  subthreshold <- recovered_blc_unknown_sof %>%
+    mutate(prediction = ifelse(BLC <= cutoff, -1, 1)) %>%
+    mutate(accuracy = ifelse(prediction == observed, 1, 0)) %>%
+    group_by(observed) %>%
+    summarise(accuracy = mean(accuracy))
+  
+  tnr <- subthreshold %>% 
+    filter(observed == -1) %>% 
+    dplyr::select(accuracy) %>%
+    as.numeric()
+  
+  tpr <- subthreshold %>% 
+    filter(observed == 1) %>% 
+    dplyr::select(accuracy) %>%
+    as.numeric()
+  
+  partial <- tibble(Threshold = cutoff,
+                    TNR = tnr,
+                    TPR = tpr)
+  if (is.null(curve)) {
+    curve <- partial
+  } else {
+    curve <- rbind(curve, partial)
+  }
+}
+```
+
+And now, we can visualize the ROC graph. First, we can compute the global AUC
+
+```{r}
+blc_AUC1 <- 0
+step <- 0.01
+for (tnr in seq(0, 1-step, step)) {
+  y <- curve %>% filter (TNR <= tnr) %>% filter(TNR == max(TNR)) %>% summarise(TPR = mean(TPR)) %>% as.numeric()
+  if (!is.nan(y)) {
+    blc_AUC1 <- blc_AUC1 + (y * step)
+  }
+}
+
+ROC_unknown_sof <- ggplot(arrange(curve, TPR), aes(x=TNR, y=TPR, col=Threshold)) + 
+  geom_point(size=2,  alpha=1) + 
+  geom_line() + 
+  geom_text_repel(aes(label=paste("BLC =", Threshold)), 
+                  direction="both",
+                  size=3) +
+  ylab("Sensitivity (True Positive Rate)") +
+  xlab("Specificity (True Negative Rate)") +
+  scale_x_reverse() +
+  scale_color_viridis(option="viridis") +
+  labs(col="Recovered BLC") +
+  ylim(0, 1) +
+  xlim(1, 0) +
+  coord_equal() +
+  ggtitle("ROC Curve for MLE-Recovered BLC") +
+  geom_abline(slope=1, intercept = 1, col="grey", linetype = "dashed") +
+  annotate(geom="text", x=1/3, y=1/5, 
+           label = paste("AUC = ", 
+                         round(blc_AUC1, 2))) +
+  
+  theme_pander()
+  
+  ROC_unknown_sof
+```
+

@@ -1,0 +1,2137 @@
+user_id,textbox_text.text,correct_ans,flags_click.time,prior_knowledge
+user135@research.com ,Bangladesh,Bangladesh,12.4556,yes
+user135@research.com ,China,China,3.078,yes
+user135@research.com ,Pacific Islands,Hong Kong,10.0723,no
+user135@research.com ,India,India,3.7561,yes
+user135@research.com ,Japan,Japan,2.6191,yes
+user135@research.com ,Mauritania,Maldives,12.6968,no
+user135@research.com ,,Nepal,2.1049,no
+user135@research.com ,Dominican Republic,Philippines,7.9139,no
+user135@research.com ,Saudi Arabia,Saudi Arabia,3.9561,yes
+user135@research.com ,,Singapore,3.4891,no
+user135@research.com ,South Korea,South Korea,5.09,yes
+user135@research.com ,,Sri Lanka,7.5416,no
+user135@research.com ,,Taiwan,1.2303,no
+user135@research.com ,,Thailand,1.3143,no
+user135@research.com ,,Vietnam,1.3305,no
+user135@research.com ,Wales,Anguilla,5.2469,no
+user135@research.com ,,Aruba,1.206,no
+user135@research.com ,,Bahamas,1.1816,no
+user135@research.com ,,Barbados,1.2312,no
+user135@research.com ,,Bonaire,1.114,no
+user135@research.com ,,Cuba,1.5137,no
+user135@research.com ,,Dominica,0.9309,no
+user135@research.com ,,Grenada,2.5133,no
+user135@research.com ,,Haiti,1.2802,no
+user135@research.com ,Jamaica,Jamaica,5.4135,yes
+user135@research.com ,,Martinique,1.1218,no
+user135@research.com ,,St Lucia,1.0138,no
+user135@research.com ,,Montserrat,1.5636,no
+user135@research.com ,,St Kitts and Nevis,1.1891,no
+user135@research.com ,,Trinidad and Tobago,0.9981,no
+user185@research.com,,Bangladesh,7.4386,no
+user185@research.com,,China,0.8136,no
+user185@research.com,,Hong Kong,2.478,no
+user185@research.com,india,India,2.8269,no
+user185@research.com,japan,Japan,2.1032,no
+user185@research.com,,Maldives,0.933,no
+user185@research.com,,Nepal,1.2282,no
+user185@research.com,,Philippines,1.0779,no
+user185@research.com,,Saudi Arabia,0.8798,no
+user185@research.com,,Singapore,0.7841,no
+user185@research.com,,South Korea,0.7795,no
+user185@research.com,,Sri Lanka,1.0807,no
+user185@research.com,,Taiwan,1.4472,no
+user185@research.com,,Thailand,0.9521,no
+user185@research.com,,Vietnam,2.4789,no
+user185@research.com,,Anguilla,2.2386,no
+user185@research.com,,Aruba,0.5788,no
+user185@research.com,,Bahamas,0.6274,no
+user185@research.com,,Barbados,0.5629,no
+user185@research.com,,Bonaire,0.5662,no
+user185@research.com,,Cuba,0.615,no
+user185@research.com,,Dominica,0.5609,no
+user185@research.com,,Grenada,0.4108,no
+user185@research.com,,Haiti,0.8945,no
+user185@research.com,,Jamaica,1.312,no
+user185@research.com,,Martinique,0.5639,no
+user185@research.com,,St Lucia,0.5639,no
+user185@research.com,,Montserrat,0.5463,no
+user185@research.com,,St Kitts and Nevis,0.4964,no
+user185@research.com,,Trinidad and Tobago,0.5463,no
+user165@research.com,japan,Bangladesh,4.885,no
+user165@research.com,,China,5.6413,no
+user165@research.com,,Hong Kong,1.3749,no
+user165@research.com,,India,1.3555,no
+user165@research.com,Japan,Japan,3.4393,yes
+user165@research.com,,Maldives,1.3884,no
+user165@research.com,,Nepal,1.2754,no
+user165@research.com,,Philippines,1.2559,no
+user165@research.com,,Saudi Arabia,1.5183,no
+user165@research.com,,Singapore,1.3099,no
+user165@research.com,,South Korea,2.1767,no
+user165@research.com,,Sri Lanka,1.2033,no
+user165@research.com,,Taiwan,1.1578,no
+user165@research.com,,Thailand,1.3556,no
+user165@research.com,,Vietnam,1.4699,no
+user165@research.com,,Anguilla,1.0878,no
+user165@research.com,,Aruba,1.1376,no
+user165@research.com,,Bahamas,1.0245,no
+user165@research.com,,Barbados,1.0242,no
+user165@research.com,,Bonaire,1.1143,no
+user165@research.com,,Cuba,1.9374,no
+user165@research.com,,Dominica,1.5431,no
+user165@research.com,,Grenada,1.3625,no
+user165@research.com,,Haiti,1.3732,no
+user165@research.com,Jamaica,Jamaica,7.2663,yes
+user165@research.com,,Martinique,1.1586,no
+user165@research.com,,St Lucia,1.5829,no
+user165@research.com,,Montserrat,0.9082,no
+user165@research.com,,St Kitts and Nevis,0.9093,no
+user165@research.com,,Trinidad and Tobago,0.8434,no
+user170@research.com ,,Bangladesh,10.6487,no
+user170@research.com ,China,China,5.6612,yes
+user170@research.com ,Phillipines,Hong Kong,10.061,no
+user170@research.com ,India,India,18.2194,yes
+user170@research.com ,Japan,Japan,8.5107,yes
+user170@research.com ,Nepal,Maldives,8.3122,no
+user170@research.com ,,Nepal,5.4561,no
+user170@research.com ,Argentina,Philippines,10.8079,no
+user170@research.com ,Yemen,Saudi Arabia,14.5667,no
+user170@research.com ,,Singapore,4.1866,no
+user170@research.com ,South Korea,South Korea,12.658,yes
+user170@research.com ,,Sri Lanka,1.4869,no
+user170@research.com ,,Taiwan,2.7499,no
+user170@research.com ,,Thailand,4.7102,no
+user170@research.com ,mongolia,Vietnam,18.3841,no
+user170@research.com ,,Anguilla,11.3684,no
+user170@research.com ,,Aruba,1.9954,no
+user170@research.com ,,Bahamas,2.9846,no
+user170@research.com ,,Barbados,5.8956,no
+user170@research.com ,,Bonaire,1.5285,no
+user170@research.com ,,Cuba,7.4425,no
+user170@research.com ,Brazil,Dominica,9.2081,no
+user170@research.com ,Hades,Grenada,15.1515,no
+user170@research.com ,Chile,Haiti,10.2667,no
+user170@research.com ,,Jamaica,13.8112,no
+user170@research.com ,,Martinique,2.684,no
+user170@research.com ,,St Lucia,3.1679,no
+user170@research.com ,Cuba,Montserrat,11.4374,no
+user170@research.com ,,St Kitts and Nevis,8.2516,no
+user170@research.com ,,Trinidad and Tobago,1.4753,no
+user108@research.com ,,Bangladesh,5.8492,no
+user108@research.com ,ChinaChina,China,7.6759,no
+user108@research.com ,,Hong Kong,4.8085,no
+user108@research.com ,,India,1.6615,no
+user108@research.com ,Japan,Japan,4.5083,yes
+user108@research.com ,,Maldives,1.713,no
+user108@research.com ,,Nepal,3.959,no
+user108@research.com ,,Philippines,3.4062,no
+user108@research.com ,,Saudi Arabia,1.2555,no
+user108@research.com ,,Singapore,3.2275,no
+user108@research.com ,,South Korea,3.3754,no
+user108@research.com ,,Sri Lanka,1.2255,no
+user108@research.com ,,Taiwan,1.1457,no
+user108@research.com ,Greece,Thailand,6.6429,no
+user108@research.com ,,Vietnam,4.4262,no
+user108@research.com ,,Anguilla,1.1731,no
+user108@research.com ,,Aruba,1.0603,no
+user108@research.com ,,Bahamas,1.1594,no
+user108@research.com ,,Barbados,1.0968,no
+user108@research.com ,,Bonaire,1.7273,no
+user108@research.com ,,Cuba,1.992,no
+user108@research.com ,,Dominica,1.106,no
+user108@research.com ,,Grenada,1.4667,no
+user108@research.com ,,Haiti,41.1495,no
+user108@research.com ,,Jamaica,1.3614,no
+user108@research.com ,,Martinique,14.1989,no
+user108@research.com ,,St Lucia,1.5915,no
+user108@research.com ,,Montserrat,1.4581,no
+user108@research.com ,,St Kitts and Nevis,1.0089,no
+user108@research.com ,,Trinidad and Tobago,1.0236,no
+user96@research.com,japan,Bangladesh,9.6532,no
+user96@research.com,china,China,3.5955,no
+user96@research.com,indonesia ,Hong Kong,21.3138,no
+user96@research.com,india,India,6.3941,no
+user96@research.com,japan,Japan,4.1445,no
+user96@research.com,,Maldives,9.6718,no
+user96@research.com,,Nepal,1.37,no
+user96@research.com,,Philippines,3.346,no
+user96@research.com,,Saudi Arabia,1.1526,no
+user96@research.com,singapore,Singapore,5.4128,no
+user96@research.com,south korea,South Korea,11.7224,no
+user96@research.com,,Sri Lanka,2.3544,no
+user96@research.com,taiwan,Taiwan,7.399,no
+user96@research.com,,Thailand,6.295,no
+user96@research.com,vietnam,Vietnam,7.5033,no
+user96@research.com,,Anguilla,2.1036,no
+user96@research.com,,Aruba,0.9385,no
+user96@research.com,,Bahamas,2.2148,no
+user96@research.com,trinidad,Barbados,5.7048,no
+user96@research.com,,Bonaire,1.6771,no
+user96@research.com,,Cuba,2.3889,no
+user96@research.com,,Dominica,0.8119,no
+user96@research.com,,Grenada,0.7306,no
+user96@research.com,,Haiti,0.8732,no
+user96@research.com,dominican republic,Jamaica,5.6134,no
+user96@research.com,,Martinique,1.2036,no
+user96@research.com,,St Lucia,0.8061,no
+user96@research.com,,Montserrat,1.2469,no
+user96@research.com,,St Kitts and Nevis,1.0081,no
+user96@research.com,,Trinidad and Tobago,0.7465,no
+user156@research.com ,,Bangladesh,5.009,no
+user156@research.com ,,China,0.6279,no
+user156@research.com ,,Hong Kong,4.0163,no
+user156@research.com ,israel,India,7.6973,no
+user156@research.com ,japan,Japan,2.9991,no
+user156@research.com ,,Maldives,3.2587,no
+user156@research.com ,nepal,Nepal,3.0642,no
+user156@research.com ,philippines,Philippines,4.264,no
+user156@research.com ,iraq,Saudi Arabia,3.9239,no
+user156@research.com ,lebanon,Singapore,13.6754,no
+user156@research.com ,korea,South Korea,3.3632,no
+user156@research.com ,morocco,Sri Lanka,12.7986,no
+user156@research.com ,thailand,Taiwan,4.3799,no
+user156@research.com ,,Thailand,20.1261,no
+user156@research.com ,vietnam,Vietnam,4.4118,no
+user156@research.com ,australia,Anguilla,5.4326,no
+user156@research.com ,ireland,Aruba,10.2815,no
+user156@research.com ,,Bahamas,11.7472,no
+user156@research.com ,,Barbados,1.0783,no
+user156@research.com ,,Bonaire,2.8632,no
+user156@research.com ,pakistan,Cuba,10.5312,no
+user156@research.com ,,Dominica,4.084,no
+user156@research.com ,kenya,Grenada,3.955,no
+user156@research.com ,new zealand,Haiti,10.8818,no
+user156@research.com ,jamaica,Jamaica,4.0867000000000004,no
+user156@research.com ,rome,Martinique,12.1381,no
+user156@research.com ,,St Lucia,14.8981,no
+user156@research.com ,,Montserrat,49.8625,no
+user156@research.com ,uganda,St Kitts and Nevis,6.1777,no
+user156@research.com ,,Trinidad and Tobago,2.1802,no
+user134@research.com,,Bangladesh,1.708,no
+user134@research.com,China,China,5.492,yes
+user134@research.com,Taiwan,Hong Kong,2.595,no
+user134@research.com,India,India,1.861,yes
+user134@research.com,Japan,Japan,1.829,yes
+user134@research.com,Turkey,Maldives,2.862,no
+user134@research.com,,Nepal,5.858,no
+user134@research.com,Indonesia,Philippines,2.993,no
+user134@research.com,,Saudi Arabia,4.961,no
+user134@research.com,Turkey,Singapore,2.628,no
+user134@research.com,South Korea,South Korea,4.427,yes
+user134@research.com,Mongolia,Sri Lanka,4.161,no
+user134@research.com,Taiwan,Taiwan,4.36,yes
+user134@research.com,Indonesia,Thailand,4.661,no
+user134@research.com,Vietnam,Vietnam,2.128,yes
+user134@research.com,Indonesia,Anguilla,3.894,no
+user134@research.com,,Aruba,1.796,no
+user134@research.com,,Bahamas,0.797,no
+user134@research.com,,Barbados,4.029,no
+user134@research.com,,Bonaire,3.629,no
+user134@research.com,Indonesia,Cuba,8.36,no
+user134@research.com,,Dominica,2.196,no
+user134@research.com,,Grenada,2.628,no
+user134@research.com,,Haiti,2.829,no
+user134@research.com,,Jamaica,3.094,no
+user134@research.com,,Martinique,3.396,no
+user134@research.com,,St Lucia,1.129,no
+user134@research.com,,Montserrat,4.362,no
+user134@research.com,Ethiopia,St Kitts and Nevis,6.194,no
+user134@research.com,,Trinidad and Tobago,4.594,no
+user121@research.com,japan,Bangladesh,11.851,no
+user121@research.com,china,China,3.4277,no
+user121@research.com,taiwan,Hong Kong,4.7499,no
+user121@research.com,india,India,3.4142,no
+user121@research.com,,Japan,0.8705,no
+user121@research.com,,Maldives,4.804,no
+user121@research.com,nepal,Nepal,6.6363,no
+user121@research.com,malaysia,Philippines,6.2038,no
+user121@research.com,saudi arabia,Saudi Arabia,7.0176,no
+user121@research.com,turkey,Singapore,5.292,no
+user121@research.com,south korea,South Korea,6.2746,no
+user121@research.com,sri lanka,Sri Lanka,11.6356,no
+user121@research.com,taiwan,Taiwan,6.1669,no
+user121@research.com,indonesia,Thailand,7.0235,no
+user121@research.com,vietnam,Vietnam,6.2206,no
+user121@research.com,new zealand,Anguilla,10.2843,no
+user121@research.com,,Aruba,21.8527,no
+user121@research.com,,Bahamas,3.5532,no
+user121@research.com,,Barbados,3.2699,no
+user121@research.com,,Bonaire,3.166,no
+user121@research.com,,Cuba,6.9197,no
+user121@research.com,,Dominica,4.304,no
+user121@research.com,,Grenada,2.1521,no
+user121@research.com,,Haiti,1.0759,no
+user121@research.com,jamaica,Jamaica,4.4454,no
+user121@research.com,finland,Martinique,10.0046,no
+user121@research.com,,St Lucia,2.2347,no
+user121@research.com,,Montserrat,2.7968,no
+user121@research.com,,St Kitts and Nevis,1.2736,no
+user121@research.com,,Trinidad and Tobago,1.1631,no
+user140@research.com,japan,Bangladesh,7.3293,no
+user140@research.com,Korea,China,4.2828,no
+user140@research.com,Indonesia,Hong Kong,5.0289,no
+user140@research.com,India,India,2.6841,yes
+user140@research.com,Japan,Japan,2.2174,yes
+user140@research.com,,Maldives,2.1495,no
+user140@research.com,,Nepal,3.719,no
+user140@research.com,,Philippines,2.4833,no
+user140@research.com,,Saudi Arabia,1.9172,no
+user140@research.com,,Singapore,4.9938,no
+user140@research.com,Korea,South Korea,3.053,no
+user140@research.com,,Sri Lanka,3.1523,no
+user140@research.com,,Taiwan,4.5663,no
+user140@research.com,France,Thailand,3.1534,no
+user140@research.com,,Vietnam,2.1206,no
+user140@research.com,London,Anguilla,3.7967,no
+user140@research.com,,Aruba,6.4816,no
+user140@research.com,,Bahamas,1.7832,no
+user140@research.com,,Barbados,1.8819,no
+user140@research.com,,Bonaire,1.4801,no
+user140@research.com,,Cuba,2.9771,no
+user140@research.com,Brazil,Dominica,7.4366,no
+user140@research.com,Brazil,Grenada,4.6858,no
+user140@research.com,,Haiti,2.0706,no
+user140@research.com,,Jamaica,2.0863,no
+user140@research.com,,Martinique,1.3633,no
+user140@research.com,,St Lucia,1.2122,no
+user140@research.com,UK,Montserrat,4.3493,no
+user140@research.com,,St Kitts and Nevis,1.6992,no
+user140@research.com,,Trinidad and Tobago,0.8157,no
+user115@research.com ,,Bangladesh,4.0436,no
+user115@research.com ,China,China,5.8505,yes
+user115@research.com ,Phillipines,Hong Kong,6.1259,no
+user115@research.com ,India,India,4.4207,yes
+user115@research.com ,Japan,Japan,3.2553,yes
+user115@research.com ,Bhutan,Maldives,5.8031,no
+user115@research.com ,Taiwan,Nepal,7.6164,no
+user115@research.com ,South Korea,Philippines,8.0675,no
+user115@research.com ,Israel,Saudi Arabia,10.0826,no
+user115@research.com ,,Singapore,3.3222,no
+user115@research.com ,South Korea,South Korea,6.1525,yes
+user115@research.com ,Singapore,Sri Lanka,17.3424,no
+user115@research.com ,,Taiwan,18.1081,no
+user115@research.com ,Singapore,Thailand,12.7963,no
+user115@research.com ,,Vietnam,2.3894,no
+user115@research.com ,,Anguilla,12.9361,no
+user115@research.com ,,Aruba,3.6061,no
+user115@research.com ,,Bahamas,1.4743,no
+user115@research.com ,Cuba,Barbados,12.4367,no
+user115@research.com ,Guana,Bonaire,6.8859,no
+user115@research.com ,Cuba,Cuba,18.3252,yes
+user115@research.com ,Papua New Guinea,Dominica,10.7156,no
+user115@research.com ,,Grenada,4.0826,no
+user115@research.com ,,Haiti,4.3438,no
+user115@research.com ,Brazil,Jamaica,4.6382,no
+user115@research.com ,,Martinique,2.0537,no
+user115@research.com ,Argentina,St Lucia,10.3654,no
+user115@research.com ,,Montserrat,6.2295,no
+user115@research.com ,,St Kitts and Nevis,4.8317,no
+user115@research.com ,,Trinidad and Tobago,3.8712,no
+user127@research.com,bangladesh,Bangladesh,28.5829,no
+user127@research.com,china,China,8.4632,no
+user127@research.com,,Hong Kong,1.5789,no
+user127@research.com,pakistan,India,7.0948,no
+user127@research.com,japan,Japan,2.984,no
+user127@research.com,,Maldives,6.0632,no
+user127@research.com,,Nepal,2.614,no
+user127@research.com,phillipines,Philippines,16.6295,no
+user127@research.com,,Saudi Arabia,1.7819,no
+user127@research.com,singapore,Singapore,16.0913,no
+user127@research.com,korea,South Korea,10.2123,no
+user127@research.com,,Sri Lanka,1.4156,no
+user127@research.com,republic of china,Taiwan,18.295,no
+user127@research.com,,Thailand,2.1527,no
+user127@research.com,vietnam,Vietnam,12.5602,no
+user127@research.com,,Anguilla,1.5172,no
+user127@research.com,,Aruba,2.9632,no
+user127@research.com,,Bahamas,27.1139,no
+user127@research.com,,Barbados,2.3163,no
+user127@research.com,,Bonaire,5.0287,no
+user127@research.com,,Cuba,9.3807,no
+user127@research.com,dominica,Dominica,19.4171,no
+user127@research.com,,Grenada,2.5789,no
+user127@research.com,liechtenstein,Haiti,21.2653,no
+user127@research.com,,Jamaica,1.3496,no
+user127@research.com,,Martinique,1.2963,no
+user127@research.com,,St Lucia,1.2954,no
+user127@research.com,,Montserrat,1.029,no
+user127@research.com,,St Kitts and Nevis,1.0955,no
+user127@research.com,,Trinidad and Tobago,1.0302,no
+user163@research.com,,Bangladesh,6.711,no
+user163@research.com,China,China,6.6078,yes
+user163@research.com,,Hong Kong,1.2044,no
+user163@research.com,,India,3.263,no
+user163@research.com,Japan,Japan,3.681,yes
+user163@research.com,Thailand,Maldives,7.1481,no
+user163@research.com,,Nepal,2.0441,no
+user163@research.com,Indonesia,Philippines,9.783,no
+user163@research.com,,Saudi Arabia,2.6792,no
+user163@research.com,,Singapore,1.7963,no
+user163@research.com,South Korea,South Korea,8.8809,yes
+user163@research.com,,Sri Lanka,1.5957,no
+user163@research.com,,Taiwan,2.3127,no
+user163@research.com,,Thailand,1.8299,no
+user163@research.com,,Vietnam,3.7293,no
+user163@research.com,,Anguilla,4.6106,no
+user163@research.com,,Aruba,2.723,no
+user163@research.com,,Bahamas,2.8637,no
+user163@research.com,,Barbados,1.8794,no
+user163@research.com,,Bonaire,2.1751,no
+user163@research.com,,Cuba,1.8262,no
+user163@research.com,,Dominica,4.5947,no
+user163@research.com,,Grenada,1.6622,no
+user163@research.com,,Haiti,1.5165,no
+user163@research.com,Jamaica ,Jamaica,5.291,no
+user163@research.com,,Martinique,2.0114,no
+user163@research.com,,St Lucia,1.5002,no
+user163@research.com,,Montserrat,5.597,no
+user163@research.com,,St Kitts and Nevis,1.5777,no
+user163@research.com,,Trinidad and Tobago,1.2793,no
+user194@research.com,Bangladesh,Bangladesh,21.07,yes
+user194@research.com,China,China,2.336,yes
+user194@research.com,Malaysia,Hong Kong,4.321,no
+user194@research.com,India,India,2.447,yes
+user194@research.com,Japan,Japan,2.226,yes
+user194@research.com,,Maldives,2.05,no
+user194@research.com,,Nepal,1.178,no
+user194@research.com,Indonesia,Philippines,3.597,no
+user194@research.com,,Saudi Arabia,1.364,no
+user194@research.com,Indonesia,Singapore,4.052,no
+user194@research.com,South Korea,South Korea,7.443,yes
+user194@research.com,,Sri Lanka,0.694,no
+user194@research.com,,Taiwan,1.262,no
+user194@research.com,,Thailand,1.006,no
+user194@research.com,,Vietnam,0.845,no
+user194@research.com,Wales,Anguilla,4.06,no
+user194@research.com,,Aruba,2.612,no
+user194@research.com,,Bahamas,1.011,no
+user194@research.com,,Barbados,1.873,no
+user194@research.com,,Bonaire,1.754,no
+user194@research.com,,Cuba,1.511,no
+user194@research.com,,Dominica,1.247,no
+user194@research.com,,Grenada,1.123,no
+user194@research.com,,Haiti,9.401,no
+user194@research.com,,Jamaica,6.287,no
+user194@research.com,,Martinique,0.921,no
+user194@research.com,,St Lucia,0.84,no
+user194@research.com,,Montserrat,4.11,no
+user194@research.com,,St Kitts and Nevis,1.066,no
+user194@research.com,,Trinidad and Tobago,0.866,no
+user113@research.com ,Japan,Bangladesh,5.6284,no
+user113@research.com ,china,China,2.5297,no
+user113@research.com ,hongkong ,Hong Kong,3.5333,no
+user113@research.com ,,India,1.6981,no
+user113@research.com ,Japan,Japan,2.7472,yes
+user113@research.com ,Istanbul,Maldives,22.0517,no
+user113@research.com ,,Nepal,3.17,no
+user113@research.com ,,Philippines,8.1557,no
+user113@research.com ,123wes,Saudi Arabia,56.9512,no
+user113@research.com ,Singapore,Singapore,18.9375,yes
+user113@research.com ,Korea,South Korea,4.0165,no
+user113@research.com ,,Sri Lanka,4.0872,no
+user113@research.com ,,Taiwan,0.9196,no
+user113@research.com ,Tailand,Thailand,8.1461,no
+user113@research.com ,Vietnam,Vietnam,9.9696,yes
+user113@research.com ,,Anguilla,19.1777,no
+user113@research.com ,,Aruba,3.2824,no
+user113@research.com ,,Bahamas,7.4635,no
+user113@research.com ,,Barbados,1.3498000000000001,no
+user113@research.com ,,Bonaire,2.063,no
+user113@research.com ,,Cuba,2.8832,no
+user113@research.com ,,Dominica,1.8666,no
+user113@research.com ,,Grenada,1.4174,no
+user113@research.com ,,Haiti,3.2307,no
+user113@research.com ,Jamaica,Jamaica,7.6797,yes
+user113@research.com ,,Martinique,3.9933,no
+user113@research.com ,,St Lucia,0.9166,no
+user113@research.com ,,Montserrat,5.7303,no
+user113@research.com ,,St Kitts and Nevis,1.5457,no
+user113@research.com ,,Trinidad and Tobago,3.9293,no
+user102@research.com,bangladesh,Bangladesh,14.891,no
+user102@research.com,,China,0.658,no
+user102@research.com,,Hong Kong,0.574,no
+user102@research.com, india,India,6.807,no
+user102@research.com,japan,Japan,3.69,no
+user102@research.com,maldives,Maldives,4.409,no
+user102@research.com,nepal,Nepal,1.941,no
+user102@research.com,phillipines,Philippines,3.762,no
+user102@research.com,saudi arabia,Saudi Arabia,4.695,no
+user102@research.com,singapore,Singapore,3.36,no
+user102@research.com,south korea,South Korea,3.733,no
+user102@research.com,sri lanka,Sri Lanka,5.021,no
+user102@research.com,taiwan,Taiwan,2.964,no
+user102@research.com,thailand,Thailand,3.058,no
+user102@research.com,vietnam,Vietnam,3.297,no
+user102@research.com,mau,Anguilla,14.525,no
+user102@research.com,musqarakte,Aruba,6.336,no
+user102@research.com,hdhd,Bahamas,2.991,no
+user102@research.com,dont know,Barbados,3.075,no
+user102@research.com,dont know,Bonaire,2.79,no
+user102@research.com,dont know,Cuba,4.311,no
+user102@research.com,dont know,Dominica,3.187,no
+user102@research.com,dont know,Grenada,3.025,no
+user102@research.com,dont kniow,Haiti,2.79,no
+user102@research.com,dont know,Jamaica,4.441,no
+user102@research.com,dont know,Martinique,5.373,no
+user102@research.com,dont know,St Lucia,3.731,no
+user102@research.com,dont know,Montserrat,4.308,no
+user102@research.com,dont know,St Kitts and Nevis,2.843,no
+user102@research.com,dont know,Trinidad and Tobago,4.19,no
+user198@research.com,,Bangladesh,3.8335,no
+user198@research.com,China,China,3.7896,yes
+user198@research.com,,Hong Kong,5.5449,no
+user198@research.com,Indonesia,India,5.9176,no
+user198@research.com,Japan,Japan,2.8966,yes
+user198@research.com,Mongolia,Maldives,5.978,no
+user198@research.com,Nepal,Nepal,2.7976,yes
+user198@research.com,,Philippines,1.9012,no
+user198@research.com,,Saudi Arabia,1.341,no
+user198@research.com,China,Singapore,3.3968,no
+user198@research.com,Korea,South Korea,3.7304,no
+user198@research.com,,Sri Lanka,1.5467,no
+user198@research.com,,Taiwan,1.1631,no
+user198@research.com,,Thailand,6.7168,no
+user198@research.com,,Vietnam,1.8155,no
+user198@research.com,,Anguilla,4.8299,no
+user198@research.com,,Aruba,1.3196,no
+user198@research.com,,Bahamas,7.989,no
+user198@research.com,,Barbados,1.187,no
+user198@research.com,,Bonaire,1.1003,no
+user198@research.com,,Cuba,1.2906,no
+user198@research.com,,Dominica,1.2463,no
+user198@research.com,,Grenada,2.3798,no
+user198@research.com,,Haiti,13.6651,no
+user198@research.com,,Jamaica,0.9708,no
+user198@research.com,,Martinique,1.03,no
+user198@research.com,,St Lucia,1.3686,no
+user198@research.com,,Montserrat,1.6961,no
+user198@research.com,,St Kitts and Nevis,1.1464,no
+user198@research.com,,Trinidad and Tobago,1.9511,no
+user199@research.com,,Bangladesh,1.2848,no
+user199@research.com,China,China,3.9506,yes
+user199@research.com,Hong Kong,Hong Kong,4.4362,yes
+user199@research.com,,India,0.889,no
+user199@research.com,Japan,Japan,2.4463,yes
+user199@research.com,Tunisia,Maldives,10.6091,no
+user199@research.com,Nepal,Nepal,5.9061,yes
+user199@research.com,Phillipines,Philippines,5.7818,no
+user199@research.com,Saudi Arabia,Saudi Arabia,5.928,yes
+user199@research.com,Singapore,Singapore,3.638,yes
+user199@research.com,South Korea,South Korea,4.3108,yes
+user199@research.com,Bhutan,Sri Lanka,11.601,no
+user199@research.com,Taiwan,Taiwan,2.4776,yes
+user199@research.com,Thailand,Thailand,3.6234,yes
+user199@research.com,Vietnam,Vietnam,2.9766,yes
+user199@research.com,Sri Lanka,Anguilla,12.0539,no
+user199@research.com,Andorra,Aruba,15.6587,no
+user199@research.com,Myanmar,Bahamas,19.012,no
+user199@research.com,Tunisia,Barbados,14.145,no
+user199@research.com,Bangladesh,Bonaire,12.4834,no
+user199@research.com,Puerto Rico,Cuba,12.5844,no
+user199@research.com,Cambodia,Dominica,11.6129,no
+user199@research.com,,Grenada,0.8709,no
+user199@research.com,Myanmar,Haiti,4.7502,no
+user199@research.com,Jamaica,Jamaica,39.8062,yes
+user199@research.com,Niger,Martinique,5.5914,no
+user199@research.com,Mozambique,St Lucia,10.5938,no
+user199@research.com,,Montserrat,1.1104,no
+user199@research.com,Eritea,St Kitts and Nevis,7.7997,no
+user199@research.com,Cameroon,Trinidad and Tobago,10.9998,no
+user91@research.com,,Bangladesh,8.4193,no
+user91@research.com,china,China,4.4974,no
+user91@research.com,indonesia,Hong Kong,4.0553,no
+user91@research.com,india,India,2.4362,no
+user91@research.com,japan,Japan,3.1271,no
+user91@research.com,turkey,Maldives,3.1205,no
+user91@research.com,jakarta,Nepal,7.4538,no
+user91@research.com,philippines,Philippines,43.8485,no
+user91@research.com,pakistan,Saudi Arabia,12.1028,no
+user91@research.com,pakistan,Singapore,4.5213,no
+user91@research.com,south korea,South Korea,5.521,no
+user91@research.com,vietnam,Sri Lanka,15.4664,no
+user91@research.com,,Taiwan,4.9862,no
+user91@research.com,netherlands,Thailand,3.7222,no
+user91@research.com,,Vietnam,2.1544,no
+user91@research.com,whales,Anguilla,7.7562,no
+user91@research.com,nepal,Aruba,5.1892,no
+user91@research.com,barbados,Bahamas,18.8523,no
+user91@research.com,,Barbados,3.9534,no
+user91@research.com,jamaica,Bonaire,24.388,no
+user91@research.com,singapore,Cuba,5.9717,no
+user91@research.com,columbia,Dominica,4.6376,no
+user91@research.com,peru,Grenada,6.1228,no
+user91@research.com,,Haiti,5.2381,no
+user91@research.com,jamaica,Jamaica,3.5914,no
+user91@research.com,,Martinique,24.6855,no
+user91@research.com,carribean,St Lucia,21.9721,no
+user91@research.com,st joseph,Montserrat,14.3849,no
+user91@research.com,,St Kitts and Nevis,11.4863,no
+user91@research.com,,Trinidad and Tobago,2.0345,no
+user186@research.com,,Bangladesh,17.0478,no
+user186@research.com,china,China,4.2215,no
+user186@research.com,mongolia,Hong Kong,8.1252,no
+user186@research.com,india,India,3.0353,no
+user186@research.com,japan,Japan,2.3558,no
+user186@research.com,afghanistan,Maldives,13.4992,no
+user186@research.com,somalia,Nepal,7.4266,no
+user186@research.com,serbia,Philippines,10.5915,no
+user186@research.com,uae,Saudi Arabia,4.3544,no
+user186@research.com,,Singapore,41.5319,no
+user186@research.com,korea,South Korea,2.6764,no
+user186@research.com,macau,Sri Lanka,18.4343,no
+user186@research.com,thailand,Taiwan,7.3837,no
+user186@research.com,sweden,Thailand,6.429,no
+user186@research.com,north korea,Vietnam,5.1129,no
+user186@research.com,australia,Anguilla,3.6309,no
+user186@research.com,norway,Aruba,4.0907,no
+user186@research.com,sweden,Bahamas,4.0095,no
+user186@research.com,peru,Barbados,12.4529,no
+user186@research.com,chile,Bonaire,4.5244,no
+user186@research.com,switzerland,Cuba,8.7907,no
+user186@research.com,rio de janeiro,Dominica,7.9787,no
+user186@research.com,south africa,Grenada,9.2714,no
+user186@research.com,norway,Haiti,87.4506,no
+user186@research.com,uzbekistan,Jamaica,18.6726,no
+user186@research.com,reputation,Martinique,7.0927,no
+user186@research.com,1989,St Lucia,6.52,no
+user186@research.com,cyprus,Montserrat,84.8074,no
+user186@research.com,peru,St Kitts and Nevis,30.6215,no
+user186@research.com,red,Trinidad and Tobago,23.5911,no
+user107@research.com,,Bangladesh,4.717,no
+user107@research.com,China,China,4.308,yes
+user107@research.com,,Hong Kong,2.128,no
+user107@research.com,,India,1.242,no
+user107@research.com,Japan,Japan,3.778,yes
+user107@research.com,turkey,Maldives,4.279,no
+user107@research.com,,Nepal,2.711,no
+user107@research.com,,Philippines,3.678,no
+user107@research.com,,Saudi Arabia,2.146,no
+user107@research.com,,Singapore,5.678,no
+user107@research.com,South Korea,South Korea,7.337,yes
+user107@research.com,,Sri Lanka,2.511,no
+user107@research.com,,Taiwan,4.494,no
+user107@research.com,,Thailand,4.178,no
+user107@research.com,vietnam,Vietnam,3.846,no
+user107@research.com,,Anguilla,4.745,no
+user107@research.com,,Aruba,2.296,no
+user107@research.com,,Bahamas,2.579,no
+user107@research.com,,Barbados,2.545,no
+user107@research.com,,Bonaire,1.928,no
+user107@research.com,,Cuba,1.546,no
+user107@research.com,,Dominica,2.046,no
+user107@research.com,,Grenada,2.263,no
+user107@research.com,,Haiti,1.73,no
+user107@research.com,Jamaica,Jamaica,4.505,yes
+user107@research.com,,Martinique,1.879,no
+user107@research.com,,St Lucia,2.362,no
+user107@research.com,,Montserrat,2.079,no
+user107@research.com,,St Kitts and Nevis,2.579,no
+user107@research.com,,Trinidad and Tobago,1.958,no
+user140@research.com ,,Bangladesh,3.8793,no
+user140@research.com ,China,China,7.6305,yes
+user140@research.com ,,Hong Kong,4.3096,no
+user140@research.com ,,India,4.3118,no
+user140@research.com ,Japan,Japan,3.6065,yes
+user140@research.com ,,Maldives,2.17,no
+user140@research.com ,,Nepal,1.4886,no
+user140@research.com ,,Philippines,3.4564,no
+user140@research.com ,,Saudi Arabia,1.5724,no
+user140@research.com ,,Singapore,2.9467,no
+user140@research.com ,Korea,South Korea,3.9745,no
+user140@research.com ,,Sri Lanka,2.3521,no
+user140@research.com ,,Taiwan,12.557,no
+user140@research.com ,,Thailand,3.1547,no
+user140@research.com ,,Vietnam,4.2003,no
+user140@research.com ,,Anguilla,1.7038,no
+user140@research.com ,,Aruba,1.4238,no
+user140@research.com ,,Bahamas,1.1466,no
+user140@research.com ,,Barbados,1.3296,no
+user140@research.com ,,Bonaire,1.1889,no
+user140@research.com ,,Cuba,1.2969,no
+user140@research.com ,,Dominica,1.464,no
+user140@research.com ,,Grenada,1.7635,no
+user140@research.com ,,Haiti,2.7368,no
+user140@research.com ,,Jamaica,1.5899,no
+user140@research.com ,,Martinique,1.7966,no
+user140@research.com ,,St Lucia,1.2928,no
+user140@research.com ,,Montserrat,1.4135,no
+user140@research.com ,,St Kitts and Nevis,1.1709,no
+user140@research.com ,,Trinidad and Tobago,1.2459,no
+user132@research.com,Japan,Bangladesh,15.3577,no
+user132@research.com,China,China,4.5128,yes
+user132@research.com,Hong Kong,Hong Kong,6.797,yes
+user132@research.com,India,India,4.0612,yes
+user132@research.com,Japan,Japan,2.5676,yes
+user132@research.com,Istan,Maldives,9.5315,no
+user132@research.com,,Nepal,1.6805,no
+user132@research.com,,Philippines,8.6586,no
+user132@research.com,,Saudi Arabia,4.8977,no
+user132@research.com,,Singapore,4.081,no
+user132@research.com,korea,South Korea,3.7499,no
+user132@research.com,,Sri Lanka,1.2147,no
+user132@research.com,,Taiwan,7.5313,no
+user132@research.com,,Thailand,1.0967,no
+user132@research.com,,Vietnam,8.5631,no
+user132@research.com,,Anguilla,1.1504,no
+user132@research.com,,Aruba,0.8619,no
+user132@research.com,,Bahamas,5.5309,no
+user132@research.com,,Barbados,6.0112,no
+user132@research.com,,Bonaire,0.9649,no
+user132@research.com,,Cuba,3.633,no
+user132@research.com,,Dominica,1.9838,no
+user132@research.com,,Grenada,1.0289,no
+user132@research.com,,Haiti,1.5814,no
+user132@research.com,,Jamaica,9.0488,no
+user132@research.com,,Martinique,2.1172,no
+user132@research.com,,St Lucia,1.1141,no
+user132@research.com,,Montserrat,4.2814,no
+user132@research.com,,St Kitts and Nevis,0.9994,no
+user132@research.com,,Trinidad and Tobago,2.0316,no
+user189@research.com,don't know,Bangladesh,8.7084,no
+user189@research.com,China,China,5.1686,yes
+user189@research.com,,Hong Kong,2.2101,no
+user189@research.com,,India,1.5961,no
+user189@research.com,Japan,Japan,4.3541,yes
+user189@research.com,,Maldives,1.7693,no
+user189@research.com,,Nepal,1.5071,no
+user189@research.com,,Philippines,3.4381,no
+user189@research.com,,Saudi Arabia,1.0257,no
+user189@research.com,,Singapore,1.3998,no
+user189@research.com,Korea,South Korea,8.0048,no
+user189@research.com,,Sri Lanka,2.9561,no
+user189@research.com,,Taiwan,2.1441,no
+user189@research.com,,Thailand,1.4426,no
+user189@research.com,,Vietnam,1.8382,no
+user189@research.com,United Kingdom,Anguilla,13.493,no
+user189@research.com,,Aruba,1.2624,no
+user189@research.com,,Bahamas,1.3729,no
+user189@research.com,,Barbados,1.0902,no
+user189@research.com,,Bonaire,1.0235,no
+user189@research.com,,Cuba,1.0911,no
+user189@research.com,,Dominica,1.1405,no
+user189@research.com,,Grenada,1.0406,no
+user189@research.com,,Haiti,0.7743,no
+user189@research.com,,Jamaica,1.1069,no
+user189@research.com,,Martinique,1.1084,no
+user189@research.com,,St Lucia,0.9553,no
+user189@research.com,,Montserrat,7.5874,no
+user189@research.com,,St Kitts and Nevis,0.8384,no
+user189@research.com,,Trinidad and Tobago,1.8957,no
+user174@research.com,,Bangladesh,3.1575,no
+user174@research.com,China,China,6.7137,yes
+user174@research.com,,Hong Kong,2.0827,no
+user174@research.com,,India,2.6897,no
+user174@research.com,Japan,Japan,2.8583,yes
+user174@research.com,,Maldives,3.9041,no
+user174@research.com,,Nepal,1.9349,no
+user174@research.com,,Philippines,3.0245,no
+user174@research.com,,Saudi Arabia,1.8077,no
+user174@research.com,,Singapore,2.0493,no
+user174@research.com,,South Korea,4.7383,no
+user174@research.com,,Sri Lanka,1.4915,no
+user174@research.com,,Taiwan,1.3376,no
+user174@research.com,,Thailand,1.7316,no
+user174@research.com,,Vietnam,1.4326,no
+user174@research.com,,Anguilla,1.7646,no
+user174@research.com,,Aruba,1.348,no
+user174@research.com,,Bahamas,1.1485,no
+user174@research.com,,Barbados,2.2819,no
+user174@research.com,,Bonaire,1.6557,no
+user174@research.com,,Cuba,1.3981,no
+user174@research.com,,Dominica,1.1479,no
+user174@research.com,,Grenada,1.3493,no
+user174@research.com,,Haiti,1.7986,no
+user174@research.com,,Jamaica,1.3935,no
+user174@research.com,,Martinique,1.2989,no
+user174@research.com,,St Lucia,1.2319,no
+user174@research.com,,Montserrat,1.2645,no
+user174@research.com,,St Kitts and Nevis,2.082,no
+user174@research.com,,Trinidad and Tobago,0.9814,no
+user181@research.com,,Bangladesh,3.4437,no
+user181@research.com,china,China,7.119,no
+user181@research.com,malaysia,Hong Kong,9.1487,no
+user181@research.com,india,India,2.9757,no
+user181@research.com,japan,Japan,2.7459,no
+user181@research.com,,Maldives,1.4091,no
+user181@research.com,nepal,Nepal,4.0505,no
+user181@research.com,philipines,Philippines,8.0415,no
+user181@research.com,thailand,Saudi Arabia,5.9794,no
+user181@research.com,indonesia,Singapore,4.7753,no
+user181@research.com,south korea,South Korea,4.0214,no
+user181@research.com,,Sri Lanka,74.2492,no
+user181@research.com,,Taiwan,1.4862,no
+user181@research.com,,Thailand,1.8938,no
+user181@research.com,vietnam,Vietnam,3.8726,no
+user181@research.com,wales,Anguilla,3.5144,no
+user181@research.com,,Aruba,1.4163,no
+user181@research.com,,Bahamas,77.3322,no
+user181@research.com,,Barbados,1.9064,no
+user181@research.com,,Bonaire,0.9153,no
+user181@research.com,,Cuba,0.6989,no
+user181@research.com,,Dominica,0.6471,no
+user181@research.com,,Grenada,0.7071,no
+user181@research.com,,Haiti,0.8037,no
+user181@research.com,jamaica,Jamaica,3.3598,no
+user181@research.com,,Martinique,1.053,no
+user181@research.com,,St Lucia,0.7751,no
+user181@research.com,,Montserrat,1.6657,no
+user181@research.com,,St Kitts and Nevis,0.7881,no
+user181@research.com,,Trinidad and Tobago,0.7743,no
+user146@research.com ,,Bangladesh,6.5677,no
+user146@research.com ,China,China,5.3165,yes
+user146@research.com ,,Hong Kong,2.4823,no
+user146@research.com ,India,India,3.8154,yes
+user146@research.com ,Japan,Japan,3.5213,yes
+user146@research.com ,,Maldives,1.2999,no
+user146@research.com ,,Nepal,1.7638,no
+user146@research.com ,,Philippines,1.9035,no
+user146@research.com ,,Saudi Arabia,1.2859,no
+user146@research.com ,,Singapore,2.2762,no
+user146@research.com ,South Korea,South Korea,12.0079,yes
+user146@research.com ,,Sri Lanka,1.6868,no
+user146@research.com ,,Taiwan,3.6142,no
+user146@research.com ,,Thailand,2.2554,no
+user146@research.com ,,Vietnam,0.5624,no
+user146@research.com ,,Anguilla,4.0737,no
+user146@research.com ,,Aruba,1.2963,no
+user146@research.com ,,Bahamas,3.2174,no
+user146@research.com ,,Barbados,1.1169,no
+user146@research.com ,,Bonaire,1.1217,no
+user146@research.com ,,Cuba,1.9774,no
+user146@research.com ,,Dominica,1.036,no
+user146@research.com ,,Grenada,0.9666,no
+user146@research.com ,,Haiti,1.2347,no
+user146@research.com ,Jamaica,Jamaica,25.1912,yes
+user146@research.com ,,Martinique,22.6814,no
+user146@research.com ,,St Lucia,1.8439,no
+user146@research.com ,,Montserrat,1.3575,no
+user146@research.com ,,St Kitts and Nevis,1.1405,no
+user146@research.com ,,Trinidad and Tobago,0.9471,no
+user87@research.com,,Bangladesh,2.974,no
+user87@research.com,China,China,4.1281,yes
+user87@research.com,Indonesia,Hong Kong,3.3853,no
+user87@research.com,India,India,2.6513,yes
+user87@research.com,Japan,Japan,2.4002,yes
+user87@research.com,,Maldives,2.3499,no
+user87@research.com,Laos,Nepal,6.0139,no
+user87@research.com,Phillipines,Philippines,4.918,no
+user87@research.com,,Saudi Arabia,2.248,no
+user87@research.com,Indonesia,Singapore,9.4957,no
+user87@research.com,Korea,South Korea,3.3666,no
+user87@research.com,,Sri Lanka,1.5161,no
+user87@research.com,Taiwan,Taiwan,4.3787,yes
+user87@research.com,,Thailand,1.3832,no
+user87@research.com,Vietnam,Vietnam,3.9299,yes
+user87@research.com,,Anguilla,1.1812,no
+user87@research.com,,Aruba,1.3624,no
+user87@research.com,,Bahamas,1.4633,no
+user87@research.com,,Barbados,2.0309,no
+user87@research.com,,Bonaire,1.0622,no
+user87@research.com,,Cuba,1.3965,no
+user87@research.com,,Dominica,1.0661,no
+user87@research.com,,Grenada,0.9461,no
+user87@research.com,,Haiti,0.9589,no
+user87@research.com,Jamaica,Jamaica,4.9784,yes
+user87@research.com,,Martinique,1.3996,no
+user87@research.com,,St Lucia,2.6503,no
+user87@research.com,,Montserrat,1.598,no
+user87@research.com,,St Kitts and Nevis,2.1818,no
+user87@research.com,,Trinidad and Tobago,1.094,no
+user145@research.com ,,Bangladesh,3.3134,no
+user145@research.com ,China,China,6.7018,yes
+user145@research.com ,Hong Kong,Hong Kong,7.054,yes
+user145@research.com ,Mexico,India,5.5368,no
+user145@research.com ,Japan,Japan,4.0239,yes
+user145@research.com ,,Maldives,1.997,no
+user145@research.com ,Nepal,Nepal,28.8121,yes
+user145@research.com ,,Philippines,1.7183,no
+user145@research.com ,Saudi Arabia,Saudi Arabia,27.4444,yes
+user145@research.com ,Singapore,Singapore,21.2396,yes
+user145@research.com ,South Korea,South Korea,6.0821,yes
+user145@research.com ,,Sri Lanka,7.0645,no
+user145@research.com ,Taiwan,Taiwan,5.8508,yes
+user145@research.com ,,Thailand,2.7283,no
+user145@research.com ,Vietnam,Vietnam,23.9972,yes
+user145@research.com ,,Anguilla,4.0588,no
+user145@research.com ,,Aruba,1.6785,no
+user145@research.com ,,Bahamas,2.1196,no
+user145@research.com ,,Barbados,1.648,no
+user145@research.com ,,Bonaire,1.6032,no
+user145@research.com ,,Cuba,1.5614,no
+user145@research.com ,,Dominica,3.2286,no
+user145@research.com ,,Grenada,2.9187,no
+user145@research.com ,,Haiti,1.6865,no
+user145@research.com ,,Jamaica,1.3036,no
+user145@research.com ,,Martinique,2.1286,no
+user145@research.com ,,St Lucia,1.3455,no
+user145@research.com ,,Montserrat,2.9225,no
+user145@research.com ,,St Kitts and Nevis,3.5786,no
+user145@research.com ,,Trinidad and Tobago,1.3213,no
+user187@research.com,,Bangladesh,3.2486,no
+user187@research.com,China,China,4.2159,yes
+user187@research.com,Indonesia,Hong Kong,7.6642,no
+user187@research.com,India,India,8.9328,yes
+user187@research.com,Japan,Japan,2.5964,yes
+user187@research.com,Tajikistan,Maldives,4.3875,no
+user187@research.com,,Nepal,3.8299,no
+user187@research.com,Philippines,Philippines,4.4823,yes
+user187@research.com,Iran,Saudi Arabia,4.1487,no
+user187@research.com,Turkey,Singapore,3.3151,no
+user187@research.com,South Korea,South Korea,4.1684,yes
+user187@research.com,Malaysia,Sri Lanka,5.5846,no
+user187@research.com,Vietnam,Taiwan,8.9484,no
+user187@research.com,,Thailand,3.6144,no
+user187@research.com,,Vietnam,10.4333,no
+user187@research.com,,Anguilla,5.1809,no
+user187@research.com,,Aruba,3.4656,no
+user187@research.com,,Bahamas,2.4502,no
+user187@research.com,,Barbados,2.5647,no
+user187@research.com,,Bonaire,2.8779,no
+user187@research.com,,Cuba,2.9487,no
+user187@research.com,,Dominica,2.664,no
+user187@research.com,,Grenada,2.3477,no
+user187@research.com,,Haiti,2.9136,no
+user187@research.com,Jamaica,Jamaica,5.8981,yes
+user187@research.com,,Martinique,2.8804,no
+user187@research.com,,St Lucia,2.1919,no
+user187@research.com,,Montserrat,2.4137,no
+user187@research.com,,St Kitts and Nevis,1.747,no
+user187@research.com,,Trinidad and Tobago,1.1592,no
+user86@research.com,,Bangladesh,5.7197,no
+user86@research.com,China,China,4.4027,yes
+user86@research.com,HongKong,Hong Kong,8.3025,no
+user86@research.com,India,India,6.1636,yes
+user86@research.com,Japan,Japan,3.3868,yes
+user86@research.com,,Maldives,2.0922,no
+user86@research.com,,Nepal,1.7064,no
+user86@research.com,,Philippines,3.0222,no
+user86@research.com,,Saudi Arabia,2.4544,no
+user86@research.com,Vietnam,Singapore,37.8222,no
+user86@research.com,Korean,South Korea,5.2727,no
+user86@research.com,,Sri Lanka,4.4248,no
+user86@research.com,,Taiwan,2.0212,no
+user86@research.com,,Thailand,3.4568,no
+user86@research.com,,Vietnam,1.689,no
+user86@research.com,,Anguilla,1.755,no
+user86@research.com,,Aruba,1.1891,no
+user86@research.com,,Bahamas,1.7815,no
+user86@research.com,,Barbados,1.2056,no
+user86@research.com,,Bonaire,3.3474,no
+user86@research.com,,Cuba,1.6065,no
+user86@research.com,,Dominica,1.8318,no
+user86@research.com,,Grenada,3.5728,no
+user86@research.com,,Haiti,2.5397,no
+user86@research.com,,Jamaica,2.8558,no
+user86@research.com,,Martinique,1.5725,no
+user86@research.com,,St Lucia,1.7896,no
+user86@research.com,,Montserrat,3.0908,no
+user86@research.com,,St Kitts and Nevis,3.5239,no
+user86@research.com,,Trinidad and Tobago,2.1391,no
+user188@research.com,don't know,Bangladesh,16.7094,no
+user188@research.com,china,China,6.5422,no
+user188@research.com,hong kong,Hong Kong,4.3955,no
+user188@research.com,india,India,7.7751,no
+user188@research.com,japan,Japan,3.4395,no
+user188@research.com,turkey,Maldives,10.5899,no
+user188@research.com,nepal,Nepal,4.0866,no
+user188@research.com,dont know,Philippines,32.7911,no
+user188@research.com,Afghanistan,Saudi Arabia,11.4094,no
+user188@research.com,Trueky,Singapore,4.3364,no
+user188@research.com,South Korea,South Korea,9.2612,yes
+user188@research.com,dont know,Sri Lanka,4.8207,no
+user188@research.com,,Taiwan,3.7837,no
+user188@research.com,,Thailand,1.1292,no
+user188@research.com,Vietnam,Vietnam,4.781,yes
+user188@research.com,Australia,Anguilla,7.359,no
+user188@research.com,suslands,Aruba,4.4771,no
+user188@research.com,,Bahamas,0.8754,no
+user188@research.com,,Barbados,1.4156,no
+user188@research.com,,Bonaire,0.6465,no
+user188@research.com,,Cuba,1.4577,no
+user188@research.com,,Dominica,1.9605,no
+user188@research.com,,Grenada,0.6178,no
+user188@research.com,,Haiti,0.642,no
+user188@research.com,,Jamaica,0.5134,no
+user188@research.com,,Martinique,3.3348,no
+user188@research.com,,St Lucia,2.5159,no
+user188@research.com,,Montserrat,1.8151,no
+user188@research.com,,St Kitts and Nevis,1.9132,no
+user188@research.com,,Trinidad and Tobago,4.7615,no
+user191@research.com,Bangladash,Bangladesh,10.6278,no
+user191@research.com,China,China,4.3476,yes
+user191@research.com,Samoa,Hong Kong,9.3848,no
+user191@research.com,India ,India,3.5936,no
+user191@research.com,Japan,Japan,4.0771,yes
+user191@research.com,Pakistan,Maldives,5.8417,no
+user191@research.com,Philipines ,Nepal,6.5449,no
+user191@research.com,Philippines,Philippines,33.0344,yes
+user191@research.com,Saudi Arabia,Saudi Arabia,6.565,yes
+user191@research.com,Uzebekistan,Singapore,13.7939,no
+user191@research.com,South Korea,South Korea,9.1796,yes
+user191@research.com,Don't know,Sri Lanka,9.9122,no
+user191@research.com,Don't know,Taiwan,4.845,no
+user191@research.com,,Thailand,1.642,no
+user191@research.com,,Vietnam,2.0744,no
+user191@research.com,New Zealand,Anguilla,17.5699,no
+user191@research.com,,Aruba,2.9779,no
+user191@research.com,,Bahamas,1.648,no
+user191@research.com,,Barbados,1.3259,no
+user191@research.com,,Bonaire,1.0646,no
+user191@research.com,Puerto rico,Cuba,7.6998,no
+user191@research.com,,Dominica,1.1241,no
+user191@research.com,,Grenada,0.9487,no
+user191@research.com,,Haiti,1.6307,no
+user191@research.com,Jamaica ,Jamaica,5.749,no
+user191@research.com,,Martinique,0.9227,no
+user191@research.com,,St Lucia,0.7307,no
+user191@research.com,,Montserrat,1.7987,no
+user191@research.com,,St Kitts and Nevis,0.9307,no
+user191@research.com,,Trinidad and Tobago,0.7651,no
+user161@research.com,Japan,Bangladesh,10.4883,no
+user161@research.com,China,China,2.2466,yes
+user161@research.com,Malaysia,Hong Kong,3.8127,no
+user161@research.com,,India,4.0364,no
+user161@research.com,Japan,Japan,1.9873,yes
+user161@research.com,,Maldives,3.1696,no
+user161@research.com,,Nepal,1.1491,no
+user161@research.com,Phillipines,Philippines,6.0987,no
+user161@research.com,,Saudi Arabia,2.2019,no
+user161@research.com,,Singapore,4.5046,no
+user161@research.com,South Korea,South Korea,5.5881,yes
+user161@research.com,,Sri Lanka,1.1353,no
+user161@research.com,,Taiwan,4.2154,no
+user161@research.com,,Thailand,2.4916,no
+user161@research.com,,Vietnam,1.1805,no
+user161@research.com,,Anguilla,1.3484,no
+user161@research.com,,Aruba,2.829,no
+user161@research.com,,Bahamas,2.6721,no
+user161@research.com,,Barbados,1.4722,no
+user161@research.com,,Bonaire,1.2322,no
+user161@research.com,Greece,Cuba,7.7976,no
+user161@research.com,,Dominica,1.6324,no
+user161@research.com,,Grenada,1.5838,no
+user161@research.com,,Haiti,16.9955,no
+user161@research.com,Jamaica,Jamaica,2.9725,yes
+user161@research.com,,Martinique,1.9314,no
+user161@research.com,,St Lucia,1.0495,no
+user161@research.com,,Montserrat,2.263,no
+user161@research.com,,St Kitts and Nevis,2.0122,no
+user161@research.com,,Trinidad and Tobago,1.0106,no
+user129@research.com ,don't know,Bangladesh,5.5238,no
+user129@research.com ,China,China,16.8294,yes
+user129@research.com ,,Hong Kong,3.2462,no
+user129@research.com ,India,India,2.8437,yes
+user129@research.com ,Japan,Japan,4.0797,yes
+user129@research.com ,,Maldives,4.018,no
+user129@research.com ,,Nepal,1.7138,no
+user129@research.com ,Philippines,Philippines,7.2129,yes
+user129@research.com ,,Saudi Arabia,1.8313,no
+user129@research.com ,,Singapore,0.7775,no
+user129@research.com ,Korea,South Korea,4.0305,no
+user129@research.com ,,Sri Lanka,1.2682,no
+user129@research.com ,Taiwan,Taiwan,2.3798,yes
+user129@research.com ,dont know,Thailand,4.9814,no
+user129@research.com ,Vietnam,Vietnam,5.5392,yes
+user129@research.com ,,Anguilla,27.4222,no
+user129@research.com ,,Aruba,1.7325,no
+user129@research.com ,,Bahamas,0.7303,no
+user129@research.com ,,Barbados,0.6478,no
+user129@research.com ,,Bonaire,0.5642,no
+user129@research.com ,,Cuba,3.6474,no
+user129@research.com ,,Dominica,0.5513,no
+user129@research.com ,,Grenada,0.5174,no
+user129@research.com ,,Haiti,1.1319,no
+user129@research.com ,,Jamaica,0.5465,no
+user129@research.com ,,Martinique,0.5769,no
+user129@research.com ,,St Lucia,2.0125,no
+user129@research.com ,,Montserrat,8.4127,no
+user129@research.com ,,St Kitts and Nevis,0.7348,no
+user129@research.com ,,Trinidad and Tobago,0.5933,no
+user157@research.com,,Bangladesh,2.288,no
+user157@research.com,china,China,6.139,no
+user157@research.com,Philliphines,Hong Kong,7.764,no
+user157@research.com,Iran,India,6.542,no
+user157@research.com,Japan,Japan,3.483,yes
+user157@research.com,,Maldives,1.6,no
+user157@research.com,,Nepal,1.695,no
+user157@research.com,Spain,Philippines,4.431,no
+user157@research.com,,Saudi Arabia,2.845,no
+user157@research.com,,Singapore,1.751,no
+user157@research.com,South Korea,South Korea,9.442,yes
+user157@research.com,,Sri Lanka,1.216,no
+user157@research.com,,Taiwan,1.275,no
+user157@research.com,,Thailand,3.295,no
+user157@research.com,,Vietnam,1.434,no
+user157@research.com,,Anguilla,1.88,no
+user157@research.com,,Aruba,1.676,no
+user157@research.com,,Bahamas,1.448,no
+user157@research.com,,Barbados,0.968,no
+user157@research.com,,Bonaire,0.983,no
+user157@research.com,,Cuba,0.854,no
+user157@research.com,,Dominica,1.645,no
+user157@research.com,,Grenada,3.721,no
+user157@research.com,,Haiti,1.906,no
+user157@research.com,jamaica,Jamaica,7.52,no
+user157@research.com,,Martinique,2.846,no
+user157@research.com,,St Lucia,1.023,no
+user157@research.com,,Montserrat,3.362,no
+user157@research.com,,St Kitts and Nevis,2.459,no
+user157@research.com,,Trinidad and Tobago,1.212,no
+user114@research.com,,Bangladesh,2.2799,no
+user114@research.com,China,China,5.3488,yes
+user114@research.com,,Hong Kong,1.3453,no
+user114@research.com,India,India,2.4327,yes
+user114@research.com,Japan,Japan,2.1815,yes
+user114@research.com,Nepal,Maldives,2.348,no
+user114@research.com,,Nepal,1.0305,no
+user114@research.com,Phillipines,Philippines,3.9977,no
+user114@research.com,,Saudi Arabia,1.067,no
+user114@research.com,,Singapore,1.1642,no
+user114@research.com,,South Korea,1.401,no
+user114@research.com,,Sri Lanka,0.9304,no
+user114@research.com,,Taiwan,0.8325,no
+user114@research.com,,Thailand,1.0799,no
+user114@research.com,,Vietnam,2.2474,no
+user114@research.com,,Anguilla,1.1857,no
+user114@research.com,,Aruba,0.9125,no
+user114@research.com,,Bahamas,0.95,no
+user114@research.com,,Barbados,0.7989,no
+user114@research.com,,Bonaire,0.735,no
+user114@research.com,,Cuba,0.78,no
+user114@research.com,,Dominica,0.6489,no
+user114@research.com,,Grenada,0.6499,no
+user114@research.com,,Haiti,0.915,no
+user114@research.com,,Jamaica,0.9463,no
+user114@research.com,,Martinique,0.7021,no
+user114@research.com,,St Lucia,0.6496,no
+user114@research.com,,Montserrat,0.5978,no
+user114@research.com,,St Kitts and Nevis,0.9131,no
+user114@research.com,,Trinidad and Tobago,0.8981,no
+user177@research.com,,Bangladesh,5.811,no
+user177@research.com,,China,1.344,no
+user177@research.com,,Hong Kong,1.077,no
+user177@research.com,,India,1.396,no
+user177@research.com,"Japan
+",Japan,5.013,no
+user177@research.com,,Maldives,2.279,no
+user177@research.com,,Nepal,1.139,no
+user177@research.com,,Philippines,0.763,no
+user177@research.com,,Saudi Arabia,0.865,no
+user177@research.com,,Singapore,2.844,no
+user177@research.com,Korea,South Korea,10.978,no
+user177@research.com,,Sri Lanka,1.214,no
+user177@research.com,Taiwan,Taiwan,11.177,yes
+user177@research.com,,Thailand,1.33,no
+user177@research.com,,Vietnam,1.146,no
+user177@research.com,England,Anguilla,4.893,no
+user177@research.com,,Aruba,1.215,no
+user177@research.com,,Bahamas,0.763,no
+user177@research.com,,Barbados,0.646,no
+user177@research.com,,Bonaire,1.817,no
+user177@research.com,,Cuba,0.945,no
+user177@research.com,,Dominica,3.514,no
+user177@research.com,,Grenada,0.744,no
+user177@research.com,,Haiti,0.78,no
+user177@research.com,,Jamaica,1.081,no
+user177@research.com,,Martinique,0.697,no
+user177@research.com,,St Lucia,0.615,no
+user177@research.com,,Montserrat,4.88,no
+user177@research.com,,St Kitts and Nevis,1.077,no
+user177@research.com,,Trinidad and Tobago,0.862,no
+user118@research.com ,,Bangladesh,18.357,no
+user118@research.com ,china,China,26.729,no
+user118@research.com ,,Hong Kong,16.011,no
+user118@research.com ,india,India,2.995,no
+user118@research.com ,Japan,Japan,2.644,yes
+user118@research.com ,pakistan,Maldives,5.98,no
+user118@research.com ,,Nepal,4.495,no
+user118@research.com ,Guam,Philippines,6.235,no
+user118@research.com ,,Saudi Arabia,3.262,no
+user118@research.com ,,Singapore,11.812,no
+user118@research.com ,Korea,South Korea,3.782,no
+user118@research.com ,,Sri Lanka,9.713,no
+user118@research.com ,,Taiwan,5.396,no
+user118@research.com ,,Thailand,15.898,no
+user118@research.com ,,Vietnam,22.346,no
+user118@research.com ,England,Anguilla,5.765,no
+user118@research.com ,,Aruba,2.395,no
+user118@research.com ,ukraine,Bahamas,40.364,no
+user118@research.com ,barbados,Barbados,6.43,no
+user118@research.com ,,Bonaire,3.913,no
+user118@research.com ,,Cuba,1.763,no
+user118@research.com ,,Dominica,1.03,no
+user118@research.com ,,Grenada,0.828,no
+user118@research.com ,,Haiti,1.465,no
+user118@research.com ,,Jamaica,3.314,no
+user118@research.com ,,Martinique,3.063,no
+user118@research.com ,,St Lucia,1.032,no
+user118@research.com ,England,Montserrat,3.363,no
+user118@research.com ,,St Kitts and Nevis,5.015,no
+user118@research.com ,,Trinidad and Tobago,1.429,no
+user167@research.com,Japan,Bangladesh,8.6301,no
+user167@research.com,China,China,3.259799999,yes
+user167@research.com,Malaysia,Hong Kong,3.995099999,no
+user167@research.com,India,India,3.053200001,yes
+user167@research.com,Japan,Japan,4.587,yes
+user167@research.com,Turkey,Maldives,7.3188,no
+user167@research.com,,Nepal,2.9182,no
+user167@research.com,Indonesia,Philippines,6.0855,no
+user167@research.com,,Saudi Arabia,5.7245,no
+user167@research.com,Turkey,Singapore,4.0555,no
+user167@research.com,South Korea,South Korea,3.9855,yes
+user167@research.com,,Sri Lanka,4.4571,no
+user167@research.com,Malaysia,Taiwan,4.8172,no
+user167@research.com,,Thailand,1.4866,no
+user167@research.com,,Vietnam,1.631900001,no
+user167@research.com,,Anguilla,4.5637,no
+user167@research.com,,Aruba,2.4555,no
+user167@research.com,,Bahamas,1.553200001,no
+user167@research.com,,Barbados,3.4295,no
+user167@research.com,,Bonaire,1.917299999,no
+user167@research.com,,Cuba,2.1618,no
+user167@research.com,,Dominica,1.7874,no
+user167@research.com,,Grenada,1.565900001,no
+user167@research.com,,Haiti,1.7963,no
+user167@research.com,Brazil,Jamaica,3.8295,no
+user167@research.com,,Martinique,1.4636,no
+user167@research.com,,St Lucia,1.0292,no
+user167@research.com,,Montserrat,1.662099999,no
+user167@research.com,,St Kitts and Nevis,1.6609,no
+user167@research.com,,Trinidad and Tobago,1.264,no
+user122@research.com,,Bangladesh,2.3585,no
+user122@research.com,China,China,5.7044,yes
+user122@research.com,Hong Kong,Hong Kong,2.7902,yes
+user122@research.com,India,India,2.5113,yes
+user122@research.com,Japan,Japan,2.1504,yes
+user122@research.com,Arab,Maldives,12.5809,no
+user122@research.com,,Nepal,1.9506,no
+user122@research.com,,Philippines,1.1443,no
+user122@research.com,Arab,Saudi Arabia,8.8508,no
+user122@research.com,Singapore,Singapore,2.476,yes
+user122@research.com,South Korea,South Korea,3.1504,yes
+user122@research.com,Egypt,Sri Lanka,11.3944,no
+user122@research.com,Laos,Taiwan,4.0292,no
+user122@research.com,France,Thailand,4.3935,no
+user122@research.com,Cambodia,Vietnam,11.9946,no
+user122@research.com,New Zealand,Anguilla,8.06,no
+user122@research.com,,Aruba,9.9121,no
+user122@research.com,,Bahamas,40.0373,no
+user122@research.com,,Barbados,2.0054,no
+user122@research.com,,Bonaire,4.3381,no
+user122@research.com,,Cuba,0.9762,no
+user122@research.com,,Dominica,4.0402,no
+user122@research.com,,Grenada,1.194,no
+user122@research.com,,Haiti,1.3443,no
+user122@research.com,,Jamaica,0.7138,no
+user122@research.com,,Martinique,2.3076,no
+user122@research.com,,St Lucia,1.0654,no
+user122@research.com,Australia,Montserrat,5.8957,no
+user122@research.com,,St Kitts and Nevis,1.0182,no
+user122@research.com,,Trinidad and Tobago,0.6534,no
+user151@research.com ,,Bangladesh,4.9152,no
+user151@research.com ,China,China,9.7204,yes
+user151@research.com ,,Hong Kong,2.372,no
+user151@research.com ,Ethiopia,India,10.5,no
+user151@research.com ,Korea,Japan,4.3343,no
+user151@research.com ,,Maldives,1.3594,no
+user151@research.com ,,Nepal,0.8444,no
+user151@research.com ,,Philippines,2.538,no
+user151@research.com ,,Saudi Arabia,1.3723,no
+user151@research.com ,,Singapore,4.7226,no
+user151@research.com ,Korea,South Korea,3.2129,no
+user151@research.com ,,Sri Lanka,1.4678,no
+user151@research.com ,,Taiwan,1.7848,no
+user151@research.com ,,Thailand,0.9016,no
+user151@research.com ,Vietnam,Vietnam,4.0869,yes
+user151@research.com ,United Kingdom,Anguilla,22.5406,no
+user151@research.com ,,Aruba,0.9721,no
+user151@research.com ,,Bahamas,0.7211,no
+user151@research.com ,,Barbados,0.8373,no
+user151@research.com ,,Bonaire,0.5962,no
+user151@research.com ,,Cuba,0.5082,no
+user151@research.com ,,Dominica,0.5261,no
+user151@research.com ,,Grenada,0.4893,no
+user151@research.com ,,Haiti,2.6739,no
+user151@research.com ,Ethiopia,Jamaica,9.2669,no
+user151@research.com ,,Martinique,1.1345,no
+user151@research.com ,,St Lucia,0.7918,no
+user151@research.com ,,Montserrat,4.6912,no
+user151@research.com ,,St Kitts and Nevis,0.729,no
+user151@research.com ,,Trinidad and Tobago,0.6663,no
+user133@research.com,Japan,Bangladesh,6.0447,no
+user133@research.com,China,China,3.3545,yes
+user133@research.com,Malaysia,Hong Kong,8.8667,no
+user133@research.com,India,India,4.8047,yes
+user133@research.com,Japan,Japan,2.5558,yes
+user133@research.com,Pakistan,Maldives,7.2047,no
+user133@research.com,Thailand,Nepal,8.4569,no
+user133@research.com,Israel,Philippines,6.4422,no
+user133@research.com,Israel,Saudi Arabia,56.8743,no
+user133@research.com,,Singapore,6.3386,no
+user133@research.com,South Korea,South Korea,4.9896,yes
+user133@research.com,Malaysia,Sri Lanka,5.2051,no
+user133@research.com,Mongolia,Taiwan,12.7537,no
+user133@research.com,,Thailand,1.6896,no
+user133@research.com,Vietnam,Vietnam,4.3803,yes
+user133@research.com,Austrailia,Anguilla,11.5401,no
+user133@research.com,,Aruba,17.0229,no
+user133@research.com,Iceland,Bahamas,15.1888,no
+user133@research.com,Fiji,Barbados,4.1893,no
+user133@research.com,Jamaica,Bonaire,5.3394,no
+user133@research.com,Denmark,Cuba,3.586,no
+user133@research.com,,Dominica,43.5891,no
+user133@research.com,,Grenada,12.5223,no
+user133@research.com,,Haiti,10.6719,no
+user133@research.com,,Jamaica,0.8902,no
+user133@research.com,,Martinique,0.8826,no
+user133@research.com,,St Lucia,0.6317,no
+user133@research.com,,Montserrat,15.566,no
+user133@research.com,Jamaica,St Kitts and Nevis,5.2727,no
+user133@research.com,Holland,Trinidad and Tobago,10.7586,no
+user117@research.com ,don't know,Bangladesh,7.6973,no
+user117@research.com ,China,China,4.9159,yes
+user117@research.com ,Hong Kong,Hong Kong,3.8717,yes
+user117@research.com ,India,India,3.5909,yes
+user117@research.com ,Japan,Japan,4.427,yes
+user117@research.com ,,Maldives,2.1893,no
+user117@research.com ,,Nepal,1.2068,no
+user117@research.com ,Philippines,Philippines,4.5642,yes
+user117@research.com ,,Saudi Arabia,1.5106,no
+user117@research.com ,Singapore,Singapore,5.0298,yes
+user117@research.com ,South Korea,South Korea,3.1473,yes
+user117@research.com ,,Sri Lanka,1.1407,no
+user117@research.com ,Taiwan,Taiwan,3.5656,yes
+user117@research.com ,,Thailand,4.3596,no
+user117@research.com ,Vietnam,Vietnam,3.9277,yes
+user117@research.com ,,Anguilla,8.4931,no
+user117@research.com ,,Aruba,1.0055,no
+user117@research.com ,,Bahamas,0.8842,no
+user117@research.com ,,Barbados,0.8506,no
+user117@research.com ,,Bonaire,0.8834,no
+user117@research.com ,,Cuba,7.1335,no
+user117@research.com ,,Dominica,1.14,no
+user117@research.com ,,Grenada,0.7979,no
+user117@research.com ,,Haiti,1.0828,no
+user117@research.com ,,Jamaica,10.915,no
+user117@research.com ,,Martinique,0.9593,no
+user117@research.com ,,St Lucia,0.9139,no
+user117@research.com ,,Montserrat,2.5809,no
+user117@research.com ,,St Kitts and Nevis,1.0661,no
+user117@research.com ,,Trinidad and Tobago,1.0107,no
+user197@research.com,,Bangladesh,4.1546,no
+user197@research.com,China,China,3.4766,yes
+user197@research.com,Thailand,Hong Kong,4.2651,no
+user197@research.com,India,India,4.1029,yes
+user197@research.com,Japan,Japan,2.1911,yes
+user197@research.com,,Maldives,1.6977,no
+user197@research.com,,Nepal,3.042,no
+user197@research.com,,Philippines,3.7211,no
+user197@research.com,,Saudi Arabia,3.2382,no
+user197@research.com,,Singapore,3.2199,no
+user197@research.com,Korea,South Korea,4.304,no
+user197@research.com,,Sri Lanka,4.1709,no
+user197@research.com,,Taiwan,3.64,no
+user197@research.com,,Thailand,3.5774,no
+user197@research.com,,Vietnam,2.405,no
+user197@research.com,,Anguilla,5.0746,no
+user197@research.com,,Aruba,1.9873,no
+user197@research.com,New Zealand,Bahamas,7.4074,no
+user197@research.com,,Barbados,2.1198,no
+user197@research.com,,Bonaire,2.4629,no
+user197@research.com,,Cuba,3.2036,no
+user197@research.com,,Dominica,6.7534,no
+user197@research.com,,Grenada,2.6332,no
+user197@research.com,,Haiti,4.3915,no
+user197@research.com,,Jamaica,4.3554,no
+user197@research.com,,Martinique,3.2039,no
+user197@research.com,,St Lucia,4.219,no
+user197@research.com,,Montserrat,4.418,no
+user197@research.com,,St Kitts and Nevis,4.2902,no
+user197@research.com,,Trinidad and Tobago,4.8077,no
+user85@research.com,,Bangladesh,5.0942,no
+user85@research.com,China,China,2.9868,yes
+user85@research.com,,Hong Kong,3.8612,no
+user85@research.com,,India,4.7552,no
+user85@research.com,Japan,Japan,2.8051,yes
+user85@research.com,,Maldives,1.7359,no
+user85@research.com,Nepal,Nepal,2.5501,yes
+user85@research.com,,Philippines,1.4534,no
+user85@research.com,,Saudi Arabia,1.8813,no
+user85@research.com,,Singapore,3.9039,no
+user85@research.com,Korea,South Korea,4.106,no
+user85@research.com,,Sri Lanka,2.2726,no
+user85@research.com,,Taiwan,2.0578,no
+user85@research.com,Costa Rica,Thailand,6.2996,no
+user85@research.com,,Vietnam,1.7397,no
+user85@research.com,,Anguilla,4.4982,no
+user85@research.com,,Aruba,1.2906,no
+user85@research.com,,Bahamas,1.4821,no
+user85@research.com,,Barbados,1.9968,no
+user85@research.com,,Bonaire,1.7581,no
+user85@research.com,Costa Rica,Cuba,3.9319,no
+user85@research.com,,Dominica,1.1396,no
+user85@research.com,,Grenada,1.4531,no
+user85@research.com,,Haiti,1.4486,no
+user85@research.com,Jamaica,Jamaica,2.8823,yes
+user85@research.com,,Martinique,1.4394,no
+user85@research.com,,St Lucia,1.1807,no
+user85@research.com,,Montserrat,2.6144,no
+user85@research.com,,St Kitts and Nevis,1.7404,no
+user85@research.com,,Trinidad and Tobago,3.1503,no
+user136@research.com,Japan ,Bangladesh,7.984,no
+user136@research.com,,China,0.69,no
+user136@research.com,Taiwan,Hong Kong,7.413,no
+user136@research.com,,India,0.725,no
+user136@research.com,Japan,Japan,5.328,yes
+user136@research.com,,Maldives,2.024,no
+user136@research.com,sofa,Nepal,4.33,no
+user136@research.com,Vienan,Philippines,7.48,no
+user136@research.com,Aribia,Saudi Arabia,6.097,no
+user136@research.com,singapore,Singapore,6.579,no
+user136@research.com,Korea,South Korea,4.781,no
+user136@research.com,balabala,Sri Lanka,3.613,no
+user136@research.com,Taiwan,Taiwan,3.895,yes
+user136@research.com,Tailand,Thailand,6.964,no
+user136@research.com,Vietnam,Vietnam,6.213,yes
+user136@research.com,SS,Anguilla,2.98,no
+user136@research.com,,Aruba,1.197,no
+user136@research.com,,Bahamas,1.214,no
+user136@research.com,,Barbados,2.164,no
+user136@research.com,,Bonaire,0.913,no
+user136@research.com,Philadelphia ,Cuba,5.28,no
+user136@research.com,,Dominica,1.195,no
+user136@research.com,,Grenada,0.829,no
+user136@research.com,,Haiti,1.097,no
+user136@research.com,Jamaica ,Jamaica,6.014,no
+user136@research.com,,Martinique,1.314,no
+user136@research.com,,St Lucia,0.675,no
+user136@research.com,,Montserrat,0.792,no
+user136@research.com,,St Kitts and Nevis,0.575,no
+user136@research.com,,Trinidad and Tobago,0.545,no
+user144@research.com ,,Bangladesh,4.3709,no
+user144@research.com ,russia,China,4.1298,no
+user144@research.com ,,Hong Kong,1.7141,no
+user144@research.com ,india,India,4.3482,no
+user144@research.com ,japan,Japan,2.6349,no
+user144@research.com ,,Maldives,1.7664,no
+user144@research.com ,,Nepal,14.4689,no
+user144@research.com ,,Philippines,1.95,no
+user144@research.com ,,Saudi Arabia,4.2298,no
+user144@research.com ,uaa,Singapore,9.8662,no
+user144@research.com ,south korea,South Korea,5.8692,no
+user144@research.com ,nigeria,Sri Lanka,7.6524,no
+user144@research.com ,,Taiwan,1.5504,no
+user144@research.com ,sweden,Thailand,9.4534,no
+user144@research.com ,china,Vietnam,4.1622,no
+user144@research.com ,united kingdom,Anguilla,6.7188,no
+user144@research.com ,,Aruba,1.8979,no
+user144@research.com ,,Bahamas,2.6688,no
+user144@research.com ,,Barbados,2.5017,no
+user144@research.com ,,Bonaire,2.0977,no
+user144@research.com ,,Cuba,1.7854,no
+user144@research.com ,,Dominica,17.2144,no
+user144@research.com ,,Grenada,25.685,no
+user144@research.com ,,Haiti,20.2028,no
+user144@research.com ,,Jamaica,6.7497,no
+user144@research.com ,,Martinique,2.0496,no
+user144@research.com ,,St Lucia,1.3011,no
+user144@research.com ,,Montserrat,7.2629,no
+user144@research.com ,,St Kitts and Nevis,3.3508,no
+user144@research.com ,,Trinidad and Tobago,11.1831,no
+user95@research.com,,Bangladesh,5.1558,no
+user95@research.com,China,China,3.3074,yes
+user95@research.com,,Hong Kong,3.0602,no
+user95@research.com,India,India,3.275,yes
+user95@research.com,Japan,Japan,3.7284,yes
+user95@research.com,,Maldives,4.5966,no
+user95@research.com,Syria,Nepal,8.4644,no
+user95@research.com,Philippines,Philippines,19.9963,yes
+user95@research.com,,Saudi Arabia,5.2787,no
+user95@research.com,Poland,Singapore,9.3438,no
+user95@research.com,Korea,South Korea,7.8963,no
+user95@research.com,,Sri Lanka,4.7958,no
+user95@research.com,,Taiwan,5.4097,no
+user95@research.com,,Thailand,2.7946,no
+user95@research.com,Taiwan,Vietnam,10.5636,no
+user95@research.com,Wales,Anguilla,6.3951,no
+user95@research.com,,Aruba,2.0759,no
+user95@research.com,,Bahamas,2.4286,no
+user95@research.com,,Barbados,3.8457,no
+user95@research.com,,Bonaire,1.629,no
+user95@research.com,Wales,Cuba,9.6957,no
+user95@research.com,Portugal,Dominica,6.1784,no
+user95@research.com,Uganda,Grenada,6.4129,no
+user95@research.com,,Haiti,1.5443,no
+user95@research.com,Nigeria,Jamaica,9.4967,no
+user95@research.com,,Martinique,4.2793,no
+user95@research.com,,St Lucia,1.4118,no
+user95@research.com,Scotland,Montserrat,16.6113,no
+user95@research.com,,St Kitts and Nevis,1.178,no
+user95@research.com,,Trinidad and Tobago,1.113,no
+user128@research.com,,Bangladesh,13.992,no
+user128@research.com,china,China,4.695,no
+user128@research.com,,Hong Kong,1.379,no
+user128@research.com,indonesia,India,6.079,no
+user128@research.com,Japan,Japan,4.579,yes
+user128@research.com,,Maldives,43.912,no
+user128@research.com,,Nepal,4.611,no
+user128@research.com,,Philippines,6.596,no
+user128@research.com,,Saudi Arabia,1.911,no
+user128@research.com,vietnam,Singapore,18.766,no
+user128@research.com,vietnam,South Korea,7.877,no
+user128@research.com,"
+
+",Sri Lanka,16.197,no
+user128@research.com,,Taiwan,3.495,no
+user128@research.com,,Thailand,28.813,no
+user128@research.com,vietnam,Vietnam,3.912,no
+user128@research.com,uk,Anguilla,4.695,no
+user128@research.com,,Aruba,4.596,no
+user128@research.com,khasistan ,Bahamas,8.729,no
+user128@research.com,,Barbados,0.093,no
+user128@research.com,,Bonaire,0.127,no
+user128@research.com,,Cuba,0.144,no
+user128@research.com,,Dominica,0.095,no
+user128@research.com,,Grenada,0.112,no
+user128@research.com,,Haiti,0.097,no
+user128@research.com,,Jamaica,0.113,no
+user128@research.com,,Martinique,0.128,no
+user128@research.com,,St Lucia,0.096,no
+user128@research.com,,Montserrat,0.129,no
+user128@research.com,,St Kitts and Nevis,0.097,no
+user128@research.com,,Trinidad and Tobago,0.096,no
+user184@research.com,,Bangladesh,4.4303,no
+user184@research.com,CHINA,China,2.8289,no
+user184@research.com,TAIWAN,Hong Kong,3.5653,no
+user184@research.com,INDIA,India,2.9709,no
+user184@research.com,JAPAN,Japan,2.3537,no
+user184@research.com,TURKEY,Maldives,3.9373,no
+user184@research.com,PHILLIPINES,Nepal,6.7731,no
+user184@research.com,PHILIPINES,Philippines,6.5357,no
+user184@research.com,NEPAL,Saudi Arabia,8.4375,no
+user184@research.com,TURKEY,Singapore,2.8892,no
+user184@research.com,SOUTH KOREA,South Korea,4.0821,no
+user184@research.com,KAZAKHISTAN,Sri Lanka,8.2219,no
+user184@research.com,TAIWAN,Taiwan,4.0205,no
+user184@research.com,FRENCH INDIES,Thailand,5.0225,no
+user184@research.com,TAIWAN,Vietnam,7.1708,no
+user184@research.com,,Anguilla,6.258,no
+user184@research.com,,Aruba,1.6218,no
+user184@research.com,,Bahamas,1.0469,no
+user184@research.com,MALDIVES,Barbados,3.4313,no
+user184@research.com,,Bonaire,1.3064,no
+user184@research.com,,Cuba,1.5629,no
+user184@research.com,,Dominica,1.6304,no
+user184@research.com,,Grenada,1.6536,no
+user184@research.com,,Haiti,1.3468,no
+user184@research.com,JAMAICA,Jamaica,4.815,no
+user184@research.com,,Martinique,5.7721,no
+user184@research.com,,St Lucia,1.1212,no
+user184@research.com,,Montserrat,1.1306,no
+user184@research.com,ANGUILLA,St Kitts and Nevis,3.7821,no
+user184@research.com,,Trinidad and Tobago,1.3719,no
+user152@research.com,,Bangladesh,12.2624,no
+user152@research.com,china,China,5.2604,no
+user152@research.com,laos,Hong Kong,4.3774,no
+user152@research.com,india,India,2.2869,no
+user152@research.com,japan,Japan,2.3773,no
+user152@research.com,indonesia,Maldives,5.463,no
+user152@research.com,nepal,Nepal,2.2446,no
+user152@research.com,,Philippines,1.9112,no
+user152@research.com,pakistan,Saudi Arabia,3.5801,no
+user152@research.com,turkey,Singapore,8.2429,no
+user152@research.com,south korea,South Korea,3.5955,no
+user152@research.com,,Sri Lanka,2.5949,no
+user152@research.com,indonesia,Taiwan,10.9005,no
+user152@research.com,,Thailand,3.7116,no
+user152@research.com,vietnam,Vietnam,8.0978,no
+user152@research.com,,Anguilla,9.4139,no
+user152@research.com,,Aruba,2.7248,no
+user152@research.com,,Bahamas,6.9746,no
+user152@research.com,,Barbados,5.795,no
+user152@research.com,,Bonaire,9.512,no
+user152@research.com,cuba,Cuba,6.5692,no
+user152@research.com,,Dominica,0.9129,no
+user152@research.com,dominican republic,Grenada,11.7796,no
+user152@research.com,guatemala,Haiti,6.8448,no
+user152@research.com,jamaica,Jamaica,2.7492,no
+user152@research.com,honduras,Martinique,8.5082,no
+user152@research.com,,St Lucia,3.0816,no
+user152@research.com,,Montserrat,5.3192,no
+user152@research.com,,St Kitts and Nevis,16.4768,no
+user152@research.com,st vincent,Trinidad and Tobago,5.2147,no
+user110@research.com,japan,Bangladesh,12.9717,no
+user110@research.com,China,China,38.161,yes
+user110@research.com,,Hong Kong,22.9008,no
+user110@research.com,,India,27.8125,no
+user110@research.com,Japan,Japan,7.6225,yes
+user110@research.com,,Maldives,28.0685,no
+user110@research.com,,Nepal,7.4113,no
+user110@research.com,Philippines,Philippines,30.219,yes
+user110@research.com,Saudi Arabia,Saudi Arabia,28.0467,yes
+user110@research.com,,Singapore,23.6544,no
+user110@research.com,South Korea,South Korea,11.4299,yes
+user110@research.com,Sri Lanka,Sri Lanka,30.1471,yes
+user110@research.com,,Taiwan,1.8521,no
+user110@research.com,,Thailand,11.8562,no
+user110@research.com,Vietnam,Vietnam,6.3116,yes
+user110@research.com,Wales,Anguilla,29.5461,no
+user110@research.com,,Aruba,6.5806,no
+user110@research.com,Bahamas,Bahamas,8.5454,yes
+user110@research.com,,Barbados,14.4846,no
+user110@research.com,,Bonaire,1.5475,no
+user110@research.com,Puerto Rico,Cuba,7.298,no
+user110@research.com,,Dominica,26.973,no
+user110@research.com,,Grenada,3.793,no
+user110@research.com,Haiti,Haiti,32.7565,yes
+user110@research.com,,Jamaica,8.5484000000000009,no
+user110@research.com,,Martinique,20.9682,no
+user110@research.com,,St Lucia,4.5913,no
+user110@research.com,,Montserrat,37.5124,no
+user110@research.com,,St Kitts and Nevis,32.7809,no
+user110@research.com,Trinidad,Trinidad and Tobago,11.0158,no
+user182@research.com,don't know,Bangladesh,14.5991,no
+user182@research.com,turkey,China,13.1829,no
+user182@research.com,,Hong Kong,5.4297,no
+user182@research.com,india,India,3.3074,no
+user182@research.com,japan,Japan,2.9219,no
+user182@research.com,malaysia,Maldives,3.0875,no
+user182@research.com,,Nepal,2.0045,no
+user182@research.com,philippines,Philippines,6.0045,no
+user182@research.com,,Saudi Arabia,1.5568,no
+user182@research.com,idonesia,Singapore,7.6612,no
+user182@research.com,south korea,South Korea,4.8653,no
+user182@research.com,,Sri Lanka,1.3143,no
+user182@research.com,,Taiwan,1.4877,no
+user182@research.com,thailand,Thailand,8.6296,no
+user182@research.com,,Vietnam,1.7242,no
+user182@research.com,australia,Anguilla,5.1429,no
+user182@research.com,,Aruba,0.9894,no
+user182@research.com,,Bahamas,2.9975,no
+user182@research.com,,Barbados,1.0276,no
+user182@research.com,,Bonaire,1.1152,no
+user182@research.com,jamaica,Cuba,3.0661,no
+user182@research.com,,Dominica,1.0735,no
+user182@research.com,,Grenada,1.1665,no
+user182@research.com,,Haiti,0.9308,no
+user182@research.com,dominican republic,Jamaica,8.4373,no
+user182@research.com,,Martinique,1.1376,no
+user182@research.com,,St Lucia,1.0121,no
+user182@research.com,,Montserrat,1.0645,no
+user182@research.com,,St Kitts and Nevis,0.9314,no
+user182@research.com,,Trinidad and Tobago,1.1276,no
+user164@research.com,,Bangladesh,6.163,no
+user164@research.com,,China,1.361,no
+user164@research.com,hongkong,Hong Kong,6.229,no
+user164@research.com,India,India,5.83,yes
+user164@research.com,Japan,Japan,3.659,yes
+user164@research.com,,Maldives,1.594,no
+user164@research.com,Nepal,Nepal,4.796,yes
+user164@research.com,Philipines,Philippines,5.597,no
+user164@research.com,Saudi Arabia,Saudi Arabia,26.097,yes
+user164@research.com,"
+",Singapore,11.528,no
+user164@research.com,South Korea,South Korea,4.13,yes
+user164@research.com,,Sri Lanka,1.261,no
+user164@research.com,Taiwan,Taiwan,13.564,yes
+user164@research.com,,Thailand,1.03,no
+user164@research.com,Vietnam,Vietnam,8.159,yes
+user164@research.com,,Anguilla,1.761,no
+user164@research.com,,Aruba,0.828,no
+user164@research.com,,Bahamas,2.861,no
+user164@research.com,,Barbados,1.062,no
+user164@research.com,,Bonaire,0.763,no
+user164@research.com,,Cuba,1.296,no
+user164@research.com,,Dominica,0.831,no
+user164@research.com,,Grenada,0.863,no
+user164@research.com,,Haiti,1.13,no
+user164@research.com,Jamaica,Jamaica,26.93,yes
+user164@research.com,,Martinique,0.93,no
+user164@research.com,,St Lucia,0.73,no
+user164@research.com,,Montserrat,0.63,no
+user164@research.com,,St Kitts and Nevis,0.564,no
+user164@research.com,,Trinidad and Tobago,0.697,no
+user149@research.com ,korea,Bangladesh,5.4355,no
+user149@research.com ,china,China,2.0122,no
+user149@research.com ,pakistan,Hong Kong,3.6981,no
+user149@research.com ,india,India,2.2651,no
+user149@research.com ,japan,Japan,3.0136,no
+user149@research.com ,turkey,Maldives,3.0133,no
+user149@research.com ,khazikstan,Nepal,8.7792,no
+user149@research.com ,dominican republic,Philippines,7.6811,no
+user149@research.com ,,Saudi Arabia,3.3454,no
+user149@research.com ,borneo,Singapore,5.5269,no
+user149@research.com ,korea,South Korea,1.9781,no
+user149@research.com ,,Sri Lanka,8.3626,no
+user149@research.com ,,Taiwan,8.6978,no
+user149@research.com ,,Thailand,2.2618,no
+user149@research.com ,north korea,Vietnam,7.4945,no
+user149@research.com ,london,Anguilla,3.2636,no
+user149@research.com ,,Aruba,1.3814,no
+user149@research.com ,,Bahamas,1.2306,no
+user149@research.com ,,Barbados,0.9129,no
+user149@research.com ,,Bonaire,0.9801,no
+user149@research.com ,,Cuba,1.7943,no
+user149@research.com ,,Dominica,1.2659,no
+user149@research.com ,,Grenada,0.7652,no
+user149@research.com ,,Haiti,0.8953,no
+user149@research.com ,jamaica,Jamaica,2.613,no
+user149@research.com ,,Martinique,1.5154,no
+user149@research.com ,,St Lucia,1.2303,no
+user149@research.com ,haiti,Montserrat,8.3463,no
+user149@research.com ,,St Kitts and Nevis,2.3467,no
+user149@research.com ,,Trinidad and Tobago,0.8469,no
+user140@research.com,,Bangladesh,13.7449,no
+user140@research.com,china,China,3.8797,no
+user140@research.com,hawaii,Hong Kong,5.097,no
+user140@research.com,,India,2.1044,no
+user140@research.com,japan,Japan,5.4825,no
+user140@research.com,korea,Maldives,2.9195,no
+user140@research.com,,Nepal,2.8486,no
+user140@research.com,africa,Philippines,3.0247,no
+user140@research.com,,Saudi Arabia,3.9539,no
+user140@research.com,middle east,Singapore,14.6208,no
+user140@research.com,korea,South Korea,3.8079,no
+user140@research.com,england,Sri Lanka,5.2548,no
+user140@research.com,,Taiwan,7.5065,no
+user140@research.com,,Thailand,1.1175,no
+user140@research.com,russia,Vietnam,4.2811,no
+user140@research.com,,Anguilla,13.5747,no
+user140@research.com,,Aruba,3.6209,no
+user140@research.com,sweden,Bahamas,7.5385,no
+user140@research.com,,Barbados,5.2687,no
+user140@research.com,,Bonaire,3.2721,no
+user140@research.com,,Cuba,1.5561,no
+user140@research.com,spain,Dominica,6.0376,no
+user140@research.com,,Grenada,2.6643,no
+user140@research.com,spain,Haiti,6.2732,no
+user140@research.com,jamaica,Jamaica,4.1369,no
+user140@research.com,,Martinique,1.7225,no
+user140@research.com,,St Lucia,1.0818,no
+user140@research.com,,Montserrat,7.3815,no
+user140@research.com,,St Kitts and Nevis,8.5222,no
+user140@research.com,,Trinidad and Tobago,2.1033,no
+user100@research.com,,Bangladesh,5.649,no
+user100@research.com,China,China,6.8282,yes
+user100@research.com,Malaysia,Hong Kong,8.0683,no
+user100@research.com,India,India,2.9338,yes
+user100@research.com,Japan,Japan,2.5456,yes
+user100@research.com,Bangladesh,Maldives,6.7709,no
+user100@research.com,Mongolia,Nepal,21.7292,no
+user100@research.com,,Philippines,5.4764,no
+user100@research.com,Saudi Arabia,Saudi Arabia,5.2483,yes
+user100@research.com,,Singapore,2.936,no
+user100@research.com,South Korea,South Korea,5.002,yes
+user100@research.com,Bangladesh,Sri Lanka,9.0232,no
+user100@research.com,Taiwan,Taiwan,4.9882,yes
+user100@research.com,,Thailand,3.5188,no
+user100@research.com,Vietnam,Vietnam,3.8893,yes
+user100@research.com,,Anguilla,2.0044,no
+user100@research.com,,Aruba,1.4124,no
+user100@research.com,,Bahamas,2.3434,no
+user100@research.com,,Barbados,1.1963,no
+user100@research.com,,Bonaire,0.8616,no
+user100@research.com,,Cuba,1.8465,no
+user100@research.com,,Dominica,0.9639,no
+user100@research.com,,Grenada,0.9136,no
+user100@research.com,,Haiti,1.1295,no
+user100@research.com,,Jamaica,0.8635,no
+user100@research.com,,Martinique,0.996,no
+user100@research.com,,St Lucia,0.8341,no
+user100@research.com,,Montserrat,1.4677,no
+user100@research.com,,St Kitts and Nevis,0.8646,no
+user100@research.com,,Trinidad and Tobago,0.9932,no
+user154@research.com ,,Bangladesh,3.9319,no
+user154@research.com ,,China,1.0316,no
+user154@research.com ,,Hong Kong,4.4827,no
+user154@research.com ,INDIA,India,5.1899,no
+user154@research.com ,japan,Japan,3.4694,no
+user154@research.com ,,Maldives,2.0558,no
+user154@research.com ,,Nepal,1.3555,no
+user154@research.com ,philippines,Philippines,8.0442,no
+user154@research.com ,,Saudi Arabia,2.0693,no
+user154@research.com ,,Singapore,1.6028,no
+user154@research.com ,south korea,South Korea,2.8171,no
+user154@research.com ,,Sri Lanka,1.2242,no
+user154@research.com ,,Taiwan,1.1131,no
+user154@research.com ,,Thailand,1.5635,no
+user154@research.com ,,Vietnam,1.3647,no
+user154@research.com ,,Anguilla,2.0142,no
+user154@research.com ,,Aruba,1.9658,no
+user154@research.com ,,Bahamas,1.2664,no
+user154@research.com ,trinidad,Barbados,4.1778,no
+user154@research.com ,,Bonaire,1.6084,no
+user154@research.com ,,Cuba,2.4353,no
+user154@research.com ,,Dominica,1.2244,no
+user154@research.com ,,Grenada,1.0969,no
+user154@research.com ,,Haiti,0.7473,no
+user154@research.com ,jamaica,Jamaica,3.138,no
+user154@research.com ,,Martinique,1.2707,no
+user154@research.com ,aruba,St Lucia,3.4652,no
+user154@research.com ,,Montserrat,0.8481,no
+user154@research.com ,,St Kitts and Nevis,1.2834,no
+user154@research.com ,,Trinidad and Tobago,1.0474,no
+user123@research.com,Kenya,Bangladesh,6.8116,no
+user123@research.com,China,China,3.033,yes
+user123@research.com,Indonesia,Hong Kong,5.8738,no
+user123@research.com,India,India,3.379,yes
+user123@research.com,Japan,Japan,2.413,yes
+user123@research.com,Turkey,Maldives,4.0123,no
+user123@research.com,Nepal,Nepal,11.3823,yes
+user123@research.com,Pakistan,Philippines,8.0662,no
+user123@research.com,Saudi Arabia,Saudi Arabia,4.1658,yes
+user123@research.com,Russia,Singapore,3.3004,no
+user123@research.com,South Korea,South Korea,3.4341,yes
+user123@research.com,Ethiopia,Sri Lanka,4.9752,no
+user123@research.com,Russia,Taiwan,6.168,no
+user123@research.com,Russia,Thailand,2.7141,no
+user123@research.com,Germany,Vietnam,7.185,no
+user123@research.com,New England,Anguilla,4.2356,no
+user123@research.com,Cambodia,Aruba,8.5006,no
+user123@research.com,Chile,Bahamas,5.6174,no
+user123@research.com,Macedonia,Barbados,13.1421,no
+user123@research.com,Costa Rica,Bonaire,5.5679,no
+user123@research.com,Aruba,Cuba,9.0346,no
+user123@research.com,Jamaica,Dominica,7.9156,no
+user123@research.com,Algeria,Grenada,5.255,no
+user123@research.com,Russia,Haiti,3.1363,no
+user123@research.com,Brazil,Jamaica,6.2877,no
+user123@research.com,Netherlands,Martinique,18.0147,no
+user123@research.com,Papa New Guinea,St Lucia,33.699,no
+user123@research.com,Wales,Montserrat,6.0195,no
+user123@research.com,Ethiopia,St Kitts and Nevis,7.0991,no
+user123@research.com,Mongolia,Trinidad and Tobago,9.8841,no
+user97@research.com,,Bangladesh,5.652,no
+user97@research.com,mexico,China,5.7552,no
+user97@research.com,phillipines,Hong Kong,11.0261,no
+user97@research.com,,India,1.8016,no
+user97@research.com,japan,Japan,4.8019,no
+user97@research.com,,Maldives,2.0511,no
+user97@research.com,nepal,Nepal,4.7195,no
+user97@research.com,,Philippines,1.5187,no
+user97@research.com,,Saudi Arabia,1.4208,no
+user97@research.com,,Singapore,4.8075,no
+user97@research.com,,South Korea,6.0553,no
+user97@research.com,,Sri Lanka,1.6115,no
+user97@research.com,,Taiwan,1.586,no
+user97@research.com,,Thailand,4.3778,no
+user97@research.com,mex,Vietnam,3.9421,no
+user97@research.com,,Anguilla,6.1774,no
+user97@research.com,,Aruba,1.8105,no
+user97@research.com,,Bahamas,1.7789,no
+user97@research.com,,Barbados,1.2525,no
+user97@research.com,,Bonaire,1.0613,no
+user97@research.com,,Cuba,2.7787,no
+user97@research.com,,Dominica,1.2122,no
+user97@research.com,,Grenada,1.419,no
+user97@research.com,,Haiti,1.2962,no
+user97@research.com,,Jamaica,1.0977,no
+user97@research.com,,Martinique,1.2124,no
+user97@research.com,,St Lucia,1.2287,no
+user97@research.com,,Montserrat,1.3141,no
+user97@research.com,,St Kitts and Nevis,1.1157,no
+user97@research.com,,Trinidad and Tobago,1.0052,no
+user175@research.com,japan,Bangladesh,6.3019,no
+user175@research.com,japan,China,4.6283,no
+user175@research.com,korea,Hong Kong,3.7131,no
+user175@research.com,,India,1.7335,no
+user175@research.com,india,Japan,5.7816,no
+user175@research.com,,Maldives,1.253,no
+user175@research.com,,Nepal,1.1662,no
+user175@research.com,,Philippines,1.4298,no
+user175@research.com,,Saudi Arabia,1.0945,no
+user175@research.com,,Singapore,2.947,no
+user175@research.com,south korea,South Korea,8.8902,no
+user175@research.com,rome,Sri Lanka,17.0562,no
+user175@research.com,,Taiwan,1.0861,no
+user175@research.com,,Thailand,0.9455,no
+user175@research.com,,Vietnam,1.5293,no
+user175@research.com,,Anguilla,0.8326,no
+user175@research.com,,Aruba,0.6949,no
+user175@research.com,argentina,Bahamas,5.7802,no
+user175@research.com,,Barbados,1.0542,no
+user175@research.com,,Bonaire,0.7817,no
+user175@research.com,,Cuba,0.8086,no
+user175@research.com,,Dominica,0.7469,no
+user175@research.com,,Grenada,0.6455,no
+user175@research.com,,Haiti,4.9303,no
+user175@research.com,jamiaca,Jamaica,8.5218,no
+user175@research.com,,Martinique,26.9522,no
+user175@research.com,,St Lucia,1.006,no
+user175@research.com,,Montserrat,0.6645,no
+user175@research.com,,St Kitts and Nevis,0.9474,no
+user175@research.com,,Trinidad and Tobago,0.6806,no
+user99@research.com,japan,Bangladesh,6.1909,no
+user99@research.com,china,China,2.8606,no
+user99@research.com,korea,Hong Kong,4.1599,no
+user99@research.com,malaysia,India,5.9574,no
+user99@research.com,japan,Japan,2.844,no
+user99@research.com,thailand,Maldives,5.3417,no
+user99@research.com,,Nepal,2.8627,no
+user99@research.com,,Philippines,1.2328,no
+user99@research.com,,Saudi Arabia,1.4441,no
+user99@research.com,,Singapore,2.295,no
+user99@research.com,korea,South Korea,2.896,no
+user99@research.com,,Sri Lanka,1.6811,no
+user99@research.com,taiwan,Taiwan,3.595,no
+user99@research.com,netherlands,Thailand,6.0174,no
+user99@research.com,,Vietnam,1.6795,no
+user99@research.com,,Anguilla,2.5779,no
+user99@research.com,,Aruba,1.1852,no
+user99@research.com,,Bahamas,1.0288,no
+user99@research.com,,Barbados,0.9795,no
+user99@research.com,,Bonaire,1.1292,no
+user99@research.com,,Cuba,3.0273,no
+user99@research.com,,Dominica,1.2884,no
+user99@research.com,,Grenada,1.1131,no
+user99@research.com,,Haiti,1.1959,no
+user99@research.com,,Jamaica,1.2787,no
+user99@research.com,,Martinique,0.996,no
+user99@research.com,,St Lucia,1.2457,no
+user99@research.com,,Montserrat,1.1958,no
+user99@research.com,,St Kitts and Nevis,1.2287,no
+user99@research.com,,Trinidad and Tobago,3.1607,no
+user148@research.com,,Bangladesh,6.9019,no
+user148@research.com,China,China,2.5975,yes
+user148@research.com,,Hong Kong,2.746,no
+user148@research.com,,India,1.7086,no
+user148@research.com,Japan,Japan,2.4143,yes
+user148@research.com,,Maldives,1.4074,no
+user148@research.com,,Nepal,1.0002,no
+user148@research.com,,Philippines,1.0654,no
+user148@research.com,,Saudi Arabia,1.3149,no
+user148@research.com,,Singapore,1.7338,no
+user148@research.com,Korea,South Korea,2.3004,no
+user148@research.com,Welsh,Sri Lanka,4.3789,no
+user148@research.com,,Taiwan,1.0429,no
+user148@research.com,,Thailand,1.2001,no
+user148@research.com,,Vietnam,1.0977,no
+user148@research.com,United Kingdom,Anguilla,6.1652,no
+user148@research.com,,Aruba,1.2258,no
+user148@research.com,,Bahamas,0.9149,no
+user148@research.com,,Barbados,0.8664,no
+user148@research.com,,Bonaire,0.7989,no
+user148@research.com,,Cuba,0.8316,no
+user148@research.com,,Dominica,0.9304,no
+user148@research.com,,Grenada,0.7824,no
+user148@research.com,,Haiti,0.7828,no
+user148@research.com,,Jamaica,1.0679,no
+user148@research.com,,Martinique,0.7672,no
+user148@research.com,,St Lucia,0.7315,no
+user148@research.com,,Montserrat,1.0963,no
+user148@research.com,,St Kitts and Nevis,0.831,no
+user148@research.com,,Trinidad and Tobago,0.7649,no
+user196@research.com,,Bangladesh,2.9331,no
+user196@research.com,China,China,6.7964,yes
+user196@research.com,Taiwan,Hong Kong,4.8674,no
+user196@research.com,India,India,4.6885,yes
+user196@research.com,Japan,Japan,2.1925,yes
+user196@research.com,,Maldives,1.3662,no
+user196@research.com,indonesia,Nepal,3.3198,no
+user196@research.com,indonesia,Philippines,3.521,no
+user196@research.com,,Saudi Arabia,2.4918,no
+user196@research.com,,Singapore,3.1232,no
+user196@research.com,South Korea,South Korea,5.8545,yes
+user196@research.com,,Sri Lanka,6.5557,no
+user196@research.com,,Taiwan,1.9556,no
+user196@research.com,,Thailand,2.4873,no
+user196@research.com,,Vietnam,3.4315,no
+user196@research.com,,Anguilla,2.7217,no
+user196@research.com,,Aruba,1.4504,no
+user196@research.com,,Bahamas,2.2651,no
+user196@research.com,,Barbados,2.097,no
+user196@research.com,,Bonaire,1.293,no
+user196@research.com,,Cuba,2.8958,no
+user196@research.com,,Dominica,2.3547,no
+user196@research.com,,Grenada,1.5979,no
+user196@research.com,,Haiti,1.3912,no
+user196@research.com,,Jamaica,4.631,no
+user196@research.com,,Martinique,3.0916,no
+user196@research.com,,St Lucia,2.987,no
+user196@research.com,,Montserrat,2.9589,no
+user196@research.com,,St Kitts and Nevis,2.6236,no
+user196@research.com,,Trinidad and Tobago,2.6534,no
+user116@research.com ,,Bangladesh,3.8994,no
+user116@research.com ,china,China,9.0289,no
+user116@research.com ,fiji,Hong Kong,5.6532,no
+user116@research.com ,india,India,2.1151,no
+user116@research.com ,korea,Japan,4.0152,no
+user116@research.com ,pakistan,Maldives,7.1305,no
+user116@research.com ,,Nepal,2.2535,no
+user116@research.com ,phillipines,Philippines,5.2496,no
+user116@research.com ,,Saudi Arabia,2.1545,no
+user116@research.com ,,Singapore,3.1982,no
+user116@research.com ,korea,South Korea,4.2839,no
+user116@research.com ,,Sri Lanka,4.4212,no
+user116@research.com ,,Taiwan,16.185,no
+user116@research.com ,,Thailand,0.8979,no
+user116@research.com ,,Vietnam,1.6154,no
+user116@research.com ,,Anguilla,4.2825,no
+user116@research.com ,,Aruba,1.0345,no
+user116@research.com ,,Bahamas,1.3967,no
+user116@research.com ,,Barbados,1.445,no
+user116@research.com ,,Bonaire,2.0647,no
+user116@research.com ,,Cuba,2.1055,no
+user116@research.com ,peru,Dominica,3.6996000000000002,no
+user116@research.com ,,Grenada,1.1388,no
+user116@research.com ,,Haiti,0.9647,no
+user116@research.com ,,Jamaica,0.7431,no
+user116@research.com ,,Martinique,1.0467,no
+user116@research.com ,,St Lucia,0.7949,no
+user116@research.com ,,Montserrat,2.2128,no
+user116@research.com ,,St Kitts and Nevis,0.7726,no
+user116@research.com ,,Trinidad and Tobago,1.0293,no
+user168@research.com ,bangledesh,Bangladesh,6.4148,no
+user168@research.com ,China,China,4.5975,yes
+user168@research.com ,Hong Kong,Hong Kong,5.2976,yes
+user168@research.com ,India,India,3.892,yes
+user168@research.com ,Japan,Japan,2.6081,yes
+user168@research.com ,Pakistan,Maldives,13.8746,no
+user168@research.com ,Nepal,Nepal,2.9419,yes
+user168@research.com ,Philipines,Philippines,4.4583,no
+user168@research.com ,Saudi Arabia,Saudi Arabia,5.8002,yes
+user168@research.com ,,Singapore,22.6762,no
+user168@research.com ,South Korea,South Korea,3.9112,yes
+user168@research.com ,,Sri Lanka,7.5413,no
+user168@research.com ,Taiwan,Taiwan,3.692,yes
+user168@research.com ,,Thailand,4.8091,no
+user168@research.com ,Vietnam,Vietnam,4.9296,yes
+user168@research.com ,French Polynesia,Anguilla,9.6617,no
+user168@research.com ,Nauru,Aruba,5.6778,no
+user168@research.com ,,Bahamas,3.6928,no
+user168@research.com ,Barbados,Barbados,3.7584,yes
+user168@research.com ,,Bonaire,1.7393,no
+user168@research.com ,Cuba,Cuba,3.9843,yes
+user168@research.com ,,Dominica,6.146,no
+user168@research.com ,,Grenada,1.6083,no
+user168@research.com ,,Haiti,2.1004,no
+user168@research.com ,Jamacia,Jamaica,3.3759,no
+user168@research.com ,,Martinique,2.0392,no
+user168@research.com ,St vincent and the grenadines,St Lucia,9.3178,no
+user168@research.com ,,Montserrat,3.1088,no
+user168@research.com ,,St Kitts and Nevis,1.6759,no
+user168@research.com ,,Trinidad and Tobago,1.1292,no
+user105@research.com,japan,Bangladesh,6.9287,no
+user105@research.com,,China,1.4744,no
+user105@research.com,,Hong Kong,4.253,no
+user105@research.com,india,India,4.8283,no
+user105@research.com,japan,Japan,2.3819,no
+user105@research.com,,Maldives,1.6701,no
+user105@research.com,korea,Nepal,5.4905,no
+user105@research.com,,Philippines,2.145,no
+user105@research.com,,Saudi Arabia,2.0883,no
+user105@research.com,turkey,Singapore,5.637,no
+user105@research.com,south korea,South Korea,2.8054,no
+user105@research.com,,Sri Lanka,1.6276,no
+user105@research.com,morocco,Taiwan,6.2166,no
+user105@research.com,,Thailand,2.5042,no
+user105@research.com,vietnam,Vietnam,10.4289,no
+user105@research.com,united kingdom,Anguilla,7.3135,no
+user105@research.com,,Aruba,2.1378,no
+user105@research.com,,Bahamas,0.8787,no
+user105@research.com,,Barbados,0.6234,no
+user105@research.com,,Bonaire,0.7992,no
+user105@research.com,,Cuba,1.0667,no
+user105@research.com,,Dominica,0.5912,no
+user105@research.com,,Grenada,0.4617,no
+user105@research.com,,Haiti,0.7372,no
+user105@research.com,,Jamaica,0.5325,no
+user105@research.com,,Martinique,0.6334,no
+user105@research.com,,St Lucia,0.516,no
+user105@research.com,,Montserrat,0.5945,no
+user105@research.com,,St Kitts and Nevis,0.6161,no
+user105@research.com,,Trinidad and Tobago,0.4447,no
+user112@research.com ,Japan,Bangladesh,4.087,no
+user112@research.com ,China,China,3.657,yes
+user112@research.com ,,Hong Kong,0.644,no
+user112@research.com ,India,India,2.681,yes
+user112@research.com ,Japan,Japan,2.615,yes
+user112@research.com ,,Maldives,0.975,no
+user112@research.com ,Nepal,Nepal,7.539,yes
+user112@research.com ,Philipenes,Philippines,3.739,no
+user112@research.com ,,Saudi Arabia,0.907,no
+user112@research.com ,,Singapore,1.651,no
+user112@research.com ,South Korea,South Korea,2.891,yes
+user112@research.com ,,Sri Lanka,1.072,no
+user112@research.com ,Bangladesh,Taiwan,9.451,no
+user112@research.com ,Thailand,Thailand,2.788,yes
+user112@research.com ,Vietnam,Vietnam,3.332,yes
+user112@research.com ,,Anguilla,2.736,no
+user112@research.com ,,Aruba,1.522,no
+user112@research.com ,,Bahamas,1.904,no
+user112@research.com ,,Barbados,0.82,no
+user112@research.com ,,Bonaire,0.816,no
+user112@research.com ,,Cuba,0.918,no
+user112@research.com ,,Dominica,0.858,no
+user112@research.com ,,Grenada,0.884,no
+user112@research.com ,,Haiti,1.192,no
+user112@research.com ,,Jamaica,1.054,no
+user112@research.com ,,Martinique,1.714,no
+user112@research.com ,,St Lucia,2.514,no
+user112@research.com ,,Montserrat,1.169,no
+user112@research.com ,,St Kitts and Nevis,0.972,no
+user112@research.com ,,Trinidad and Tobago,1.327,no
+user89@research.com,,Bangladesh,39.608,no
+user89@research.com,china,China,3.931,no
+user89@research.com,,Hong Kong,8.548,no
+user89@research.com,somalia,India,5.315,no
+user89@research.com,Japan,Japan,2.716,yes
+user89@research.com,,Maldives,2.182,no
+user89@research.com,,Nepal,1.548,no
+user89@research.com,philiphines ,Philippines,10.082,no
+user89@research.com,,Saudi Arabia,2.781,no
+user89@research.com,,Singapore,1.216,no
+user89@research.com,"korea
+",South Korea,4.365,no
+user89@research.com,,Sri Lanka,1.696,no
+user89@research.com,,Taiwan,2.498,no
+user89@research.com,,Thailand,1.532,no
+user89@research.com,"vietnam
+",Vietnam,4.065,no
+user89@research.com,,Anguilla,3.998,no
+user89@research.com,,Aruba,1.448,no
+user89@research.com,,Bahamas,1.082,no
+user89@research.com,,Barbados,0.866,no
+user89@research.com,,Bonaire,0.766,no
+user89@research.com,,Cuba,0.849,no
+user89@research.com,,Dominica,0.833,no
+user89@research.com,,Grenada,0.716,no
+user89@research.com,,Haiti,0.95,no
+user89@research.com,,Jamaica,0.816,no
+user89@research.com,,Martinique,0.748,no
+user89@research.com,,St Lucia,0.832,no
+user89@research.com,,Montserrat,0.699,no
+user89@research.com,,St Kitts and Nevis,0.632,no
+user89@research.com,,Trinidad and Tobago,0.632,no
+user179@research.com,bangladesh,Bangladesh,10.0917,no
+user179@research.com,china,China,2.8658,no
+user179@research.com,,Hong Kong,2.6481,no
+user179@research.com,india,India,2.8982,no
+user179@research.com,japan,Japan,2.331,no
+user179@research.com,pakistan,Maldives,3.3623,no
+user179@research.com,nepal,Nepal,24.1145,no
+user179@research.com,,Philippines,1.1506,no
+user179@research.com,,Saudi Arabia,2.7455,no
+user179@research.com,,Singapore,1.4991,no
+user179@research.com,south korea,South Korea,5.2501,no
+user179@research.com,sri lanka,Sri Lanka,4.4666,no
+user179@research.com,,Taiwan,1.1306,no
+user179@research.com,,Thailand,2.2642,no
+user179@research.com,,Vietnam,1.1842,no
+user179@research.com,,Anguilla,1.7676,no
+user179@research.com,,Aruba,0.899,no
+user179@research.com,,Bahamas,1.5322,no
+user179@research.com,,Barbados,0.9276,no
+user179@research.com,,Bonaire,0.8191,no
+user179@research.com,,Cuba,0.9995,no
+user179@research.com,,Dominica,0.9668,no
+user179@research.com,,Grenada,1.3304,no
+user179@research.com,,Haiti,1.3279,no
+user179@research.com,,Jamaica,6.1295,no
+user179@research.com,,Martinique,0.8014,no
+user179@research.com,,St Lucia,0.735,no
+user179@research.com,,Montserrat,1.0973,no
+user179@research.com,,St Kitts and Nevis,26.8123,no
+user179@research.com,,Trinidad and Tobago,0.634,no

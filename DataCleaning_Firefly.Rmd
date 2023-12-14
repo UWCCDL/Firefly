@@ -78,6 +78,11 @@ data <- list.files(path="data/", full.names = TRUE) %>%
 data$user_id <- as.character(data$user_id)
 data$correct <- as.logical(data$correct)
 
+
+usernames <- c( "user100", "user102", "user105", "user107", "user108", "user110", "user113", "user114", "user115", "user116", "user117", "user118", "user121", "user122", "user123", "user127", "user128", "user129", "user132", "user133", "user135", "user136", "user140", "user144", "user145", "user146", "user148", "user149", "user151", "user152", "user154", "user156", "user157", "user161", "user163", "user164", "user165", "user166", "user167", "user168", "user170", "user174", "user175", "user177", "user179", "user181", "user182", "user184", "user185", "user186", "user187", "user188", "user189", "user191", "user194", "user196", "user197", "user198", "user199", "user85", "user86", "user87", "user89", "user91", "user95", "user96", "user99", "coleshin", "Grace Roger", "Mia")
+
+data <- subset(data, screen_name %in% usernames)
+
 ```
 
 ###generate clean data
@@ -119,7 +124,6 @@ cleandata <- cleandata %>%
   rename(lessonId = lesson_title) %>%
   rename(sessionTime = session_time) %>%
   rename(factId = fact_id) %>%
-  rename(sessionId = session_id) %>%
   rename(reactionTime = reaction_time)
 
 # Calculate fact rep 
@@ -156,7 +160,7 @@ for (file in file_list) {
 
 prior_knowledge_data <- prior_knowledge_data %>%
   filter(!is.na(correct_ans) & correct_ans != "")%>%
-  select(user_id, textbox_text.text, correct_ans, flags_click.time)
+  select(user_id, textbox_text.text, correct_ans, flags_click.time, date)
 
 
 #generate prior knowledge
@@ -180,6 +184,7 @@ cleandata_priorknowledge <- cleandata_priorknowledge %>%
   mutate(textbox_text.text = if_else(textbox_text.text == "korea", "south korea", textbox_text.text)) %>%
   mutate(correct_ans = if_else(correct_ans == "trinidad and tobago", "trinidad", correct_ans)) 
 
+#these people didn't follow directions and used their own email 
 cleandata <- cleandata %>%
   mutate(email = if_else(email == "mggs@uw.edu", "user97@research.com", email)) %>%
   mutate(email = if_else(email == "colesh05@uw.edu", "user112@research.com", email)) %>%
@@ -205,17 +210,46 @@ cleandata_firstRep <- cleandata_priorknowledge %>%
   filter(repetition == FirstRepetition) %>%
   ungroup()
 
-# Calculate most acc alpha
+# Calculate most accurate alpha
 cleandata_lastRep <- cleandata_priorknowledge %>%
   group_by(lessonId, userId, factId) %>%
   mutate(LastRepetition = max(repetition)) %>%
   filter(repetition == LastRepetition) %>%
   ungroup()
 
+unknown_SOFs <- cleandata_lastRep %>%
+  filter(prior_knowledge != "yes")
 
-# Pair by userId for future graphs  
-#cleandata_avg <- cleandata_avg %>%
-#  mutate(paired= factor(userId))
+unknown_SOFs <- unknown_SOFs %>%
+  group_by(userId, lessonId) %>%
+  summarize(mean_alpha = mean(alpha))
+
+#dataset to use for MLE
+cleandata_MLE <- cleandata_lastRep %>%
+  mutate(prior_knowledge = if_else(prior_knowledge == "yes", 1, -1)) 
+
+offset <- cleandata_priorknowledge
+
+offset$date <- as.POSIXct(offset$date, format = "%Y-%m-%d_%Hh%M.%OS")
+offset$unix_time <- as.numeric(offset$date)
+
+offset <- offset %>%
+  group_by(lessonId, userId, factId) %>%
+  mutate(offset = presentationStartTime/1000 - unix_time) %>%
+  mutate(FirstRepetition = min(repetition)) %>%
+  filter(repetition == FirstRepetition) %>%
+  ungroup()
+ 
+  
+
+write_csv(unknown_SOFs, "MLE_data.csv")
+write_csv(cleandata_MLE, "cleandata_MLE.csv")
+
+
+  
+
+
+
 
 
 ```

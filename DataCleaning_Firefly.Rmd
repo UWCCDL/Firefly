@@ -158,10 +158,12 @@ for (file in file_list) {
   prior_knowledge_data <- rbind(prior_knowledge_data, psychopy_data)
 }
 
+demographics <- prior_knowledge_data %>%
+  select(user_id, demo1_textbox.text, demo2_textbox.text)
+
 prior_knowledge_data <- prior_knowledge_data %>%
   filter(!is.na(correct_ans) & correct_ans != "")%>%
   select(user_id, textbox_text.text, correct_ans, flags_click.time, date)
-
 
 #generate prior knowledge
 prior_knowledge_data$prior_knowledge <- ifelse(prior_knowledge_data$textbox_text.text == prior_knowledge_data$correct_ans, "yes", "no")
@@ -172,6 +174,38 @@ write_csv(prior_knowledge_data, "prior_knowledge_data.csv")
 #I import this file as cleandata_priorknowledge 
 cleandata_priorknowledge <- read_csv("cleandata_priorknowledge.csv", show_col_types = FALSE)
 
+```
+#demographics
+```{r}
+demographics <- demographics %>%
+  filter(!is.na(demo1_textbox.text) | !is.na(demo2_textbox.text))
+
+demographics <- demographics %>%
+  mutate(filled_demo1_textbox.text = ifelse(
+    is.na(demo1_textbox.text),
+    case_when(
+      demo2_textbox.text == 1 ~ 18,
+      demo2_textbox.text == 2 ~ 19,
+      demo2_textbox.text == 3 ~ 20,
+      demo2_textbox.text == 4 ~ 21,
+      TRUE ~ demo1_textbox.text
+    ),
+    demo1_textbox.text
+  ))
+
+demographics <- demographics %>%
+  arrange(user_id, filled_demo1_textbox.text) %>%
+  distinct(user_id, .keep_all = TRUE) %>%
+  select(user_id, filled_demo1_textbox.text) %>%
+  rename(age = filled_demo1_textbox.text)
+
+SlimStampenIds <- read_csv("SlimStampen_Ids.csv")
+
+SlimStampenIds$user_id <- trimws(SlimStampenIds$user_id)
+demographics$user_id <- trimws(demographics$user_id)
+demographics <- left_join(SlimStampenIds, demographics, by = "user_id")
+
+write_csv(demographics, "demographics.csv")
 ```
 ###integrate to main dataset
 ```{r}
@@ -203,7 +237,6 @@ cleandata_priorknowledge <- left_join(cleandata, cleandata_priorknowledge, by = 
 ```
 #generate additional datasets
 ```{r, echo=FALSE, results= 'hide'}
-
 cleandata_firstRep <- cleandata_priorknowledge %>%
   group_by(lessonId, userId, factId) %>%
   mutate(FirstRepetition = min(repetition)) %>%
@@ -225,7 +258,7 @@ unknown_SOFs <- unknown_SOFs %>%
   summarize(mean_alpha = mean(alpha))
 
 #dataset to use for MLE
-cleandata_MLE <- cleandata_lastRep %>%
+cleandata_MLE <- cleandata_priorknowledge %>%
   mutate(prior_knowledge = if_else(prior_knowledge == "yes", 1, -1)) 
 
 offset <- cleandata_priorknowledge
@@ -253,6 +286,7 @@ write_csv(cleandata_MLE, "optimize/cleandata_MLE.csv")
 write_csv(offset, "optimize/offset.csv")
 
 #these csv's will be inputs for MLE. they are being saved into the working directory for the MLE, called "optimize". Next, you need to open the mle.ipynb file and run it in a jupyter notebook.
+
 
 ```
 

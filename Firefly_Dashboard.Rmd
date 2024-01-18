@@ -239,12 +239,58 @@ tab_model(base)
 # DOES MLE WORK??? 
 
 ```{r}
-recovered_blc <- read_csv("results.csv", show_col_types = FALSE)
+recovered_blc <- read_csv("optimize/results_MLE.csv", show_col_types = FALSE)
 
-recovered_blc <- inner_join(recovered_blc, cleandata_lastRep)
+recovered_blc$Fact <- tolower(recovered_blc$Fact)
+recovered_blc$Fact <- URLdecode(recovered_blc$Fact)
 
 recovered_blc <- recovered_blc %>%
+  rename(userId = Subject) %>%
+  rename(answer = Fact) %>%
+  rename(lessonId = Lesson)
+
+recovered_blc$...1 <- NULL
+
+recovered_blc$userId <- as.character(recovered_blc$userId) 
+cleandata_lastRep$userId <- as.character(cleandata_lastRep$userId)
+
+recovered_blc <- left_join(recovered_blc, cleandata_lastRep, by = c("userId", "answer"))
+
+
+
+```
+
+```{r}
+recovered_blc <- recovered_blc %>%
   mutate(prior_knowledge = if_else(prior_knowledge == "yes", 1, 0))
+
+correlation <- ggplot(recovered_blc, aes(x = BLC, y = alpha)) +
+  geom_point(color = "darkblue") +
+  geom_smooth(method = "lm", color = "darkblue") +
+  labs(title = "Scatterplot of Recovered BLC vs. SOF",
+       x = "BLC",
+       y = "SOF")
+
+# Calculate correlation and p-value
+test <- cor.test(recovered_blc$BLC, recovered_blc$prior_knowledge)
+
+# Add correlation coefficient and p-value to the plot
+correlation <- correlation +
+  annotate("text", x = Inf, y = -Inf,
+           label = paste("r =", round(test$estimate, 2),
+                         "\n",
+                         "p < .0001"),
+           hjust = 1, vjust = -0.5)
+
+# Display the scatterplot with correlation
+print(correlation)
+
+pv <- format(test$pv, digits = 2)
+print(pv)
+
+```
+
+```{r}
 
 # Create a scatterplot
 scatterplot <- ggplot(recovered_blc, aes(x = BLC, y = prior_knowledge)) +
@@ -273,16 +319,28 @@ print(p.value)
 
 ggsave("figures/recovered_blc_correlations.png")
 
-ggplot(recovered_blc, aes(y=BLC, x=as.factor(prior_knowledge), fill=as.factor(prior_knowledge))) +
+ggplot(recovered_blc %>% filter(BLC >= -1), aes(y=BLC, x=as.factor(prior_knowledge), fill=as.factor(prior_knowledge))) +
   stat_summary(geom="bar", fun.data = "mean_se") +
   stat_summary(geom="errorbar", fun.data = "mean_se", width=0.1) +
-  scale_fill_aaas() +
-  labs(fill="Previously Known") +
-  xlab("Previously Known") +
-  #geom_boxplot() +
-  #geom_point(aes(group=prior_knowledge), position=position_jitter(), alpha=0.25, size=1) +
+ geom_point(position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.75), color = "black", size = 0.01) +
+  scale_fill_manual(values = c("darkblue", "lightgreen"), name = "Prior Knowledge Status",
+                    labels = c("no", "yes")) +
+  xlab("Prior Knowledge Status") +
   theme_minimal()
 ```
+```{r}
+
+ggplot(recovered_blc %>% filter(flags_click.time <= 15), aes(y = flags_click.time, x = as.factor(prior_knowledge), fill = as.factor(prior_knowledge))) +
+  stat_summary(geom = "bar", fun.data = "mean_se") +
+  stat_summary(geom = "errorbar", fun.data = "mean_se", width = 0.1) +
+    geom_point(position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.75), color = "black", size = 0.1) +
+  scale_fill_manual(values = c("darkblue", "lightgreen"), name = "Prior Knowledge Status",
+                    labels = c("no", "yes")) +
+  xlab("Prior Knowledge Status") +
+  theme_minimal()
+
+```
+
 
 ## Is there a significant difference in BLC?
 
@@ -292,22 +350,18 @@ base <- lmer(BLC ~ prior_knowledge  + (1|userId) +(0+prior_knowledge|userId),
 tab_model(base)
 ```
 
-And what is the classification accuracy (using a single threshold for all participants)?
-
-## Is there a significant difference in BLC? - using 0.3 alpha as estimation
+#And what is the classification accuracy (using a single threshold for all participants)?
 
 ```{r}
-base <- lmer(BLC ~ prior_knowledge  + (1|userId) +(0+prior_knowledge|userId), 
-             recovered_blc)
-tab_model(base)
 
-recovered_blc <- recovered_blc %>%
+recovered_blc1 <- recovered_blc %>%
   mutate(observed = if_else(prior_knowledge == 1, 1, -1))
 
 curve = NULL
-for (cutoff in seq(-3.7, 0.5, 0.1)) {
-  subthreshold <- recovered_blc %>%
+for (cutoff in seq(-1, 1.5, 0.1)) {
+  subthreshold <- recovered_blc1 %>%
     mutate(prediction = ifelse(BLC <= cutoff, -1, 1)) %>%
+    mutate(observed = if_else(prior_knowledge == 1, 1, -1)) %>% 
     mutate(accuracy = ifelse(prediction == observed, 1, 0)) %>%
     group_by(observed) %>%
     summarise(accuracy = mean(accuracy))
@@ -370,101 +424,87 @@ ggplot(arrange(curve, TPR), aes(x=TNR, y=TPR, col=Threshold)) +
                          round(blc_AUC, 2))) +
   
   theme_pander()
-```
 
-## Recovered blc vs. prior knowledge -- using average no prior knowledge as alpha
+max_j <- curve %>%
+  mutate(J = TPR - (1 - TNR)) %>%
+  filter(J == max(J)) %>%
+  select(Threshold)
+
+cat("Threshold for Maximum Youden's J Statistic:", max_j$Threshold, "\n")
+```
+#identifying plausible correction
 ```{r}
-#getting data into format for MLE
-unknown_sof <- prior_knowledge_alldata %>%
-  filter(prior_knowledge == "no" & (lessonTitle == "Asian Flags" | lessonTitle == "Caribbean Flags")) %>%
-  group_by(userId, lessonTitle) %>%
-  summarize(average_alpha = mean(alpha))
+known_SOFs <- cleandata_lastRep %>%
+  filter(prior_knowledge == "yes")
 
-prior_knowledge_MLE3 <- cleandata %>%
-  left_join(unknown_sof %>% 
-              select(average_alpha, userId, lessonTitle) %>%
-              mutate(userId = as.character(userId)),
-            by = c("userId", "lessonTitle"))
-            
-prior_knowledge_MLE3 <- prior_knowledge_MLE3 %>%
-  left_join(prior_knowledge_weirdnames %>%
-        select(prior_knowledge, userId, answer) %>%
-        mutate(userId = as.character(userId)) %>%
-        mutate(prior_knowledge = ifelse(prior_knowledge == "yes", 1, -1)))
+known_SOFs <- known_SOFs %>%
+  group_by(userId, lessonId) %>%
+  summarize(mean_alpha = mean(alpha))
 
-write.csv(prior_knowledge_MLE3, "prior_knowledge_MLE3.csv", row.names = FALSE)
+predicted_known_SOFs <- recovered_blc %>%
+  filter(BLC > 0.5)
+
+predicted_unknown_SOFs <- recovered_blc %>%
+  filter(BLC <= 0.5)
+
+avg_known <- mean(known_SOFs$mean_alpha)
+avg_unknown <- mean(unknown_SOFs$mean_alpha)
+avg_predicted_known <- mean(predicted_known_SOFs$alpha)
+avg_predicted_unknown <- mean(predicted_unknown_SOFs$alpha)
+
+cat("Average SOF for facts with prior knowledge:", avg_known, "\n")
+cat("Average SOF for facts without prior knowledge:", avg_unknown, "\n")
+cat("Average SOF for facts predicted to have prior knowledge", avg_predicted_known, "\n")
+cat("Average SOF for facts predicted to not have prior knowledge", avg_predicted_unknown, "\n") 
+  
+calibration_factor <- mean(.32/.226)
+cat("Calibration_factor:", calibration_factor, "\n")
+
 ```
-#After MLE, input data here 
-
+#correcting facts with predicted prior knowledge
 ```{r}
-recovered_blc_unknown_sof <- read_csv("results_unknown_sof3.csv", show_col_types = FALSE) 
+#corrected_values <- uncorrected_values * calibration_factor
+recovered_blc_corrected <- recovered_blc %>% 
+  mutate(alpha = ifelse(BLC > 0.5, alpha * 1.42, alpha))
 
-recovered_blc_unknown_sof <- recovered_blc_unknown_sof %>%
-  mutate(observed = if_else(prior_knowledge == 1, 1, -1))
+ggplot(recovered_blc_corrected, aes(y = alpha, x = as.factor(userId), col = factor(prior_knowledge), fill = factor(prior_knowledge))) +
+  stat_summary(geom="point", fun.data = "mean_sdl", size=2.5) +
+  stat_summary(geom="ribbon", fun.data = "mean_se", 
+               aes(group = prior_knowledge), 
+               col = NA, 
+               alpha = 0.25) +
+  stat_summary(geom="line", fun = "mean", aes(group = prior_knowledge)) +
+  xlab("Participant ID") +
+  scale_color_manual(values=c("darkblue", "lightgreen", "orange")) +
+  scale_fill_manual(values=c("darkblue", "lightgreen", "orange")) +
+  scale_x_discrete() +
+ylab(expression(paste(italic("SoF")))) +
+  ylim(0.1, 0.5) +
+  ggtitle(expression(paste ("Effect of Prior Knowledge Across Participants"))) +
+  labs(col="Prior Knowledge", fill="Prior Knowledge") +
+  theme_minimal() +
+  theme(legend.position = "right",
+        axis.text.x = element_text (angle=90, size=5),
+        panel.grid.major = element_blank())
 
-curve = NULL
-for (cutoff in seq(-3.7, 0.5, 0.1)) {
-  subthreshold <- recovered_blc_unknown_sof %>%
-    mutate(prediction = ifelse(BLC <= cutoff, -1, 1)) %>%
-    mutate(accuracy = ifelse(prediction == observed, 1, 0)) %>%
-    group_by(observed) %>%
-    summarise(accuracy = mean(accuracy))
-  
-  tnr <- subthreshold %>% 
-    filter(observed == -1) %>% 
-    dplyr::select(accuracy) %>%
-    as.numeric()
-  
-  tpr <- subthreshold %>% 
-    filter(observed == 1) %>% 
-    dplyr::select(accuracy) %>%
-    as.numeric()
-  
-  partial <- tibble(Threshold = cutoff,
-                    TNR = tnr,
-                    TPR = tpr)
-  if (is.null(curve)) {
-    curve <- partial
-  } else {
-    curve <- rbind(curve, partial)
-  }
-}
+ggplot(recovered_blc_corrected, aes(y = alpha, x = as.factor(userId), col = prior_knowledge, fill = factor(prior_knowledge))) +
+  geom_bar(stat = "summary", fun = "mean", position = "dodge", alpha = 0.7) +
+  geom_errorbar(stat = "summary", fun.data = "mean_se", position = position_dodge(width = 0.75), width = 0.25, size = 0.7) +
+  xlab("Participant ID") +
+  ylab(expression(paste(italic("SoF")))) +
+  ylim(0.0, 0.7) +
+  ggtitle(expression(paste("Effect of Prior Knowledge Across Participants"))) +
+  scale_fill_manual(values = c("darkblue", "lightgreen")) +
+  labs(fill = "Prior Knowledge") +
+  theme_minimal() +
+  theme(legend.position = "right",
+        axis.text.x = element_text(angle = 90),
+        panel.grid.major = element_blank())
+
 ```
-
-And now, we can visualize the ROC graph. First, we can compute the global AUC
-
+#the true test
 ```{r}
-blc_AUC1 <- 0
-step <- 0.01
-for (tnr in seq(0, 1-step, step)) {
-  y <- curve %>% filter (TNR <= tnr) %>% filter(TNR == max(TNR)) %>% summarise(TPR = mean(TPR)) %>% as.numeric()
-  if (!is.nan(y)) {
-    blc_AUC1 <- blc_AUC1 + (y * step)
-  }
-}
-
-ROC_unknown_sof <- ggplot(arrange(curve, TPR), aes(x=TNR, y=TPR, col=Threshold)) + 
-  geom_point(size=2,  alpha=1) + 
-  geom_line() + 
-  geom_text_repel(aes(label=paste("BLC =", Threshold)), 
-                  direction="both",
-                  size=3) +
-  ylab("Sensitivity (True Positive Rate)") +
-  xlab("Specificity (True Negative Rate)") +
-  scale_x_reverse() +
-  scale_color_viridis(option="viridis") +
-  labs(col="Recovered BLC") +
-  ylim(0, 1) +
-  xlim(1, 0) +
-  coord_equal() +
-  ggtitle("ROC Curve for MLE-Recovered BLC") +
-  geom_abline(slope=1, intercept = 1, col="grey", linetype = "dashed") +
-  annotate(geom="text", x=1/3, y=1/5, 
-           label = paste("AUC = ", 
-                         round(blc_AUC1, 2))) +
-  
-  theme_pander()
-  
-  ROC_unknown_sof
+base <- lmer(alpha ~ prior_knowledge  + (1|userId) +(0+prior_knowledge|userId), 
+             recovered_blc_corrected)
+tab_model(base)
 ```
-

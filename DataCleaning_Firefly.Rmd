@@ -281,12 +281,11 @@ offset <- offset %>%
   select("userId", "lessonId", "screen_name", "factId", "answer", "prior_knowledge", "offset")
   
 
-write_csv(unknown_SOFs, "optimize/MLE_data.csv")
+write_csv(unknown_SOFs, "optimize/sofs.csv")
 write_csv(cleandata_MLE, "optimize/cleandata_MLE.csv")
 write_csv(offset, "optimize/offset.csv")
 
-#these csv's will be inputs for MLE. they are being saved into the working directory for the MLE, called "optimize". Next, you need to open the mle.ipynb file and run it in a jupyter notebook.
-
+#these csv's will be inputs for MLE. they are being saved into the working directory for the MLE, called "optimize". Next, you need to open the mle.ipynb file within the optimize folder and run it with the data generated in the cleandata_MLE.csv file. This will give you the omptimized base level activations that can be used to infer prior knowledge
 
 ```
 
@@ -346,6 +345,7 @@ cd4 <- cd3 %>%
 
 scoreboarddata$TotalFactAvg <- cd4$Avg
 scoreboarddata$TotalFactAvgSD <- cd4$sd
+
 
 ```
 

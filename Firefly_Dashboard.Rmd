@@ -225,6 +225,12 @@ ggplot(SOF_corr, aes(x = no, y = yes)) +
   ggtitle("SOF by Prior Knowledge") +
   theme_minimal()
 
+cor_test_result <- cor.test(SOF_corr$no, SOF_corr$yes, use = "complete.obs")
+
+p_value <- cor_test_result$p.value
+
+print(p_value)
+
 ggsave("figures/PriorKnowledgeCorrelations.png")
 ```
 
@@ -241,13 +247,13 @@ tab_model(base)
 ```{r}
 recovered_blc <- read_csv("optimize/results_MLE.csv", show_col_types = FALSE)
 
-recovered_blc$Fact <- tolower(recovered_blc$Fact)
-recovered_blc$Fact <- URLdecode(recovered_blc$Fact)
+recovered_blc$answer <- tolower(recovered_blc$answer)
+recovered_blc$answer <- URLdecode(recovered_blc$answer)
 
-recovered_blc <- recovered_blc %>%
-  rename(userId = Subject) %>%
-  rename(answer = Fact) %>%
-  rename(lessonId = Lesson)
+#recovered_blc <- recovered_blc %>%
+#  rename(userId = Subject) %>%
+#  rename(answer = Fact) %>%
+#  rename(lessonId = Lesson)
 
 recovered_blc$...1 <- NULL
 
@@ -457,7 +463,7 @@ cat("Average SOF for facts without prior knowledge:", avg_unknown, "\n")
 cat("Average SOF for facts predicted to have prior knowledge", avg_predicted_known, "\n")
 cat("Average SOF for facts predicted to not have prior knowledge", avg_predicted_unknown, "\n") 
   
-calibration_factor <- mean(.32/.226)
+calibration_factor <- mean(.346/.227)
 cat("Calibration_factor:", calibration_factor, "\n")
 
 ```
@@ -465,8 +471,13 @@ cat("Calibration_factor:", calibration_factor, "\n")
 ```{r}
 #corrected_values <- uncorrected_values * calibration_factor
 recovered_blc_corrected <- recovered_blc %>% 
-  mutate(alpha = ifelse(BLC > 0.5, alpha * 1.42, alpha))
+  mutate(alpha = ifelse(BLC > 0.5, alpha * 1.52, alpha))
 
+```
+#comparing corrected to uncorrected data
+```{r}
+
+#after correction
 ggplot(recovered_blc_corrected, aes(y = alpha, x = as.factor(userId), col = factor(prior_knowledge), fill = factor(prior_knowledge))) +
   stat_summary(geom="point", fun.data = "mean_sdl", size=2.5) +
   stat_summary(geom="ribbon", fun.data = "mean_se", 
@@ -480,25 +491,32 @@ ggplot(recovered_blc_corrected, aes(y = alpha, x = as.factor(userId), col = fact
   scale_x_discrete() +
 ylab(expression(paste(italic("SoF")))) +
   ylim(0.1, 0.5) +
-  ggtitle(expression(paste ("Effect of Prior Knowledge Across Participants"))) +
+  ggtitle(expression(paste ("Corrected Prior Knowledge Data"))) +
   labs(col="Prior Knowledge", fill="Prior Knowledge") +
   theme_minimal() +
   theme(legend.position = "right",
         axis.text.x = element_text (angle=90, size=5),
         panel.grid.major = element_blank())
 
-ggplot(recovered_blc_corrected, aes(y = alpha, x = as.factor(userId), col = prior_knowledge, fill = factor(prior_knowledge))) +
-  geom_bar(stat = "summary", fun = "mean", position = "dodge", alpha = 0.7) +
-  geom_errorbar(stat = "summary", fun.data = "mean_se", position = position_dodge(width = 0.75), width = 0.25, size = 0.7) +
+#original plot
+ggplot(cleandata_lastRep, aes(y = alpha, x = as.factor(userId), col = prior_knowledge, fill = prior_knowledge)) +
+  stat_summary(geom="point", fun.data = "mean_sdl", size=2.5) +
+  stat_summary(geom="ribbon", fun.data = "mean_se", 
+               aes(group = prior_knowledge), 
+               col = NA, 
+               alpha = 0.25) +
+  stat_summary(geom="line", fun = "mean", aes(group = prior_knowledge)) +
   xlab("Participant ID") +
-  ylab(expression(paste(italic("SoF")))) +
-  ylim(0.0, 0.7) +
-  ggtitle(expression(paste("Effect of Prior Knowledge Across Participants"))) +
-  scale_fill_manual(values = c("darkblue", "lightgreen")) +
-  labs(fill = "Prior Knowledge") +
+  scale_color_manual(values=c("darkblue", "lightgreen", "orange")) +
+  scale_fill_manual(values=c("darkblue", "lightgreen", "orange")) +
+  scale_x_discrete() +
+ylab(expression(paste(italic("SoF")))) +
+  ylim(0.1, 0.5) +
+  ggtitle(expression(paste ("Original Effect of Prior Knowledge Across Participants"))) +
+  labs(col="Prior Knowledge", fill="Prior Knowledge") +
   theme_minimal() +
   theme(legend.position = "right",
-        axis.text.x = element_text(angle = 90),
+        axis.text.x = element_text (angle=90, size=5),
         panel.grid.major = element_blank())
 
 ```

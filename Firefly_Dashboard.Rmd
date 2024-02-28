@@ -408,7 +408,7 @@ for (tnr in seq(0, 1-step, step)) {
 
 The global AUC is `r blc_AUC`.
 
-```{r}
+```{r, fig.width=5, fig.height=5}
 ggplot(arrange(curve, TPR), aes(x=TNR, y=TPR, col=Threshold)) + 
   geom_point(size=2,  alpha=1) + 
   geom_line() + 
@@ -429,7 +429,8 @@ ggplot(arrange(curve, TPR), aes(x=TNR, y=TPR, col=Threshold)) +
            label = paste("AUC = ", 
                          round(blc_AUC, 2))) +
   
-  theme_pander()
+  theme_minimal() +
+  theme(legend.position = "bottom")
 
 max_j <- curve %>%
   mutate(J = TPR - (1 - TNR)) %>%
@@ -520,9 +521,91 @@ ylab(expression(paste(italic("SoF")))) +
         panel.grid.major = element_blank())
 
 ```
-#the true test
+
+# Andy's section
+
+A new figure for the global results
+
+```{r, fig.width=5, fig.height=5}
+adata <- cleandata_lastRep %>%
+  group_by(userId, prior_knowledge) %>%
+  summarise(SoF = mean(alpha))
+
+ggplot(adata, aes(x=prior_knowledge, y=SoF, 
+                  col=prior_knowledge, fill= prior_knowledge)) +
+  geom_line(aes(group=userId), color="grey", size=0.25) +
+  stat_summary(geom="point", fun.data = "mean_se", size=3) +
+  stat_summary(geom="errorbar", fun.data ="mean_sdl", width=0.1) +
+  geom_boxplot(alpha=0.25) +
+  scale_color_manual(values=c("darkblue", "lightgreen", "orange")) +
+  scale_fill_manual(values=c("darkblue", "lightgreen", "orange")) +
+  labs(col="Previously Known?") +
+  xlab("Previously Known?") +
+  ylab("Speed of Forgetting (SoF)") +
+  ggtitle("Effect of Prior Knwledge") +
+  theme_minimal() +
+  guides(fill="none") +
+  theme(legend.position = "bottom")
+```
+
+## Correlations
+
+```{r, fig.width=5, fig.height=5}
+adata_w <- adata %>% pivot_wider(values_from = SoF, names_from = prior_knowledge)
+ggplot(adata_w, aes(x = no, y = yes)) +
+  scale_x_continuous() +
+  scale_y_continuous() +
+  coord_equal() +
+  #coord_cartesian(xlim=c(0.15, 0.38), ylim=c(0.15, 0.38),) +
+  geom_smooth(method = "lm", fullrange=TRUE, fill="grey") +
+  geom_point(size = 4, col="blue", alpha = 0.5) +
+  xlab("SoF: Previously Unknown") +
+  ylab("SoF: Previously Known") +
+  ggtitle("SOF by Prior Knowledge") +
+  geom_abline(slope=1, intercept = 0, col="black", linetype="dashed") +
+  theme_minimal() +
+  annotate(geom="text", x=0.275, y=0.325, label=paste("r(70) = ", round(cor(adata_w$yes, 
+                                                                            adata_w$no),
+                                                                        2))) +
+  theme(aspect.ratio = 1)
+```
+## BLC
+
+```{r, fig.width=5, fig.height=5}
+blcdata <-recovered_blc_corrected %>%
+  mutate(prior = if_else(prior_knowledge == 0, "no", "yes")) %>%
+  group_by(userId, prior) %>%
+  summarise(BLC = mean(BLC))
+
+ggplot(blcdata, aes(x=prior, y=BLC, 
+                  col=prior, fill= prior)) +
+  geom_line(aes(group=userId), color="grey", size=0.25) +
+  stat_summary(geom="point", fun.data = "mean_se", size=3) +
+  #stat_summary(geom="errorbar", fun.data ="mean_sdl", width=0.1) +
+  geom_boxplot(alpha=0.25) +
+  scale_color_manual(values=c("darkblue", "lightgreen", "orange")) +
+  scale_fill_manual(values=c("darkblue", "lightgreen", "orange")) +
+  labs(col="Previously Known?") +
+  xlab("Previously Known?") +
+  ylab("MLE Estimates of BLC") +
+  ggtitle("Recovered BLC Values") +
+  theme_minimal() +
+  guides(fill="none") +
+  theme(legend.position = "bottom")
+```
+
 ```{r}
-base <- lmer(alpha ~ prior_knowledge  + (1|userId) +(0+prior_knowledge|userId), 
+t.test(BLC ~ prior, paired=T, data=blcdata)
+```
+
+# MLM Model
+
+Random slope model.
+
+```{r}
+base <- lmer(alpha ~ prior_knowledge  
+             + (1|userId)                  # Intercept
+             + (0+prior_knowledge|userId), # Slope
              recovered_blc_corrected)
 tab_model(base)
 ```

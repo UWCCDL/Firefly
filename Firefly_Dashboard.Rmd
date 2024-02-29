@@ -63,7 +63,7 @@ library(sjPlot)
 ### All SoF 
 
 ```{r fig.width= 10, fig.height= 4.5}
-
+cleandata_lastRep <- read_csv("cleandata_lastrep.csv")
 graph=ggplot(cleandata_lastRep, aes(x=lessonId, y=alpha, col=lessonId, fill=lessonId)) +
   geom_boxplot(width=.4,size=0.1, alpha=0.2) +
   stat_summary(fun.y=mean, geom="pointrange", size=0.1, shape=1, color="black") +
@@ -423,14 +423,16 @@ ggplot(arrange(curve, TPR), aes(x=TNR, y=TPR, col=Threshold)) +
   ylim(0, 1) +
   xlim(1, 0) +
   coord_equal() +
-  ggtitle("ROC Curve for MLE-Recovered BLC") +
+  ggtitle("Classification Accuracy for BLC Estimates") +
   geom_abline(slope=1, intercept = 1, col="grey", linetype = "dashed") +
   annotate(geom="text", x=1/3, y=1/5, 
            label = paste("AUC = ", 
                          round(blc_AUC, 2))) +
-  
+  labs(col="BLC Threshold") +
   theme_minimal() +
   theme(legend.position = "bottom")
+
+ggsave("figure8.png", dpi=300)
 
 max_j <- curve %>%
   mutate(J = TPR - (1 - TNR)) %>%
@@ -524,6 +526,8 @@ ylab(expression(paste(italic("SoF")))) +
 
 # Andy's section
 
+## New figure Global Results
+
 A new figure for the global results
 
 ```{r, fig.width=5, fig.height=5}
@@ -542,10 +546,12 @@ ggplot(adata, aes(x=prior_knowledge, y=SoF,
   labs(col="Previously Known?") +
   xlab("Previously Known?") +
   ylab("Speed of Forgetting (SoF)") +
-  ggtitle("Effect of Prior Knwledge") +
+  ggtitle("Effect of Prior Knowledge on SoF Estimates") +
   theme_minimal() +
   guides(fill="none") +
   theme(legend.position = "bottom")
+
+ggsave(filename="figure5.png", dpi=300)
 ```
 
 ## Correlations
@@ -561,13 +567,15 @@ ggplot(adata_w, aes(x = no, y = yes)) +
   geom_point(size = 4, col="blue", alpha = 0.5) +
   xlab("SoF: Previously Unknown") +
   ylab("SoF: Previously Known") +
-  ggtitle("SOF by Prior Knowledge") +
+  ggtitle("SoF by Prior Knowledge") +
   geom_abline(slope=1, intercept = 0, col="black", linetype="dashed") +
   theme_minimal() +
   annotate(geom="text", x=0.275, y=0.325, label=paste("r(70) = ", round(cor(adata_w$yes, 
                                                                             adata_w$no),
                                                                         2))) +
   theme(aspect.ratio = 1)
+
+ggsave(filename="figure6.png", dpi = 300)
 ```
 ## BLC
 
@@ -582,20 +590,82 @@ ggplot(blcdata, aes(x=prior, y=BLC,
   geom_line(aes(group=userId), color="grey", size=0.25) +
   stat_summary(geom="point", fun.data = "mean_se", size=3) +
   #stat_summary(geom="errorbar", fun.data ="mean_sdl", width=0.1) +
-  geom_boxplot(alpha=0.25) +
+  geom_boxplot(alpha=0.3) +
   scale_color_manual(values=c("darkblue", "lightgreen", "orange")) +
   scale_fill_manual(values=c("darkblue", "lightgreen", "orange")) +
   labs(col="Previously Known?") +
   xlab("Previously Known?") +
   ylab("MLE Estimates of BLC") +
-  ggtitle("Recovered BLC Values") +
+  ggtitle("MLE-Recovered BLC Values") +
   theme_minimal() +
   guides(fill="none") +
   theme(legend.position = "bottom")
+
+ggsave("figure7.png")
 ```
 
 ```{r}
 t.test(BLC ~ prior, paired=T, data=blcdata)
+```
+
+##
+
+Previous knowledge can be approximated as a constant
+
+```{r, fig.width=5, fig.height=5}
+month <- 60*60*24*30
+year <- month * 12
+delta <- 60*60
+time <- seq(1, month, delta)
+
+gen_traces <- function(n, within=month) {
+  timestep <- within / n
+  seq(0, within-timestep, timestep)
+}
+
+activation <- function(t, traces) {
+  timeline <- seq(1, t-delta, delta)
+  activations <- c(1)
+  for (time in timeline) {
+    O <- 0
+    d = 0.3
+    for (trace in traces) {
+      if (trace < time) {
+        O <- O +(time - trace)**-d
+        d <- 0.5 * O + 0.3
+      }
+    }
+    activations <- append(activations, log(O))
+  }
+  activations
+}
+
+
+#plot(activation(30000, traces=c(1, 2000, 50000)), type="l")
+
+time <- seq(1, month*12, delta)
+n1 <- activation(month*12, traces=gen_traces(1))
+n10 <- activation(month*12, traces=gen_traces(10))
+n100 <- activation(month*12, traces=gen_traces(100))
+df <- data.frame(Time=time, N1 = n1, N10 = n10, N100 = n100)
+
+activations <- tibble(df)
+lactivations <- activations %>% pivot_longer(cols = c("N1", "N10", "N100"), 
+                                             values_to = "Activation", 
+                                             names_to = "NEncodings") %>%
+  mutate(Encodings = if_else(NEncodings == "N1", "1", if_else(NEncodings=="N10", "10", "100")))
+
+ggplot(lactivations, aes(x=Time, y=Activation, col=Encodings)) +
+  geom_line() +
+  scale_x_continuous(breaks=seq(1,12)*month,
+                     labels = paste(seq(1,12))) +
+  xlab("Time (Months)") +
+  ggtitle("Simulated Effect of Prior Knowledge Over Time") +
+  scale_color_viridis(discrete=T, end=0.8) +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+
+ggsave("figure2.png", dpi=300)
 ```
 
 # MLM Model

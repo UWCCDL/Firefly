@@ -347,6 +347,62 @@ ggplot(recovered_blc %>% filter(flags_click.time <= 15), aes(y = flags_click.tim
 
 ```
 
+##Group-level BLC for each fact
+```{r}
+
+avg_BLC <- recovered_blc %>%
+  group_by(answer) %>%
+  summarize(mean_BLC = mean(BLC, na.rm = TRUE)) %>% # added na.rm = TRUE to handle any missing values
+  arrange(desc(mean_BLC))
+
+# Reorder the 'answer' factor based on mean_BLC in descending order
+avg_BLC$answer <- fct_reorder(avg_BLC$answer, avg_BLC$mean_BLC, .desc = TRUE)
+
+# Create the bar graph with a gradient color from lightgreen to darkblue
+ggplot(avg_BLC, aes(x = answer, y = mean_BLC, fill = mean_BLC)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Average BLC for Each Fact",
+       x = "Fact",
+       y = "Average BLC") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 70, hjust = 1, vjust = 1, size = 12),
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  scale_fill_gradient(low = "darkblue", high = "lightgreen")
+
+#ggsave("figures/group-level_avgBLC.png", dpi=300)
+
+
+```
+##Prior knowledge across participants
+```{r}
+prior_knowledge_percent <- recovered_blc %>%
+  group_by(answer) %>%
+  summarize(percent_yes = mean(prior_knowledge) * 100) %>% # Calculate mean to get percentage
+  arrange(desc(percent_yes)) # Sort by descending percentage (optional)
+
+# Reorder the 'answer' factor based on percent_yes in descending order (if needed)
+prior_knowledge_percent$answer <- fct_reorder(prior_knowledge_percent$answer, prior_knowledge_percent$percent_yes, .desc = TRUE)
+
+# Create the bar graph with a gradient color from lightgreen to darkblue
+ggplot(prior_knowledge_percent, aes(x = answer, y = percent_yes, fill = percent_yes)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Percentage of Prior Knowledge for Each Fact",
+       x = "Fact",
+       y = "Percentage of Prior Knowledge") +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 70, hjust = 1, vjust = 1, size = 12), # Increase font size for x-axis labels
+    panel.grid.major = element_blank(), 
+    panel.grid.minor = element_blank()
+  ) +
+  scale_fill_gradient(low = "darkblue", high = "lightgreen")
+
+ggsave("figures/grouplevel_priorknowledge.png", dpi=300)
+
+
+```
+
 
 ## Is there a significant difference in BLC?
 

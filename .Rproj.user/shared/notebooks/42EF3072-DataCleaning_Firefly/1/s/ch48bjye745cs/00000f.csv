@@ -1,0 +1,4 @@
+"0",""
+"0","# save the cleaned data "
+"0","save(cleandata_priorknowledge, file = ""cleandata_priorknowledge.RData"")"
+"0",""

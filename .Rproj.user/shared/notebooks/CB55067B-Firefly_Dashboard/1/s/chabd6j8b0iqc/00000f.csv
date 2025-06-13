@@ -1,0 +1,3 @@
+"0","base <- lmer(alpha ~ prior_knowledge  + (1|userId) +(0+prior_knowledge|userId), "
+"0","             recovered_blc_corrected)"
+"0","tab_model(base)"

@@ -1,0 +1,8 @@
+"0",""
+"0","p.value <- format(correlationResult$p.value, digits = 2)"
+"0","print(p.value)"
+"1","[1]"
+"1"," ""4.3e-75"""
+"1","
+"
+"0","ggsave(""figures/recovered_blc_correlations.png"")"

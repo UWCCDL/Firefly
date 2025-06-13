@@ -1,0 +1,8 @@
+"0","blc_AUC <- 0"
+"0","step <- 0.01"
+"0","for (tnr in seq(0, 1-step, step)) {"
+"0","  y <- curve %>% filter (TNR <= tnr) %>% filter(TNR == max(TNR)) %>% summarise(TPR = mean(TPR)) %>% as.numeric()"
+"0","  if (!is.nan(y)) {"
+"0","    blc_AUC <- blc_AUC + (y * step)"
+"0","  }"
+"0","}"

@@ -1,0 +1,4 @@
+"0","#corrected_values <- uncorrected_values * calibration_factor"
+"0","recovered_blc_corrected <- recovered_blc %>% "
+"0","  mutate(alpha = ifelse(BLC > 0.5, alpha * 1.52, alpha))"
+"0",""

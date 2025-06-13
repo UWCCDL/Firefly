@@ -1,0 +1,362 @@
+---
+title: "DataCleaning_Firefly"
+author: "Ally Williams"
+date: "`r Sys.Date()`"
+output: html_document
+---
+###Import libraries
+```{r setup, include=FALSE}
+#Libraries
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+library(tidyverse) #Collection of interconnected packages for data manipulation, visualization, and analysis in R, designed to work together seamlessly using consistent syntax and principles. Packages within tidyverse include ggplot2, dplyr, readr, lubridate, jsonlite, broom, and more. 
+library(dplyr) #Provides verbs for data manipulation (with functions for filtering, selecting, arranging, grouping, mutating, and summarizing data in R).
+library(broom) #Helps convert statistical analysis objects, such as regression models, into tidy data frames that can be easily manipulated and visualized.
+library(reshape2) #Provides tools for transforming and manipulating data between wide and long formats, making it easier to work with data in a tidy format.
+library(glmnet) #Used for fitting and analyzing generalized linear models with regularization, using methods such as Lasso and Ridge regression.
+library(readr) #Provides a fast and friendly way to read rectangular data files, such as CSV or TSV, into R as a tibble data frame.
+
+# Graphics
+library(ggplot2) #Used to create sophisticated and visually appealing graphics (scatter plots, line charts, etc.)
+library(ggthemes)
+library(ggrepel)
+library(ppcor)
+library(ggExtra)
+library(ggsci)
+library(viridis)
+library(scales)
+library(patchwork)# Multi-plot alignment
+library(ggcorrplot)
+library(gapminder) # dataset used to make the box plot connected by lines
+library(RColorBrewer) 
+library(plotly) # Added to make interactive graphs 
+library(lubridate) # Added to make interactive graphs; use different date funcs
+library(stringr) # Added to make interactive graphs; use different txt funcs
+library(extrafont) # Added to make interactive graphs; change font on graphs
+library(htmlwidgets) # Added to make interactive graphs; make exports interactive
+library(cowplot)
+
+# Tables
+library(kableExtra)
+library(xtable)
+library(reactable) # Added to make pretty tables
+library(htmltools) # Added to make pretty tables
+
+# New data reconfiguration
+library(jsonlite)
+library(UpSetR)
+
+# Date functions
+library(anytime)
+library(lubridate)
+
+# SlimStampen
+#install.packages("devtools") # Install SlimStampen packages. Instructions on https://github.com/VanRijnLab/SlimStampeRData
+library(devtools)
+#devtools::install_github("VanRijnLab/SlimStampeRData",
+                      #build_vignettes = TRUE,
+                      #dependencies = TRUE,
+                      #force = TRUE) 
+#devtools::install_github("VanRijnLab/SlimStampeRData")
+# The console will show a prompt asking whether all packages should be updated. Select option 1 (by typing 1 and then pressing enter), this will update all packages.
+#vignette("SlimStampeRVignette")
+library(SlimStampeRData)
+
+# Dashboard
+library(flexdashboard)
+
+```
+###Importing website data
+```{r, echo=FALSE, results= 'hide', message=FALSE, show_col_types = FALSE}
+options(readr.show_col_types = FALSE)
+
+## NEW Version 3.4 SlimStampen format as of 04.25.23
+
+data <- list.files(path="data/", full.names = TRUE) %>% 
+  lapply(read.csv, sep=",", header = TRUE) %>%
+  bind_rows
+
+data$user_id <- as.character(data$user_id)
+data$correct <- as.logical(data$correct)
+
+
+usernames <- c( "user100", "user102", "user105", "user107", "user108", "user110", "user113", "user114", "user115", "user116", "user117", "user118", "user121", "user122", "user123", "user127", "user128", "user129", "user132", "user133", "user135", "user136", "user140", "user144", "user145", "user146", "user148", "user149", "user151", "user152", "user154", "user156", "user157", "user161", "user163", "user164", "user165", "user167", "user168", "user170", "user174", "user175", "user177", "user179", "user181", "user182", "user184", "user185", "user186", "user187", "user188", "user189", "user191", "user194", "user196", "user197", "user198", "user199", "user85", "user86", "user87", "user89", "user91", "user95", "user96", "user99", "coleshin", "Grace Roger", "Mia")
+
+data <- subset(data, screen_name %in% usernames)
+
+```
+
+###generate clean data
+```{r, echo=FALSE, results= 'hide'}
+options(dplyr.summarise.inform = FALSE) # Disable the "`summarise()` has grouped output by" message 
+
+# Filter the sessions by total time
+sessionData <- data %>% 
+  group_by(user_id, lesson_title) %>% 
+  summarize(duration = (max(presentation_start_time) - min(presentation_start_time))/60000,
+            start = min(presentation_start_time),
+            legit = if_else(duration > 6, T, F)) 
+
+sessionData <- sessionData %>% 
+  group_by(user_id, lesson_title) %>% 
+  arrange(start, by_group=T) %>%
+  mutate(sessionRank = seq(1, length(start)))
+
+#sessionDataFiltered <- sessionData %>%
+#  filter(legit == T) %>%
+#  group_by(user_id, lesson_title) %>%
+#  mutate(minRank = min(sessionRank))
+
+#sessionData <- sessionData %>%
+#  inner_join(sessionDataFiltered) %>%
+#  mutate(usable = if_else(minRank == sessionRank, T, F))
+
+# Clean the filtered data set
+cleandata <- inner_join(sessionData, data)
+
+# Add a column 'factText' for future graphs
+cleandata <- cleandata %>%
+  mutate(factText = fact_id)
+cleandata$factText <- as.character(cleandata$factText)
+
+cleandata <- cleandata %>%
+  rename(presentationStartTime = presentation_start_time)%>%
+  rename(userId = user_id)%>%
+  rename(lessonId = lesson_title) %>%
+  rename(sessionTime = session_time) %>%
+  rename(factId = fact_id) %>%
+  rename(reactionTime = reaction_time)
+
+# Calculate fact rep 
+MAX_ALPHA=0.8
+cleandata <- cleandata %>%
+  calculate_repetition()
+
+#%>%
+#  calculate_alpha_and_activation(maxAlpha=MAX_ALPHA)
+
+# Change reactionTime from ms to s
+cleandata$reactionTime <- (cleandata$reactionTime/1000) 
+
+# Change userId from numerical to character for future graphs  
+cleandata$userId <- as.character(cleandata$userId) 
+
+cleandata <- cleandata %>% select(-c("duration", "sessionRank", "cue_text", "sequence_number", "presented_cue_text_index", "presented_image_index", "backspace_used", "backspaced_first_letter", "number_of_choices"))
+```
+
+###add prior knowledge from psychopy
+```{r}
+prior_knowledge_data <- data.frame()
+
+
+folder_path <- "psychopy_prior_knowledge_data"
+
+
+file_list <- list.files(folder_path, pattern = "\\.csv$", full.names = TRUE)
+
+for (file in file_list) {
+  psychopy_data <- read.csv(file, header = TRUE)
+  prior_knowledge_data <- rbind(prior_knowledge_data, psychopy_data)
+}
+
+demographics <- prior_knowledge_data %>%
+  select(user_id, demo1_textbox.text, demo2_textbox.text)
+
+prior_knowledge_data <- prior_knowledge_data %>%
+  filter(!is.na(correct_ans) & correct_ans != "")%>%
+  select(user_id, textbox_text.text, correct_ans, flags_click.time, date)
+
+#generate prior knowledge
+prior_knowledge_data$prior_knowledge <- ifelse(prior_knowledge_data$textbox_text.text == prior_knowledge_data$correct_ans, "yes", "no")
+
+write_csv(prior_knowledge_data, "prior_knowledge_data.csv")
+
+#this is where I went through and fixed typos. these are denoted in the README.md 
+#I import this file as cleandata_priorknowledge 
+cleandata_priorknowledge <- read_csv("cleandata_priorknowledge.csv", show_col_types = FALSE)
+
+```
+#demographics
+```{r}
+demographics <- demographics %>%
+  filter(!is.na(demo1_textbox.text) | !is.na(demo2_textbox.text))
+
+demographics <- demographics %>%
+  mutate(filled_demo1_textbox.text = ifelse(
+    is.na(demo1_textbox.text),
+    case_when(
+      demo2_textbox.text == 1 ~ 18,
+      demo2_textbox.text == 2 ~ 19,
+      demo2_textbox.text == 3 ~ 20,
+      demo2_textbox.text == 4 ~ 21,
+      TRUE ~ demo1_textbox.text
+    ),
+    demo1_textbox.text
+  ))
+
+demographics <- demographics %>%
+  arrange(user_id, filled_demo1_textbox.text) %>%
+  distinct(user_id, .keep_all = TRUE) %>%
+  select(user_id, filled_demo1_textbox.text) %>%
+  rename(age = filled_demo1_textbox.text)
+
+SlimStampenIds <- read_csv("SlimStampen_Ids.csv")
+
+SlimStampenIds$user_id <- trimws(SlimStampenIds$user_id)
+demographics$user_id <- trimws(demographics$user_id)
+demographics <- left_join(SlimStampenIds, demographics, by = "user_id")
+
+write_csv(demographics, "demographics.csv")
+```
+###integrate to main dataset
+```{r}
+#making sure everything matches up
+
+cleandata_priorknowledge$correct_ans <- tolower(cleandata_priorknowledge$correct_ans)
+cleandata_priorknowledge$textbox_text.text <- tolower(cleandata_priorknowledge$textbox_text.text)
+
+cleandata_priorknowledge <- cleandata_priorknowledge %>%
+  mutate(textbox_text.text = if_else(textbox_text.text == "korea", "south korea", textbox_text.text)) %>%
+  mutate(correct_ans = if_else(correct_ans == "trinidad and tobago", "trinidad", correct_ans)) 
+
+#these people didn't follow directions and used their own email 
+cleandata <- cleandata %>%
+  mutate(email = if_else(email == "mggs@uw.edu", "user97@research.com", email)) %>%
+  mutate(email = if_else(email == "colesh05@uw.edu", "user112@research.com", email)) %>%
+  mutate(email = if_else(email == "grodger5@uw.edu", "user200@research.com", email)) %>%
+  mutate(email = if_else(email == "derekz0@uw.edu", "user188@research.com", email)) 
+
+cleandata$answer <- tolower(cleandata$answer)
+cleandata$answer <- URLdecode(cleandata$answer)
+
+cleandata$answer <- trimws(cleandata$answer)
+cleandata_priorknowledge$correct_ans <- trimws(cleandata_priorknowledge$correct_ans)
+
+#join website and psychopy datasets
+cleandata_priorknowledge <- left_join(cleandata, cleandata_priorknowledge, by = c('email'='user_id', 'answer'='correct_ans'))
+
+```
+#generate additional datasets
+```{r, echo=FALSE, results= 'hide'}
+cleandata_firstRep <- cleandata_priorknowledge %>%
+  group_by(lessonId, userId, factId) %>%
+  mutate(FirstRepetition = min(repetition)) %>%
+  filter(repetition == FirstRepetition) %>%
+  ungroup()
+
+# Calculate most accurate alpha
+cleandata_lastRep <- cleandata_priorknowledge %>%
+  group_by(lessonId, userId, factId) %>%
+  mutate(LastRepetition = max(repetition)) %>%
+  filter(repetition == LastRepetition) %>%
+  ungroup()
+
+unknown_SOFs <- cleandata_lastRep %>%
+  filter(prior_knowledge != "yes")
+
+unknown_SOFs <- unknown_SOFs %>%
+  group_by(userId, lessonId) %>%
+  summarize(mean_alpha = mean(alpha))
+
+#dataset to use for MLE
+cleandata_MLE <- cleandata_priorknowledge %>%
+  mutate(prior_knowledge = if_else(prior_knowledge == "yes", 1, -1)) 
+
+offset <- cleandata_priorknowledge
+
+
+offset$date <- as.POSIXct(offset$date, format = "%Y-%m-%d_%Hh%M.%OS")
+offset$date <- with_tz(offset$date, tz = "UTC") + hours(2)
+offset$unix_time <- as.numeric(offset$date)
+
+offset <- offset %>%
+  group_by(lessonId, userId, factId) %>%
+  mutate(offset = presentationStartTime/1000 - unix_time) %>%
+  mutate(FirstRepetition = min(repetition)) %>%
+  filter(repetition == FirstRepetition) %>%
+  ungroup()
+
+#possibly might need to remove user140 (avg = 65 hr), user116 (avg = 25 and 8 hours), user108 (3.5 hours)
+
+offset <- offset %>%
+  select("userId", "lessonId", "screen_name", "factId", "answer", "prior_knowledge", "offset")
+  
+
+write_csv(unknown_SOFs, "optimize/sofs.csv")
+write_csv(cleandata_MLE, "optimize/cleandata_MLE.csv")
+write_csv(offset, "optimize/offset.csv")
+
+#these csv's will be inputs for MLE. they are being saved into the working directory for the MLE, called "optimize". Next, you need to open the mle.ipynb file within the optimize folder and run it with the data generated in the cleandata_MLE.csv file. This will give you the omptimized base level activations that can be used to infer prior knowledge
+
+```
+
+
+```{r, echo=FALSE, results= 'hide'}
+
+# Create table for reactable
+cleandata_reactable <- cleandata %>% 
+  group_by(userId) %>%
+   summarise(points =length(lessonId),
+             TotalMeanAlpha = mean(alpha), 
+             TotalMeanAccuracy = mean(correct), 
+             reactionTimeavg = mean(reactionTime),
+             TotalMeanResponseTime = mean(reactionTimeavg))
+
+cleandata_reactable2 <- cleandata %>%
+  group_by(userId, lessonId, alpha) %>%
+    summarise(lessonId, alpha) %>%
+    pivot_wider(names_from=lessonId, values_from = alpha)
+
+scoreboarddata <- inner_join(cleandata_reactable,cleandata_reactable2)
+
+names(scoreboarddata) <- gsub(" ", "_", names(scoreboarddata)) # replace spaces with "_"
+
+scoreboarddata <- scoreboarddata %>%
+  replace(is.na(.), FALSE) # replace NA with FALSE
+
+#knowledge <- cleandata_lastRep %>%
+#  select("screen_name", "userId", "lessonId", "answer", "factId", #"alpha")
+
+# Get number of facts seen and add it to the reactable
+cd1 <-   cleandata %>% 
+  group_by(userId, lessonId, factId) %>% 
+   summarize(numfacts=length(unique(factId)))
+
+cd2 <- cd1 %>% 
+  group_by(userId) %>% 
+  summarize(numlessons=length(unique(lessonId))) %>%
+  ungroup()
+
+cd3 <- cd1 %>%
+  inner_join(cd2)
+
+
+options(digits=3) 
+
+cd4 <- cd3 %>%
+  group_by(userId, numlessons, lessonId, factId) %>% 
+  pivot_wider(names_from=factId, values_from = numfacts)%>%
+  replace(is.na(.), 0) %>%
+  mutate(sumfacts = sum(c_across(where(is.numeric)))) %>%
+  summarize(Avg=(sumfacts))  %>%
+  pivot_wider(names_from=lessonId, values_from = Avg) %>%
+  replace(is.na(.), 0) %>%
+  mutate(Avg = ((sum(across(where(is.numeric))))/(numlessons)), .after = numlessons) %>%
+  mutate(sd = ((sd(across(where(is.numeric))))/(numlessons)))
+
+scoreboarddata$TotalFactAvg <- cd4$Avg
+scoreboarddata$TotalFactAvgSD <- cd4$sd
+
+
+```
+
+
+```{r, echo=FALSE}
+
+# save the cleaned data 
+save(cleandata_priorknowledge, file = "cleandata_priorknowledge.RData")
+
+
+save(cleandata_lastRep, file = "cleandata_lastRep.RData")
+
+```
+

@@ -1,0 +1,551 @@
+---
+title: "PriorKnowledge"
+author: "Ally Williams"
+date: "2023-08-01"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+
+# Data Manipulation and Analysis
+library(tidyverse)   # Data manipulation and visualization
+library(dplyr)       # Data manipulation
+library(broom)       # Statistical analysis utilities
+library(reshape2)    # Data reshaping
+library(glmnet)      # Regularized regression models
+library(readr)       # Data import
+
+
+# Graphics
+library(ggplot2)     # Data visualization
+library(ggridges)    # Ridgeline plots
+library(ggthemes)    # Additional ggplot2 themes
+library(ggrepel)     # Label placement in ggplot2
+library(ppcor)       # Partial and semi-partial correlation
+library(ggExtra)     # Additional ggplot2 functions
+library(ggsci)       # Scientific journal-inspired color palettes
+library(viridis)     # Color palettes
+library(scales)      # Scale functions
+library(patchwork)   # Multi-plot alignment
+library(ggcorrplot)  # Correlation plot
+library(gapminder)   # Dataset used to make the box plot connected by lines
+library(RColorBrewer)# Color palettes
+library(plotly)      # Interactive graphs
+library(lubridate)   # Date functions
+library(stringr)     # Text functions
+library(extrafont)   # Font customization on graphs
+library(htmlwidgets) # Interactive exports
+library(cowplot)     # Plot arrangement
+library(png)         # PNG image format support
+library(apyramid)    # Create age pyramids
+
+# Themes: "default", "bootstrap", "cerulean", "cosmo", "darkly", "flatly", "journal", "lumen", "paper", "readable", "sandstone", "simplex", "spacelab", "united", "yeti"
+
+# Tables
+library(kableExtra)  # Table formatting
+library(xtable)      # Table formatting
+library(reactable)   # Interactive tables
+library(htmltools)   # HTML table formatting
+
+# Date functions
+library(anytime)     # Date conversion
+library(lubridate)   # Date manipulation
+
+# SlimStampen
+#library(SlimStampenRData)  # SlimStampen-specific functions
+
+# Dashboard
+library(flexdashboard)  # Dashboard creation
+library(lme4)
+library(sjPlot)
+```
+
+```{r}
+load("cleandata_lastRep.RData")
+
+```
+
+### All SoF 
+
+```{r fig.width= 10, fig.height= 4.5}
+
+graph=ggplot(cleandata_lastRep, aes(x=lessonId, y=alpha, col=lessonId, fill=lessonId)) +
+  geom_boxplot(width=.4,size=0.1, alpha=0.2) +
+  stat_summary(fun.y=mean, geom="pointrange", size=0.1, shape=1, color="black") +
+  geom_point(size=2, position=position_jitter(0.1)) +
+  xlab("Lesson") +
+  #scale_x_discrete(labels=xlabels) +
+  ylab("SoF") +
+  ylim(0.1, 0.55) +
+  ggtitle("Speed of Forgetting Across Lessons") +
+  theme_hc() +
+  theme(legend.position="none",
+        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+ggplotly(graph, tooltip=c("y", "text")) %>% 
+  layout(legend = list(orientation = "h")) %>% 
+  config(displayModeBar=FALSE)
+
+```
+### SoF by Lesson
+```{r, echo=FALSE}
+
+# Speed of Forgetting by Participant
+graph=ggplot(cleandata_lastRep, aes(x=prior_knowledge, y=alpha, text=paste0(email))) +
+  geom_boxplot(size=0.1, alpha=0.2) +
+  geom_line(aes(group = email, col = email), size = 0.1, position = position_dodge(0)) +
+  geom_point(aes(col = email), size = 2, shape = 20, stroke = 0, position = position_dodge(0)) +
+  xlab("Lesson") +
+  #scale_x_discrete(labels=xlabels) +
+  ylab("SoF") +
+  ylim(0.29, 0.31) +
+  ggtitle("Speed of Forgetting by Participant") +
+  labs(fill="Participant", col="Participant") +
+  theme_hc() +
+  theme(axis.title.x=element_blank(),
+        panel.grid.major = element_blank(),
+        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+ggplotly(graph, tooltip=c("y", "text")) %>% 
+  layout(legend = list(orientation = "")) %>% 
+  config(displayModeBar=FALSE)
+
+```
+#Prior Knowledge by Fact
+```{r}
+
+ggplot(cleandata_lastRep, aes(x=answer, y=alpha, col=prior_knowledge))+
+  #geom_boxplot()+
+  geom_point(size=0.5, position=position_jitter(0.2)) +
+  #geom_line(aes(group=prior_knowledge), size=0.1, position=position_dodge(0)) +
+       xlab("Fact") +
+  ylab("SoF") +
+  scale_color_manual(values=c("darkblue", "lightgreen")) +
+  scale_fill_manual(values=c("darkblue", "lightgreen")) +
+  ggtitle(paste("Prior Knowledge and SoF across Facts")) +
+  labs(col="prior_knowledge") +
+  theme_hc() +
+  theme(legend.position = "right",
+        axis.text.x = element_text (angle=90, size=8),
+        panel.grid.major = element_blank())
+
+ggsave("figures/Prior_Knowledge_Across_Facts.png")
+
+```
+
+
+
+## Effect of prior knowledge on SOF across ppl
+```{r}
+ggplot(cleandata_lastRep, aes(y = alpha, x = as.factor(userId), col = prior_knowledge, fill = prior_knowledge)) +
+  stat_summary(geom="point", fun.data = "mean_sdl", size=2.5) +
+  stat_summary(geom="ribbon", fun.data = "mean_se", 
+               aes(group = prior_knowledge), 
+               col = NA, 
+               alpha = 0.25) +
+  stat_summary(geom="line", fun = "mean", aes(group = prior_knowledge)) +
+  xlab("Participant ID") +
+  scale_color_manual(values=c("darkblue", "lightgreen", "orange")) +
+  scale_fill_manual(values=c("darkblue", "lightgreen", "orange")) +
+  scale_x_discrete() +
+ylab(expression(paste(italic("SoF")))) +
+  ylim(0.1, 0.5) +
+  ggtitle(expression(paste ("Effect of Prior Knowledge Across Participants"))) +
+  labs(col="Prior Knowledge", fill="Prior Knowledge") +
+  theme_minimal() +
+  theme(legend.position = "right",
+        axis.text.x = element_text (angle=90, size=5),
+        panel.grid.major = element_blank())
+
+ggsave("figures/Prior_Knowledge_Across_Participants.png")
+
+```
+
+
+
+## Prior Knowledge across participants: point plot
+```{r}
+ggplot(cleandata_lastRep, aes(y = alpha, x = userId, col = prior_knowledge, fill = prior_knowledge)) +
+  stat_summary(geom="point", fun.data = "mean_se", size=2, 
+               position = position_dodge()) +
+  stat_summary(geom="errorbar", size=0.3, color = "black", alpha = 0.2, fun.data = "mean_se", aes(group = prior_knowledge)) +
+  xlab("Participant") +
+  scale_color_manual(values=c("darkblue", "lightgreen")) +
+  scale_fill_manual(values=c("darkblue", "lightgreen")) +
+  scale_x_discrete(labels = NULL) +
+  #scale_x_discrete(labels = seq_along(unique(cleandata_lastRep$userId))) +
+ylab(expression(paste(italic("SoF")))) +
+  ylim(0.1, 0.5) +
+  ggtitle(expression(paste ("Effect of Prior Knowledge on Speed of Forgetting Across Participants"))) +
+  labs(col="Prior Knowledge", fill="Prior Knowledge") +
+  theme_hc() +
+  theme(legend.position = "bottom",
+        axis.text.x = element_text (angle=0, size=5),
+        panel.grid.major = element_blank())
+
+ggsave("figures/Prior_Knowledge_Across_Participants_HH.png")
+```
+
+
+##Prior Knowledge across participants: bar graph
+```{r}
+#Plot with added error bars
+plot_with_stacked_bar_and_error_bars <- ggplot(cleandata_lastRep, aes(x = factor(userId), y = alpha, fill = prior_knowledge)) +
+  geom_bar(stat = "summary", fun = "mean", position = "dodge", alpha = 0.7) +
+  geom_errorbar(stat = "summary", fun.data = "mean_se", position = position_dodge(width = 0.75), width = 0.25, size = 0.7) +
+  xlab("Participant ID") +
+  ylab(expression(paste(italic("SoF")))) +
+  ylim(0.0, 0.7) +
+  ggtitle(expression(paste("Effect of Prior Knowledge Across Participants"))) +
+  scale_fill_manual(values = c("darkblue", "lightgreen")) +
+  labs(fill = "Prior Knowledge") +
+  theme_minimal() +
+  theme(legend.position = "right",
+        axis.text.x = element_text(angle = 90),
+        panel.grid.major = element_blank())
+
+print(plot_with_stacked_bar_and_error_bars)
+
+
+
+
+
+ggsave("figures/Prior_Knowledge_Across_Participants_bargraph.png")
+```
+## Correlations between known and unknwon fact SOF
+
+Is there a correlation between the SOFs of the known and unknown facts?
+
+```{r}
+SOF_corr <- cleandata_lastRep %>%
+  group_by(userId, prior_knowledge) %>%
+  summarize(alpha = mean(alpha)) %>%
+  pivot_wider(names_from = prior_knowledge, values_from = alpha)
+
+correlation_value <- cor(SOF_corr$no, SOF_corr$yes, use = "complete.obs")
+
+ggplot(SOF_corr, aes(x = no, y = yes)) +
+  geom_smooth(method = "lm") +
+  geom_point(size = 4, col = "blue", alpha = 0.5) +
+  #geom_text_repel(aes(label = userId)) +
+  xlab("SoF: Previously Unknown") +
+  ylab("SoF: Previously Known") +
+ # annotate(geom = "text", x = 0.25, y = 0.35, label = paste("r =", round(correlation_value, 2))) +
+  #ggtitle("Speed of Forgetting by Prior Knowledge") +
+    ggtitle(bquote("Speed of Forgetting by Prior Knowledge r =" ~ .(round(correlation_value, 2)))) +
+  theme_hc() #+
+#  theme(plot.title = element_text(size = 8),   # Adjust plot title size
+   # axis.title.x = element_text(size = 6),  # Adjust x-axis title size
+   # axis.title.y = element_text(size = 6))   
+
+cor_test_result <- cor.test(SOF_corr$no, SOF_corr$yes, use = "complete.obs")
+
+p_value <- cor_test_result$p.value
+
+print(p_value)
+
+ggsave("figures/PriorKnowledgeCorrelations_HH.png", dpi = 300)
+```
+
+And finally, some MLM:
+
+```{r}
+base <- lmer(alpha ~ prior_knowledge  + (1|userId) +(0+prior_knowledge|userId), 
+             cleandata_lastRep)
+tab_model(base)
+```
+
+# DOES MLE WORK??? 
+
+```{r}
+recovered_blc <- read_csv("optimize/results_MLE.csv", show_col_types = FALSE)
+
+recovered_blc$answer <- tolower(recovered_blc$answer)
+recovered_blc$answer <- URLdecode(recovered_blc$answer)
+
+#recovered_blc <- recovered_blc %>%
+#  rename(userId = Subject) %>%
+#  rename(answer = Fact) %>%
+#  rename(lessonId = Lesson)
+
+recovered_blc$...1 <- NULL
+
+recovered_blc$userId <- as.character(recovered_blc$userId) 
+cleandata_lastRep$userId <- as.character(cleandata_lastRep$userId)
+
+recovered_blc <- left_join(recovered_blc, cleandata_lastRep, by = c("userId", "answer"))
+
+
+
+```
+
+```{r}
+recovered_blc <- recovered_blc %>%
+  mutate(prior_knowledge = if_else(prior_knowledge == "yes", 1, 0))
+
+correlation <- ggplot(recovered_blc, aes(x = BLC, y = alpha)) +
+  geom_point(color = "darkblue") +
+  geom_smooth(method = "lm", color = "darkblue") +
+  labs(title = "Scatterplot of Recovered BLC vs. SOF",
+       x = "BLC",
+       y = "SOF")
+
+# Calculate correlation and p-value
+test <- cor.test(recovered_blc$BLC, recovered_blc$prior_knowledge)
+
+# Add correlation coefficient and p-value to the plot
+correlation <- correlation +
+  annotate("text", x = Inf, y = -Inf,
+           label = paste("r =", round(test$estimate, 2),
+                         "\n",
+                         "p < .0001"),
+           hjust = 1, vjust = -0.5)
+
+# Display the scatterplot with correlation
+print(correlation)
+
+pv <- format(test$pv, digits = 2)
+print(pv)
+
+```
+
+```{r}
+
+# Create a scatterplot
+scatterplot <- ggplot(recovered_blc, aes(x = BLC, y = prior_knowledge)) +
+  geom_point(color = "darkblue") +
+  geom_smooth(method = "lm", color = "darkblue") +
+  labs(title = "Scatterplot of Recovered BLC vs. Prior Knowledge",
+       x = "BLC",
+       y = "Prior Knowledge")
+
+# Calculate correlation and p-value
+correlationResult <- cor.test(recovered_blc$BLC, recovered_blc$prior_knowledge)
+
+# Add correlation coefficient and p-value to the plot
+scatterplot <- scatterplot +
+  annotate("text", x = Inf, y = -Inf,
+           label = paste("r =", round(correlationResult$estimate, 2),
+                         "\n",
+                         "p < .0001"),
+           hjust = 1, vjust = -0.5)
+
+# Display the scatterplot with correlation
+print(scatterplot)
+
+p.value <- format(correlationResult$p.value, digits = 2)
+print(p.value)
+
+ggsave("figures/recovered_blc_correlations.png")
+
+ggplot(recovered_blc %>% filter(BLC >= -1), aes(y=BLC, x=as.factor(prior_knowledge), fill=as.factor(prior_knowledge))) +
+  stat_summary(geom="bar", fun.data = "mean_se") +
+  stat_summary(geom="errorbar", fun.data = "mean_se", width=0.1) +
+ geom_point(position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.75), color = "black", size = 0.01) +
+  scale_fill_manual(values = c("darkblue", "lightgreen"), name = "Prior Knowledge Status",
+                    labels = c("no", "yes")) +
+  xlab("Prior Knowledge Status") +
+  theme_minimal()
+```
+```{r}
+
+ggplot(recovered_blc %>% filter(flags_click.time <= 15), aes(y = flags_click.time, x = as.factor(prior_knowledge), fill = as.factor(prior_knowledge))) +
+  stat_summary(geom = "bar", fun.data = "mean_se") +
+  stat_summary(geom = "errorbar", fun.data = "mean_se", width = 0.1) +
+    geom_point(position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.75), color = "black", size = 0.1) +
+  scale_fill_manual(values = c("darkblue", "lightgreen"), name = "Prior Knowledge Status",
+                    labels = c("no", "yes")) +
+  xlab("Prior Knowledge Status") +
+  theme_minimal()
+
+```
+
+
+## Is there a significant difference in BLC?
+
+```{r}
+base <- lmer(BLC ~ prior_knowledge  + (1|userId) +(0+prior_knowledge|userId), 
+             recovered_blc)
+tab_model(base)
+```
+
+#And what is the classification accuracy (using a single threshold for all participants)?
+
+```{r}
+
+recovered_blc1 <- recovered_blc %>%
+  mutate(observed = if_else(prior_knowledge == 1, 1, -1))
+
+curve = NULL
+for (cutoff in seq(-1, 1.5, 0.1)) {
+  subthreshold <- recovered_blc1 %>%
+    mutate(prediction = ifelse(BLC <= cutoff, -1, 1)) %>%
+    mutate(observed = if_else(prior_knowledge == 1, 1, -1)) %>% 
+    mutate(accuracy = ifelse(prediction == observed, 1, 0)) %>%
+    group_by(observed) %>%
+    summarise(accuracy = mean(accuracy))
+  
+  tnr <- subthreshold %>% 
+    filter(observed == -1) %>% 
+    dplyr::select(accuracy) %>%
+    as.numeric()
+  
+  tpr <- subthreshold %>% 
+    filter(observed == 1) %>% 
+    dplyr::select(accuracy) %>%
+    as.numeric()
+  
+  partial <- tibble(Threshold = cutoff,
+                    TNR = tnr,
+                    TPR = tpr)
+  if (is.null(curve)) {
+    curve <- partial
+  } else {
+    curve <- rbind(curve, partial)
+  }
+}
+```
+
+And now, we can visualize the ROC graph. First, we can compute the global AUC
+
+```{r}
+blc_AUC <- 0
+step <- 0.01
+for (tnr in seq(0, 1-step, step)) {
+  y <- curve %>% filter (TNR <= tnr) %>% filter(TNR == max(TNR)) %>% summarise(TPR = mean(TPR)) %>% as.numeric()
+  if (!is.nan(y)) {
+    blc_AUC <- blc_AUC + (y * step)
+  }
+}
+```
+
+The global AUC is `r blc_AUC`.
+
+```{r}
+ggplot(arrange(curve, TPR), aes(x=TNR, y=TPR, col=Threshold)) + 
+  geom_point(size=2,  alpha=1) + 
+  geom_line() + 
+  geom_text_repel(aes(label=paste("BLC =", Threshold)), 
+                  direction="both",
+                  size=3) +
+  ylab("Sensitivity (True Positive Rate)") +
+  xlab("Specificity (True Negative Rate)") +
+  scale_x_reverse() +
+  scale_color_viridis(option="viridis") +
+  labs(col="Recovered BLC") +
+  ylim(0, 1) +
+  xlim(1, 0) +
+  coord_equal() +
+  ggtitle("ROC Curve for MLE-Recovered BLC") +
+  geom_abline(slope=1, intercept = 1, col="grey", linetype = "dashed") +
+  annotate(geom="text", x=1/3, y=1/5, 
+           label = paste("AUC = ", 
+                         round(blc_AUC, 2))) +
+  
+  theme_pander()
+
+max_j <- curve %>%
+  mutate(J = TPR - (1 - TNR)) %>%
+  filter(J == max(J)) %>%
+  select(Threshold)
+
+cat("Threshold for Maximum Youden's J Statistic:", max_j$Threshold, "\n")
+
+ggsave("figures/ROCCurveforMLERecoveredBLC_HH.png", dpi = 300)
+```
+#identifying plausible correction
+```{r}
+known_SOFs <- cleandata_lastRep %>%
+  filter(prior_knowledge == "yes")
+
+known_SOFs <- known_SOFs %>%
+  group_by(userId, lessonId) %>%
+  summarize(mean_alpha = mean(alpha))
+
+predicted_known_SOFs <- recovered_blc %>%
+  filter(BLC > 0.5)
+
+
+unknown_SOFs <- cleandata_lastRep %>%
+  filter(prior_knowledge == "no")
+
+unknown_SOFs <- unknown_SOFs %>%
+  group_by(userId, lessonId) %>%
+  summarize(mean_alpha = mean(alpha))
+
+predicted_unknown_SOFs <- recovered_blc %>%
+  filter(BLC <= 0.5)
+
+avg_known <- mean(known_SOFs$mean_alpha)
+avg_unknown <- mean(unknown_SOFs$mean_alpha)
+avg_predicted_known <- mean(predicted_known_SOFs$alpha)
+avg_predicted_unknown <- mean(predicted_unknown_SOFs$alpha)
+
+cat("Average SOF for facts with prior knowledge:", avg_known, "\n")
+cat("Average SOF for facts without prior knowledge:", avg_unknown, "\n")
+cat("Average SOF for facts predicted to have prior knowledge", avg_predicted_known, "\n")
+cat("Average SOF for facts predicted to not have prior knowledge", avg_predicted_unknown, "\n") 
+  
+calibration_factor <- mean(.346/.227)
+cat("Calibration_factor:", calibration_factor, "\n")
+
+```
+#correcting facts with predicted prior knowledge
+```{r}
+#corrected_values <- uncorrected_values * calibration_factor
+recovered_blc_corrected <- recovered_blc %>% 
+  mutate(alpha = ifelse(BLC > 0.5, alpha * 1.52, alpha))
+
+```
+#comparing corrected to uncorrected data
+```{r}
+
+#after correction
+ggplot(recovered_blc_corrected, aes(y = alpha, x = as.factor(userId), col = factor(prior_knowledge), fill = factor(prior_knowledge))) +
+  stat_summary(geom="point", fun.data = "mean_sdl", size=2.5) +
+  stat_summary(geom="ribbon", fun.data = "mean_se", 
+               aes(group = prior_knowledge), 
+               col = NA, 
+               alpha = 0.25) +
+  stat_summary(geom="line", fun = "mean", aes(group = prior_knowledge)) +
+  xlab("Participant ID") +
+  scale_color_manual(values=c("darkblue", "lightgreen", "orange")) +
+  scale_fill_manual(values=c("darkblue", "lightgreen", "orange")) +
+  scale_x_discrete() +
+ylab(expression(paste(italic("SoF")))) +
+  ylim(0.1, 0.5) +
+  ggtitle(expression(paste ("Corrected Prior Knowledge Data"))) +
+  labs(col="Prior Knowledge", fill="Prior Knowledge") +
+  theme_minimal() +
+  theme(legend.position = "right",
+        axis.text.x = element_text (angle=90, size=5),
+        panel.grid.major = element_blank())
+
+#original plot
+ggplot(cleandata_lastRep, aes(y = alpha, x = as.factor(userId), col = prior_knowledge, fill = prior_knowledge)) +
+  stat_summary(geom="point", fun.data = "mean_sdl", size=2.5) +
+  stat_summary(geom="ribbon", fun.data = "mean_se", 
+               aes(group = prior_knowledge), 
+               col = NA, 
+               alpha = 0.25) +
+  stat_summary(geom="line", fun = "mean", aes(group = prior_knowledge)) +
+  xlab("Participant ID") +
+  scale_color_manual(values=c("darkblue", "lightgreen", "orange")) +
+  scale_fill_manual(values=c("darkblue", "lightgreen", "orange")) +
+  scale_x_discrete() +
+ylab(expression(paste(italic("SoF")))) +
+  ylim(0.1, 0.5) +
+  ggtitle(expression(paste ("Original Effect of Prior Knowledge Across Participants"))) +
+  labs(col="Prior Knowledge", fill="Prior Knowledge") +
+  theme_minimal() +
+  theme(legend.position = "right",
+        axis.text.x = element_text (angle=90, size=5),
+        panel.grid.major = element_blank())
+
+```
+#the true test
+```{r}
+base <- lmer(alpha ~ prior_knowledge  + (1|userId) +(0+prior_knowledge|userId), 
+             recovered_blc_corrected)
+tab_model(base)
+```

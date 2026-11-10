@@ -59,6 +59,9 @@ library(lubridate)   # Date manipulation
 library(flexdashboard)  # Dashboard creation
 library(lme4)
 library(sjPlot)
+library(caret)       # Classification And REgression Training
+library(plotROC)     # For plotting ROC curves
+
 ```
 ### All SoF 
 
@@ -412,7 +415,114 @@ base <- lmer(BLC ~ prior_knowledge  + (1|userId) +(0+prior_knowledge|userId),
 tab_model(base)
 ```
 
-#And what is the classification accuracy (using a single threshold for all participants)?
+# Classification accuracy
+
+All facts
+
+```{r}
+
+
+
+# Train LOOCV 
+model.loocv <- train(form = prior_knowledge ~ BLC,
+                     data = recovered_blc,
+                     method = "glm",
+                     family = "binomial",
+                     metric = "RMSE",
+                     trControl = trainControl(method = "LOOCV", 
+                                              summaryFunction = "twoClassSummary",
+                                              savePredictions = "all",
+                                              classProbs = TRUE))
+
+preds <- model.loocv$pred
+rocobj <- roc(preds$obs, preds$pred)
+#plot.roc(rocobj)
+
+
+
+roc_df <- tibble(
+  Threshold = rocobj$thresholds,  
+  TPR = rocobj$sensitivities,    
+  TNR = rocobj$specificities)
+
+reduced_df <- roc_df[sapply(seq(0, 0.7, 0.1), function(t) which.min(abs(roc_df$Threshold - t))),]
+
+
+ggplot(arrange(roc_df, TPR), aes(x = TNR, y = TPR)) + 
+  geom_ribbon(aes(ymin = 0, ymax = TPR), fill = "#3B4992FF", alpha = 0.5) + 
+  geom_line(size = 1, color = "#3B4992FF") + 
+  geom_point(data=reduced_df, aes(x=TNR, y=TPR, col=Threshold), size=2, alpha=1) +
+  geom_label_repel(data=reduced_df, aes(x=TNR, y=TPR, 
+                                         color=Threshold, label=paste("BLC =", round(Threshold,1))), 
+                        direction="both", size=3) +
+  geom_segment(aes(x = 1, y = 0, xend = 0, yend = 1),
+               linetype = "dashed", color = "grey2") +  
+  labs(y="TPR",
+       x="TNR",
+       title="ROC Curve for BLC Estimates\n(By Fact)") +
+  coord_equal() +
+  scale_x_reverse() +
+  ylim(0, 1) +
+  xlim(1, 0) +
+ # coord_equal() +
+  theme_minimal() +
+  theme(legend.position = "none",
+        axis.line = element_line(color="black")) +  
+  annotate(geom = "text", x = 1.2/3, y = 0.5/3, 
+         label = paste0("AUC = ", round(auc(rocobj),2)),
+         color = "black")
+
+
+recovered_blc %>%
+  group_by(userId, prior_knowledge) %>%
+  summarize(BLC = mean(BLC, na.rm = TRUE)) -> agg_blc
+
+model.loocv2 <- train(form = prior_knowledge ~ BLC,
+                     data = agg_blc,
+                     method = "glm",
+                     family = "binomial",
+                     metric = "RMSE",
+                     trControl = trainControl(method = "LOOCV", 
+                                              summaryFunction = "twoClassSummary",
+                                              savePredictions = "all",
+                                              classProbs = TRUE))
+
+preds2 <- model.loocv2$pred
+rocobj2 <- roc(preds2$obs, preds$pred2)
+
+roc_df2 <- tibble(
+  Threshold = rocobj2$thresholds,  
+  TPR = rocobj2$sensitivities,    
+  TNR = rocobj2$specificities)
+
+reduced_df2 <- roc_df2[sapply(seq(0.2, 1.6, 0.1), function(t) which.min(abs(roc_df2$Threshold - t))),]
+
+ggplot(arrange(roc_df2, TPR), aes(x = TNR, y = TPR)) + 
+  #geom_ribbon(aes(ymin = 0, ymax = TPR), fill = "#3B4992FF", alpha = 0.25) + 
+  geom_line(size = 1, aes(color = Threshold)) + # "#3B4992FF") +
+  geom_point(data=reduced_df2, aes(x=TNR, y=TPR, col=Threshold), size=2, alpha=1) +
+  geom_label_repel(data=reduced_df2, aes(x=TNR, y=TPR, 
+                                         color=Threshold, label=paste("BLC =", round(Threshold,1))), 
+                        direction="both", size=3) +
+  geom_abline(slope=1, intercept = 1, col="grey10", linetype = "dashed") + 
+  scale_color_gradient(low="darkblue", high="lightgreen") +
+  labs(y="TPR",
+       x="TNR",
+       title="ROC Curve for BLC Estimates\n(By Fact)") +
+  coord_equal() +
+  scale_x_reverse() +
+  annotate(geom = "text", x = 1.2/3, y = 0.5/3, 
+          label = paste0("AUC = ", round(auc(rocobj2), 2)),
+          color = "black") +
+  ylim(0, 1) +
+  xlim(1, 0) +
+  theme_minimal() +
+  theme(legend.position = "none",
+        axis.line = element_line(color="black"))
+  
+```
+
+# And what is the classification accuracy (using a single threshold for all participants)?
 
 ```{r}
 
